@@ -1,0 +1,190 @@
+@import "./styles/fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   TekAccess design tokens
+   Brand: navy + red on warm white. Editorial / Swiss layout.
+   Colours are space-separated RGB so Tailwind opacity modifiers work.
+   ===================================================================== */
+@layer base {
+  :root {
+    /* Surfaces */
+    --paper: 250 250 249; /* #FAFAF9 page */
+    --white: 255 255 255; /* #FFFFFF alternate sections */
+    --mist: 243 244 247; /* #F3F4F7 subtle fills, skeletons */
+
+    /* Ink */
+    --ink: 10 20 55; /* #0A1437 navy: headings, dark buttons, ground line */
+    --ink-2: 26 37 82; /* #1A2552 dark hover */
+    --body: 58 65 80; /* #3A4150 paragraphs */
+    --quiet: 110 117 135; /* #6E7587 second half of headlines: ≥4.5:1 on paper and white at any size */
+    --muted: 104 111 128; /* #686F80 small grey text that must pass AA */
+    --faint: 180 185 196; /* #B4B9C4 decorative only */
+    --line: 227 229 234; /* #E3E5EA hairlines */
+    --line-strong: 201 205 214; /* #C9CDD6 inputs, active rules */
+
+    /* Dark band */
+    --night: 10 20 55; /* #0A1437 */
+    --night-2: 14 27 77; /* #0E1B4D */
+    --night-line: 39 54 105; /* #273669 rules on dark */
+    --signal: 91 141 239; /* #5B8DEF highlight on dark */
+    --on-night: 196 204 224; /* #C4CCE0 body text on dark */
+
+    /* Brand accent */
+    --accent: 225 29 42; /* #E11D2A */
+    --accent-2: 184 20 31; /* #B8141F hover / pressed */
+
+    /* Feedback */
+    --success: 22 128 84; /* #168054 */
+    --danger: 196 30 40; /* #C41E28 */
+
+    /* Motion */
+    --ease-out-expo: cubic-bezier(0.2, 0.7, 0.1, 1); /* Storey sky-rise curve */
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --dur-1: 150ms;
+    --dur-2: 250ms;
+    --dur-3: 450ms;
+    --dur-4: 900ms;
+
+    /* Layout */
+    --header-h: 72px;
+    --gutter: 20px;
+
+    /* shadcn/Radix primitives mapped onto the palette (HSL, as they expect) */
+    --background: 60 9% 98%;
+    --foreground: 227 69% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 227 69% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 227 69% 13%;
+    --primary: 227 69% 13%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 225 18% 96%;
+    --secondary-foreground: 227 69% 13%;
+    --muted-hsl: 225 18% 96%;
+    --muted-foreground: 223 10% 46%;
+    --accent-hsl: 225 18% 96%;
+    --accent-foreground: 227 69% 13%;
+    --destructive: 356 76% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 225 13% 90%;
+    --input: 223 12% 81%;
+    --ring: 227 69% 13%;
+    --radius: 0.25rem;
+  }
+
+  @media (min-width: 810px) {
+    :root {
+      --gutter: 32px;
+    }
+  }
+  @media (min-width: 1024px) {
+    :root {
+      --gutter: 56px;
+      --header-h: 80px;
+    }
+  }
+  @media (min-width: 1440px) {
+    :root {
+      --gutter: 80px;
+    }
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: calc(var(--header-h) + 24px);
+  }
+
+  body {
+    @apply bg-paper font-sans text-body antialiased;
+    font-feature-settings: "ss01", "cv11";
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgb(var(--ink));
+    color: rgb(var(--white));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--ink));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-night :focus-visible {
+    outline-color: rgb(var(--white));
+  }
+
+  img,
+  video {
+    @apply block max-w-full;
+  }
+
+  /* Thin, quiet scrollbar */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--faint)) transparent;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* stops iOS zooming into fields */
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

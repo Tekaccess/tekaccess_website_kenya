@@ -73,7 +73,7 @@ export default function CorridorPage() {
               {c.mode === "Ship" ? "The crossing." : "The run."}{" "}
               <span className="text-signal">{c.stops.length} handovers, one company.</span>
             </h2>
-            <div className="mt-14">
+            <div className="mt-7">
               <RouteLine stops={c.stops} dark />
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function CorridorPage() {
       {/* Next corridor + mini skyline */}
       <Section tone="paper" className="pt-0" aria-label="Next corridor">
         <NextRow label="Next corridor" to={`/corridors/${next.slug}`} title={corridorName(next)} meta={next.mode} />
-        <Skyline items={nearby} height="clamp(220px, 22vw, 320px)" compact className="mt-14 lg:max-w-3xl" />
+        <Skyline items={nearby} height="clamp(220px, 22vw, 320px)" compact className="mt-7 lg:max-w-3xl" />
       </Section>
 
       <ClosingCta />

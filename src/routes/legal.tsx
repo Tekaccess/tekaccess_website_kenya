@@ -39,7 +39,7 @@ export default function Legal() {
 
   return (
     <Page motionKey={doc.slug} meta={{ title: doc.title, description: doc.summary, path: `/legal/${doc.slug}` }}>
-      <header className="border-b border-line bg-paper pb-14 pt-[calc(var(--header-h)+3.5rem)] tablet:pb-20 tablet:pt-[calc(var(--header-h)+5rem)]">
+      <header className="bg-paper pb-12 pt-[calc(var(--header-h)+2.5rem)] tablet:pb-14 tablet:pt-[calc(var(--header-h)+3rem)]">
         <Container>
           <Breadcrumb items={[{ label: "Legal" }, { label: doc.title }]} />
           <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-8">
@@ -80,7 +80,7 @@ export default function Legal() {
           </nav>
 
           <div className="lg:col-span-6">
-            <p className="mb-12 rounded-xs border border-line bg-white p-5 text-small text-body">
+            <p className="mb-6 rounded-xs border border-line bg-white p-5 text-small text-body">
               This page is written in plain language. If anything is unclear, email{" "}
               <a href="mailto:info@tekaccess.rw" className="font-medium text-ink underline underline-offset-4">
                 info@tekaccess.rw
@@ -88,7 +88,7 @@ export default function Legal() {
               .
             </p>
             {doc.sections.map((s, i) => (
-              <section key={s.id} id={s.id} className="scroll-mt-28 border-t border-line py-10 first:border-t-0 first:pt-0">
+              <section key={s.id} id={s.id} className="scroll-mt-14 border-t border-line py-10 first:border-t-0 first:pt-0">
                 <p className="text-small tabular text-muted">{String(i + 1).padStart(2, "0")}</p>
                 <h2 className="mt-3 text-h3 font-medium">{s.title}</h2>
                 <div className="mt-5 space-y-4">

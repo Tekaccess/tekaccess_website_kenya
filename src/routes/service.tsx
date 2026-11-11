@@ -69,7 +69,7 @@ export default function ServicePage() {
             <Lead data-reveal="lines" className="text-h3 font-medium">
               {s.intro}
             </Lead>
-            <div className="mt-14 grid gap-12 tablet:grid-cols-2 tablet:gap-10" data-reveal="stagger">
+            <div className="mt-7 grid gap-12 tablet:grid-cols-2 tablet:gap-10" data-reveal="stagger">
               {[s.howSource, s.howReach].map((b) => (
                 <div key={b.title} className="border-t border-line pt-6">
                   <h3 className="text-h4 font-medium">{b.title}</h3>
@@ -118,11 +118,11 @@ export default function ServicePage() {
             <h2 id="route-title" data-reveal="lines" className="text-h1 font-medium">
               The route. <span className="text-signal">From source to silo.</span>
             </h2>
-            <div className="mt-14">
+            <div className="mt-7">
               <RouteLine stops={s.route} dark />
             </div>
             {lanes.length > 0 && (
-              <p className="mt-12 text-small text-on-night/80">
+              <p className="mt-6 text-small text-on-night/80">
                 Runs on:{" "}
                 {lanes.map((c, n) => (
                   <span key={c.slug}>

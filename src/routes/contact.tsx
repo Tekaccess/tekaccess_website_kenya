@@ -43,7 +43,7 @@ export default function Contact() {
         aside={<p className="text-[1.0625rem] text-body">Tell us the material, the tonnage and the destination. We come back with a price, a lead time and the name of your contact.</p>}
       />
 
-      <Section tone="paper" aria-label="Quote request">
+      <Section tone="paper" aria-label="Quote request" className="border-line">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <QuoteForm />
@@ -71,7 +71,7 @@ export default function Contact() {
       </Section>
 
       {/* Map */}
-      <Section tone="paper" space="none" className="pb-section-sm" aria-label="Map">
+      <Section tone="paper" space="none" divider={false} className="pb-section-sm" aria-label="Map">
         <div className="relative h-[300px] w-full overflow-hidden rounded-xs border border-line bg-mist tablet:aspect-[16/6] tablet:h-auto">
           <iframe
             title="TekAccess office location in Kigali"
@@ -83,36 +83,44 @@ export default function Contact() {
         </div>
       </Section>
 
-      {/* Other ways — dark band */}
-      <Section tone="night" aria-labelledby="ways-title">
+      {/* Quick answers */}
+      <Section tone="paper" divider={false} aria-labelledby="quick-title">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <h2 id="ways-title" data-reveal="lines" className="text-h1 font-medium lg:col-span-4">
-            Other ways in. <span className="text-signal">Pick the one that suits the load.</span>
+          <Heading id="quick-title" lead="Before you write." quiet="The three questions we hear most." className="lg:col-span-4" />
+          <div className="lg:col-span-7 lg:col-start-6" data-reveal="fade">
+            <Accordion items={faqsFor("contact")} defaultOpen={0} />
+          </div>
+        </div>
+      </Section>
+
+      {/* Other ways — dark band */}
+      <Section
+        tone="paper"
+        space="none"
+        divider={false}
+        aria-labelledby="ways-title"
+        className="bg-[#E3ECFD] py-12 tablet:py-14 [--line:191_208_243] [--muted:72_88_134] [--quiet:84_104_158] [--body:44_58_100]"
+      >
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-8">
+          <h2 id="ways-title" data-reveal="lines" className="text-h1 font-medium text-ink lg:col-span-4">
+            Other ways in. <span className="text-quiet">Pick the one that suits the load.</span>
           </h2>
-          <ul className="grid gap-px overflow-hidden rounded-xs bg-night-line tablet:grid-cols-3 lg:col-span-8" data-reveal="stagger">
+          <ul className="grid gap-px overflow-hidden rounded border border-line bg-line tablet:grid-cols-3 lg:col-span-8" data-reveal="stagger">
             {ways.map((w) => (
-              <li key={w.title} className="bg-night">
-                <a href={w.href} target={w.ext ? "_blank" : undefined} rel={w.ext ? "noreferrer" : undefined} className="group/way flex h-full flex-col p-8">
-                  <w.icon aria-hidden className="size-7 text-signal" strokeWidth={1.5} />
-                  <h3 className="mt-10 text-h3 font-medium">{w.title}</h3>
-                  <p className="mt-2 text-[0.9375rem]">{w.text}</p>
-                  <span className="mt-6 break-all text-[0.9375rem] font-medium text-white underline decoration-white/30 underline-offset-4 transition-colors group-hover/way:decoration-white">
+              <li key={w.title} className="bg-white transition-colors duration-3 hover:bg-[#F5F8FE]">
+                <a href={w.href} target={w.ext ? "_blank" : undefined} rel={w.ext ? "noreferrer" : undefined} className="group/way flex h-full flex-col p-6 tablet:p-7">
+                  <span className="grid size-11 place-items-center rounded-full bg-[#E3ECFD] text-ink transition-colors duration-3 group-hover/way:bg-ink group-hover/way:text-white">
+                    <w.icon aria-hidden className="size-5" strokeWidth={1.75} />
+                  </span>
+                  <h3 className="mt-6 text-h3 font-medium text-ink">{w.title}</h3>
+                  <p className="mt-1.5 text-[0.9375rem] text-body">{w.text}</p>
+                  <span className="mt-5 break-all text-[0.9375rem] font-medium text-ink underline decoration-ink/25 underline-offset-4 transition-colors group-hover/way:decoration-ink">
                     {w.label} ↗
                   </span>
                 </a>
               </li>
             ))}
           </ul>
-        </div>
-      </Section>
-
-      {/* Quick answers */}
-      <Section tone="paper" aria-labelledby="quick-title">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <Heading id="quick-title" lead="Before you write." quiet="The three questions we hear most." className="lg:col-span-4" />
-          <div className="lg:col-span-7 lg:col-start-6" data-reveal="fade">
-            <Accordion items={faqsFor("contact")} defaultOpen={0} />
-          </div>
         </div>
       </Section>
     </Page>

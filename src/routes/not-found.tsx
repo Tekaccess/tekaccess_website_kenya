@@ -29,7 +29,7 @@ export default function NotFound() {
             </LinkButton>
             <TextLink to="/services">See our services</TextLink>
           </div>
-          <div className="mt-20 max-w-4xl">
+          <div className="mt-7 max-w-4xl">
             <RouteLine
               endAccent
               stops={[
@@ -43,7 +43,7 @@ export default function NotFound() {
         </Container>
       </section>
 
-      <Section tone="paper" space="none" className="pb-section-sm" aria-hidden>
+      <Section tone="paper" space="none" divider={false} className="pb-section-sm" aria-hidden>
         <Img photo="roadJunction" ratio="16/6" reveal="image" sizes="(min-width:1440px) 1280px, 100vw" />
         <p className="mt-3 text-small text-muted">Not every road leads somewhere. These do:</p>
       </Section>

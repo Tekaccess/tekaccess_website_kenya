@@ -19,22 +19,3 @@ export const Logo = ({ inverse, className }: { inverse?: boolean; className?: st
     />
   </Link>
 );
-
-/**
- * Giant edge-to-edge "TekAccess" set in Satoshi. SVG textLength stretches letter
- * spacing (not glyph shapes) so it fills the container exactly at every width.
- */
-export const Wordmark = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 1000 214" role="img" aria-label="TekAccess" className={cn("block w-full overflow-visible", className)}>
-    <text
-      x="0"
-      y="172"
-      textLength="1000"
-      lengthAdjust="spacing"
-      className="fill-ink"
-      style={{ font: "500 238px Satoshi, 'Satoshi Placeholder', sans-serif", letterSpacing: "-0.04em" }}
-    >
-      TekAccess
-    </text>
-  </svg>
-);

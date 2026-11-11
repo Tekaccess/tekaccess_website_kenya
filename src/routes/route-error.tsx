@@ -29,7 +29,7 @@ export function RouteError() {
             Back to the home page
           </Link>
         </div>
-        <p className="mt-12 text-small text-muted">
+        <p className="mt-6 text-small text-muted">
           Need us now? Call or WhatsApp{" "}
           <a href={site.phoneHref} className="font-medium text-ink">
             {site.phone}

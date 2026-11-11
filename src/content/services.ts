@@ -303,12 +303,6 @@ export const whatsIncluded = [
   { icon: "FileCheck2", title: "Proof of delivery", text: "Signed delivery notes and one invoice per shipment." },
 ] as const;
 
-export const pricing = [
-  { value: "Per tonne", caption: "Material priced at source, quoted before we load." },
-  { value: "Per km", caption: "Transport priced by mode and distance." },
-  { value: "One invoice", caption: "Per shipment, clearing included." },
-]; // TODO(real): confirm pricing basis
-
 export const process = [
   { no: "1", title: "Request", text: "Tell us the material, the tonnage and the destination." },
   { no: "2", title: "Quote", text: "A price and a lead time within one working day." },

@@ -30,9 +30,9 @@ export const site = {
 } as const;
 
 export const nav = [
+  { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Corridors", to: "/corridors" },
-  { label: "About", to: "/about" },
   { label: "Insights", to: "/insights" },
   { label: "Contact", to: "/contact" },
 ] as const;

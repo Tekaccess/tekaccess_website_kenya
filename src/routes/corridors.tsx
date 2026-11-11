@@ -2,13 +2,11 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowDown, ArrowUp, ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/atoms/layout";
+import { Img } from "@/components/atoms/media";
 import { Eyebrow } from "@/components/atoms/typography";
 import { Page } from "@/components/templates/page";
-import { Skyline } from "@/components/organisms/skyline";
-import { ClosingCta, FiguresRow, PageHead } from "@/components/organisms/blocks";
-import { CorridorFocus } from "@/components/organisms/sections";
-import { CorridorMap, MapLegend } from "@/components/organisms/corridor-map";
-import { corridors, corridorsByDistance, corridorName, featuredCorridor, type Corridor } from "@/content/corridors";
+import { ClosingCta, PageHead } from "@/components/organisms/blocks";
+import { corridors, corridorName, type Corridor } from "@/content/corridors";
 import { cn, formatNumber } from "@/lib/utils";
 
 type Key = "name" | "mode" | "cargo" | "km";
@@ -43,12 +41,8 @@ export default function Corridors() {
         aside={<p className="text-[1.0625rem] text-body">Each corridor is listed with its mode, its cargo and its distance. Every one is run by the same team.</p>}
       />
 
-      <Section tone="paper" aria-label="Corridor skyline">
-        <Skyline items={corridorsByDistance} height="clamp(320px, 44vw, 620px)" priority />
-      </Section>
-
       {/* Table */}
-      <Section tone="white" aria-labelledby="table-title">
+      <Section tone="white" space="none" aria-labelledby="table-title" className="border-line py-16 tablet:py-20 desktop:py-24">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-3">
             <Eyebrow id="table-title">All corridors</Eyebrow>
@@ -58,13 +52,13 @@ export default function Corridors() {
             <table className="w-full border-collapse text-left">
               <caption className="sr-only">TekAccess corridors with mode, cargo and distance</caption>
               <thead>
-                <tr className="border-b border-ink">
+                <tr className="border-b border-ink/80">
                   {cols.map((c) => (
                     <th
                       key={c.key}
                       scope="col"
                       aria-sort={sort.key === c.key ? (sort.dir === 1 ? "ascending" : "descending") : "none"}
-                      className={cn("pb-3 text-label font-medium text-muted", c.className)}
+                      className={cn("pb-4 text-label font-medium text-muted", c.className)}
                     >
                       <button onClick={() => toggle(c.key)} className="inline-flex items-center gap-1.5 transition-colors hover:text-ink">
                         {c.label}
@@ -79,16 +73,22 @@ export default function Corridors() {
               <tbody>
                 {rows.map((c) => (
                   <tr key={c.slug} className="group/tr relative border-b border-line transition-colors duration-2 hover:bg-paper">
-                    <th scope="row" className="py-5 pr-4 font-medium text-ink">
+                    <th scope="row" className="py-6 pr-4 font-medium text-ink">
                       <Link to={`/corridors/${c.slug}`} className="text-[1.0625rem] after:absolute after:inset-0 group-hover/tr:text-accent tablet:text-[1.1875rem]">
                         {corridorName(c)}
                       </Link>
                       <span className="mt-0.5 block text-micro font-normal text-muted tablet:hidden">{c.cargo}</span>
                     </th>
-                    <td className="py-5 pr-4 text-[0.9375rem] text-body">{c.mode}</td>
-                    <td className="hidden py-5 pr-4 text-[0.9375rem] text-body tablet:table-cell">{c.cargo}</td>
-                    <td className="py-5 text-right text-[0.9375rem] tabular text-ink">{formatNumber(c.km)} km</td>
-                    <td className="py-5 pl-4 text-right">
+                    <td className="py-6 pr-4 text-[0.9375rem] text-body">{c.mode}</td>
+                    <td className="hidden py-6 pr-4 text-[0.9375rem] text-body tablet:table-cell">{c.cargo}</td>
+                    <td className="py-6 text-right text-[0.9375rem] tabular text-ink">{formatNumber(c.km)} km</td>
+                    <td className="relative py-6 pl-4 text-right">
+                      <Img
+                        photo={c.photo}
+                        ratio="4/3"
+                        sizes="320px"
+                        className="pointer-events-none absolute right-12 top-1/2 z-10 hidden w-[204px] -translate-y-1/2 opacity-0 shadow-lg transition-[opacity,transform] duration-3 ease-out group-hover/tr:opacity-100 desktop:block desktop:translate-x-2 desktop:group-hover/tr:translate-x-0"
+                      />
                       <ArrowUpRight aria-hidden strokeWidth={1.5} className="ml-auto size-5 text-ink transition-transform duration-2 group-hover/tr:-translate-y-0.5 group-hover/tr:translate-x-0.5 group-hover/tr:text-accent" />
                     </td>
                   </tr>
@@ -98,36 +98,6 @@ export default function Corridors() {
           </div>
         </div>
       </Section>
-
-      {/* Map */}
-      <Section tone="night" aria-labelledby="map-title" className="overflow-hidden">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
-          <div className="lg:col-span-4">
-            <h2 id="map-title" data-reveal="lines" className="text-h1 font-medium">
-              Where the loads move. <span className="text-signal">Road, lake and rail across East Africa.</span>
-            </h2>
-            <div className="mt-10 text-on-night" data-reveal="fade">
-              <MapLegend />
-            </div>
-          </div>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <CorridorMap />
-          </div>
-        </div>
-      </Section>
-
-      <Section tone="paper" space="sm" aria-label="Figures">
-        <FiguresRow
-          items={[
-            { value: "6", label: "Regular corridors" },
-            { value: "5", label: "Countries" },
-            { value: "3", label: "Transport modes" },
-            { value: "1", label: "Office in Kigali" },
-          ]}
-        />
-      </Section>
-
-      <CorridorFocus corridor={featuredCorridor} tone="white" />
       <ClosingCta />
     </Page>
   );

@@ -48,13 +48,14 @@ export function NumberedRow({
           {summary}
         </span>
       )}
-      <span className="col-start-3 row-start-1 flex items-center gap-4 tablet:col-start-4">
+      <span className="relative col-start-3 row-start-1 flex items-center gap-4 tablet:col-start-4">
         {photo && (
+          // Floats over the row (absolute) so the larger preview never changes row height.
           <Img
             photo={photo}
             ratio="4/3"
-            sizes="120px"
-            className="hidden w-28 opacity-0 transition-[opacity,transform] duration-3 ease-out group-hover/row:opacity-100 desktop:block desktop:translate-x-2 desktop:group-hover/row:translate-x-0"
+            sizes="320px"
+            className="pointer-events-none absolute right-10 top-1/2 z-10 hidden w-[204px] -translate-y-1/2 opacity-0 shadow-lg transition-[opacity,transform] duration-3 ease-out group-hover/row:opacity-100 desktop:block desktop:translate-x-2 desktop:group-hover/row:translate-x-0"
           />
         )}
         <ArrowUpRight

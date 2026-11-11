@@ -25,7 +25,7 @@ export function SiteHeader() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-header transition-[transform,background-color,border-color,backdrop-filter] duration-3 ease-out",
-        scrolled ? "border-b border-line bg-paper/90 backdrop-blur-md" : "border-b border-transparent bg-paper",
+        scrolled ? "border-b border-line bg-paper/90 backdrop-blur-md" : "border-b border-line bg-paper",
         hidden && !open ? "-translate-y-full" : "translate-y-0",
       )}
     >

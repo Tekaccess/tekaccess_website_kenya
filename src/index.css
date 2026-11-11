@@ -90,7 +90,7 @@
   }
   @media (min-width: 1440px) {
     :root {
-      --gutter: 80px;
+      --gutter: 64px;
     }
   }
 

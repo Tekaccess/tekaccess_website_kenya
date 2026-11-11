@@ -16,6 +16,8 @@ const spacing = { default: "py-section", sm: "py-section-sm", none: "" };
 
 type SectionProps = ComponentPropsWithoutRef<"section"> & {
   tone?: Tone;
+  /** 1px ink rule across the top. Off for dark bands and for `pt-0` continuations of the previous section. */
+  divider?: boolean;
   space?: keyof typeof spacing;
   container?: boolean;
   as?: ElementType;
@@ -23,8 +25,18 @@ type SectionProps = ComponentPropsWithoutRef<"section"> & {
 
 /** A full-bleed band with consistent vertical rhythm; content sits in a Container. */
 export const Section = forwardRef<HTMLElement, SectionProps>(
-  ({ tone = "paper", space = "default", container = true, className, children, as: As = "section", ...p }, ref) => (
-    <As ref={ref} className={cn(tones[tone], spacing[space], "relative", className)} {...p}>
+  ({ tone = "paper", space = "default", container = true, divider, className, children, as: As = "section", ...p }, ref) => (
+    <As
+      ref={ref}
+      className={cn(
+        tones[tone],
+        spacing[space],
+        "relative",
+        (divider ?? (tone !== "night" && !/\bpt-0\b/.test(className ?? ""))) && "border-t border-ink/80",
+        className,
+      )}
+      {...p}
+    >
       {container ? <Container>{children}</Container> : children}
     </As>
   ),

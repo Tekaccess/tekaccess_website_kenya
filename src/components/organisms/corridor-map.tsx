@@ -59,7 +59,7 @@ export function CorridorMap({ focus, className }: { focus?: string; className?: 
       {countryLabels.map((c) => {
         const [x, y] = project(c.at);
         return (
-          <text key={c.name} x={x} y={y} textAnchor="middle" className="fill-on-night/25 text-[11px] font-medium tracking-[0.24em]">
+          <text key={c.name} x={x} y={y} textAnchor="middle" className="fill-on-night/25 text-[16px] font-medium tracking-[0.24em] tablet:text-[13px] lg:text-[11px]">
             {c.name}
           </text>
         );
@@ -111,7 +111,7 @@ export function CorridorMap({ focus, className }: { focus?: string; className?: 
                 x={x + dx}
                 y={y + dy}
                 textAnchor={anchor}
-                className={cn("text-[12px]", kigali ? "fill-white font-medium" : "fill-on-night")}
+                className={cn("text-[18px] tablet:text-[14px] lg:text-[12px]", kigali ? "fill-white font-medium" : "fill-on-night")}
               >
                 {c}
               </text>

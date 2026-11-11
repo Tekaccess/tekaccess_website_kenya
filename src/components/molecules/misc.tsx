@@ -47,7 +47,7 @@ export function Accordion({
       {items.map((it, i) => (
         <AccordionPrimitive.Item key={it.q} value={`i${i}`} className="border-b border-line">
           <AccordionPrimitive.Header>
-            <AccordionPrimitive.Trigger className="group/acc flex w-full items-center justify-between gap-6 py-5 text-left text-[1.0625rem] font-medium text-ink transition-colors duration-2 hover:text-accent tablet:py-6 tablet:text-[1.1875rem]">
+            <AccordionPrimitive.Trigger className="group/acc flex w-full items-center justify-between gap-6 py-3 text-left text-[1.0625rem] font-medium text-ink transition-colors duration-2 hover:text-accent tablet:py-3.5 tablet:text-[1.1875rem]">
               {it.q}
               <span className="grid size-8 shrink-0 place-items-center rounded-full border border-line-strong transition-[transform,background-color,border-color,color] duration-3 ease-out group-hover/acc:border-ink group-data-[state=open]/acc:rotate-45 group-data-[state=open]/acc:border-ink group-data-[state=open]/acc:bg-ink group-data-[state=open]/acc:text-white">
                 <Plus aria-hidden className="size-4" strokeWidth={1.75} />
@@ -55,7 +55,7 @@ export function Accordion({
             </AccordionPrimitive.Trigger>
           </AccordionPrimitive.Header>
           <AccordionPrimitive.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-            <p className="max-w-prose pb-6 pr-12 text-body text-body">{it.a}</p>
+            <p className="max-w-prose pb-4 pr-12 text-body text-body">{it.a}</p>
           </AccordionPrimitive.Content>
         </AccordionPrimitive.Item>
       ))}

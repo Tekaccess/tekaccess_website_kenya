@@ -110,7 +110,7 @@ export default function Article() {
         <Skeleton className="h-4 w-48" />
         <Skeleton className="mt-8 h-14 w-full max-w-3xl" />
         <Skeleton className="mt-4 h-14 w-2/3 max-w-2xl" />
-        <Skeleton className="mt-14 aspect-[16/8] w-full" />
+        <Skeleton className="mt-7 aspect-[16/8] w-full" />
       </Container>
     );
   if (!post) return <NotFound />;
@@ -154,7 +154,7 @@ export default function Article() {
               {post.excerpt}
             </p>
           </div>
-          <figure className="mt-12 tablet:mt-16">
+          <figure className="mt-6 tablet:mt-8">
             <Img photo={post.cover} src={post.coverUrl} alt={post.title} ratio="16/8" priority reveal="image" sizes="(min-width:1440px) 1280px, 100vw" />
             {post.coverCaption && <figcaption className="mt-3 text-small text-muted">{post.coverCaption}</figcaption>}
           </figure>
@@ -187,12 +187,12 @@ export default function Article() {
 
           <article
             ref={body}
-            className="prose prose-lg max-w-none lg:col-span-6 prose-headings:font-medium prose-headings:tracking-tight prose-headings:text-ink prose-h2:mt-14 prose-h2:text-h3 prose-p:text-body prose-p:leading-[1.7] prose-a:text-ink prose-blockquote:my-12 prose-blockquote:border-l-2 prose-blockquote:border-ink prose-blockquote:pl-6 prose-blockquote:text-h3 prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:text-ink prose-img:rounded-xs [&_blockquote_p:before]:content-none [&_blockquote_p:after]:content-none"
+            className="prose prose-lg max-w-none lg:col-span-6 prose-headings:font-medium prose-headings:tracking-tight prose-headings:text-ink prose-h2:mt-7 prose-h2:text-h3 prose-p:text-body prose-p:leading-[1.7] prose-a:text-ink prose-blockquote:my-12 prose-blockquote:border-l-2 prose-blockquote:border-ink prose-blockquote:pl-6 prose-blockquote:text-h3 prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:text-ink prose-img:rounded-xs [&_blockquote_p:before]:content-none [&_blockquote_p:after]:content-none"
           >
             {post.blocks ? <Blocks blocks={post.blocks} /> : <div dangerouslySetInnerHTML={{ __html: html }} />}
           </article>
         </div>
-        <div className="mt-16 flex flex-col gap-4 border-t border-line pt-6 text-small text-muted tablet:flex-row tablet:items-center tablet:justify-between lg:ml-[25%] lg:mr-[25%]">
+        <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 text-small text-muted tablet:flex-row tablet:items-center tablet:justify-between lg:ml-[25%] lg:mr-[25%]">
           <p>
             Filed under <span className="font-medium text-ink">{post.category}</span>
           </p>
@@ -209,7 +209,7 @@ export default function Article() {
       {more.length > 0 && (
         <Section tone="white" aria-labelledby="more-title">
           <SectionHead lead={<span id="more-title">More notes.</span>} action={<TextLink to="/insights" arrow>All insights</TextLink>} />
-          <div className="grid gap-x-8 gap-y-14 tablet:grid-cols-2 lg:grid-cols-3" data-reveal="stagger">
+          <div className="grid gap-x-8 gap-y-7 tablet:grid-cols-2 lg:grid-cols-3" data-reveal="stagger">
             {more.map((p) => (
               <ArticleCard key={p.slug} post={p} />
             ))}

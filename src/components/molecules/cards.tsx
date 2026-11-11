@@ -6,7 +6,7 @@ import { initials, type Person } from "@/content/people";
 import { cn, formatDate } from "@/lib/utils";
 
 /** Borderless article entry: photo, category · date, title, excerpt. */
-export function ArticleCard({ post, className, sizes = "(min-width:1024px) 30vw, (min-width:810px) 45vw, 100vw" }: { post: Insight; className?: string; sizes?: string }) {
+export function ArticleCard({ post, className, ratio = "3/2", compact, sizes = "(min-width:1024px) 30vw, (min-width:810px) 45vw, 100vw" }: { post: Insight; className?: string; ratio?: string; compact?: boolean; sizes?: string }) {
   return (
     <Link to={`/insights/${post.slug}`} className={cn("group/card flex flex-col", className)}>
       <div className="overflow-hidden rounded-xs">
@@ -14,19 +14,19 @@ export function ArticleCard({ post, className, sizes = "(min-width:1024px) 30vw,
           photo={post.cover}
           src={post.coverUrl}
           alt={post.title}
-          ratio="3/2"
+          ratio={ratio}
           sizes={sizes}
           imgClassName="transition-transform duration-5 ease-out group-hover/card:scale-[1.04]"
         />
       </div>
-      <div className="mt-5 flex items-center justify-between gap-4 text-micro text-muted">
+      <div className={cn("flex items-center justify-between gap-4 text-micro text-muted", compact ? "mt-3" : "mt-5")}>
         <span className="font-medium uppercase tracking-[0.08em]">{post.category}</span>
         <time dateTime={new Date(post.date).toISOString()}>{formatDate(post.date)}</time>
       </div>
-      <h3 className="mt-3 text-h4 font-medium text-ink transition-colors duration-2 group-hover/card:text-accent tablet:text-[1.375rem]">
+      <h3 className="mt-2 text-h4 font-medium text-ink transition-colors duration-2 group-hover/card:text-accent tablet:text-[1.375rem]">
         {post.title}
       </h3>
-      <p className="mt-3 line-clamp-2 text-small text-body">{post.excerpt}</p>
+      <p className="mt-2 line-clamp-2 text-small text-body">{post.excerpt}</p>
     </Link>
   );
 }

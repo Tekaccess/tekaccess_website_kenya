@@ -18,12 +18,15 @@ export function Skyline({
   compact,
   className,
   priority,
+  fullBleed,
 }: {
   items: Corridor[];
   height?: string;
   compact?: boolean;
   className?: string;
   priority?: boolean;
+  /** Ground line runs edge to edge across the viewport (Storey hero); the section must clip overflow. */
+  fullBleed?: boolean;
 }) {
   const max = Math.max(...items.map((c) => c.km));
   const minShare = 0.34; // the shortest column still reads as a building, not a stub
@@ -36,7 +39,11 @@ export function Skyline({
           className="relative flex w-max items-end gap-3 tablet:gap-4 lg:grid lg:w-full lg:gap-5"
           style={{ gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))` }}
         >
-          <span aria-hidden className="absolute inset-x-0 h-px bg-ink" style={{ bottom: CAPTION_H }} />
+          <span
+            aria-hidden
+            className={cn("absolute inset-x-0 h-px bg-line", fullBleed && "lg:left-1/2 lg:right-auto lg:w-[100vw] lg:-translate-x-1/2")}
+            style={{ bottom: CAPTION_H }}
+          />
           {items.map((c, i) => {
             const share = minShare + (1 - minShare) * (c.km / max);
             return (

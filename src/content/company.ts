@@ -9,12 +9,14 @@ export const figures = [
 ];
 
 export const institutions = [
-  { name: "CHUK / CHUB", note: "Infection-prevention supplies" },
-  { name: "EDCL", note: "Hot-water solutions" },
-  { name: "Rwanda Agriculture Board", note: "Machinery and chemicals" },
-  { name: "Rwanda National Police", note: "Supply partner" },
-  { name: "REMA", note: "Supply partner" },
-  { name: "Nyaruguru District", note: "Supply partner" },
+  { name: "CHUK", note: "Infection-prevention supplies", logo: "/images/partners/chuk.webp" },
+  { name: "CHUB", note: "Infection-prevention supplies", logo: "/images/partners/chub.webp" },
+  { name: "EDCL", note: "Hot-water solutions", logo: "/images/partners/edcl.webp" },
+  { name: "Rwanda Agriculture Board", note: "Machinery and chemicals", logo: "/images/partners/rab.webp" },
+  { name: "Rwanda National Police", note: "Supply partner", logo: "/images/partners/rnp.webp" },
+  { name: "REMA", note: "Supply partner", logo: "/images/partners/rema.webp" },
+  { name: "Nyaruguru District", note: "Supply partner", logo: "/images/partners/nyaruguru.webp" },
+  { name: "Cheetah", note: "Supply partner", logo: "/images/partners/cheetah.webp" },
 ];
 
 export const journey: { title: string; text: string; photo: PhotoKey }[] = [
@@ -23,27 +25,6 @@ export const journey: { title: string; text: string; photo: PhotoKey }[] = [
   { title: "Transit", text: "By truck, ship or rail.", photo: "fleetQuay" },
   { title: "Clearing", text: "Customs handled by our own team.", photo: "railYard" },
   { title: "Delivery", text: "Proof of delivery and one invoice.", photo: "cementSilos" },
-];
-
-export const modes: { key: "Truck" | "Ship" | "Train"; route: string; text: string; photo: PhotoKey }[] = [
-  {
-    key: "Truck",
-    route: "Regional lanes",
-    text: "Our own fleet across Tanzania, Rwanda, Kenya, DRC and Uganda, cleared at every border by our team.",
-    photo: "fleetRow",
-  },
-  {
-    key: "Ship",
-    route: "Gisenyi → Katana",
-    text: "Clinker and gypsum across Lake Kivu, supporting cement production on the western shore.",
-    photo: "kivuBoats",
-  },
-  {
-    key: "Train",
-    route: "Dodoma → Kigoma",
-    text: "Gypsum on Tanzania's central line for heavy, steady volumes, with our trucks on the last miles.",
-    photo: "railYard",
-  },
 ];
 
 export const rules = [

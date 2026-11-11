@@ -288,4 +288,3 @@ export const nextCorridor = (slug: string) => {
   return corridorsByDistance[(i + 1) % corridorsByDistance.length];
 };
 export const corridorName = (c: Corridor) => `${c.from} → ${c.to}`;
-export const featuredCorridor = corridors[0];

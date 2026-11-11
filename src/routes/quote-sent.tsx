@@ -26,7 +26,7 @@ export default function QuoteSent() {
             </p>
           )}
 
-          <div className="mt-16 max-w-4xl border-t border-line pt-10 tablet:mt-20">
+          <div className="mt-7 max-w-4xl border-t border-line pt-10 tablet:mt-8">
             <p className="mb-8 text-label font-medium text-muted">What happens next</p>
             <RouteLine
               endAccent
@@ -39,13 +39,13 @@ export default function QuoteSent() {
             />
           </div>
 
-          <div className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-5" data-reveal="fade">
+          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-5" data-reveal="fade">
             <LinkButton to="/" variant="ink">
               Back to the home page
             </LinkButton>
             <TextLink to="/corridors">See our corridors</TextLink>
           </div>
-          <p className="mt-12 text-small text-muted">
+          <p className="mt-6 text-small text-muted">
             Urgent? Call or WhatsApp{" "}
             <a href={site.phoneHref} className="font-medium text-ink">
               {site.phone}

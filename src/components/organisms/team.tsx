@@ -12,7 +12,7 @@ export function TeamGrid() {
 
   return (
     <>
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-12 tablet:grid-cols-3 tablet:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16" data-reveal="stagger">
+      <ul className="grid grid-cols-2 gap-x-4 gap-y-6 tablet:grid-cols-3 tablet:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-6" data-reveal="stagger">
         {team.map((person, i) => (
           <li key={person.slug}>
             <PersonCard person={person} onOpen={() => setOpen(i)} />

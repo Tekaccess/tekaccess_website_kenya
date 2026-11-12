@@ -194,3 +194,9 @@
   -webkit-mask-image: linear-gradient(to bottom left, #000 30%, rgb(0 0 0 / 0.42) 66%, transparent 96%);
   mask-image: linear-gradient(to bottom left, #000 30%, rgb(0 0 0 / 0.42) 66%, transparent 96%);
 }
+.hero-map-frame {
+  -webkit-mask-image: linear-gradient(to left, #000 55%, transparent 100%), linear-gradient(to top, transparent 0, #000 35%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to left, #000 55%, transparent 100%), linear-gradient(to top, transparent 0, #000 35%);
+  mask-composite: intersect;
+}

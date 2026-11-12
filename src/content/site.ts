@@ -6,9 +6,11 @@ export const site = {
   appUrl: "https://tekaccess.live", // staff sign-in
   ogImage: "/og/default.png",
   founded: 2019,
-  tagline: "Gypsum, coal and clinker, moved across five countries.",
+  tagline: "Efficient. Reliable. Scalable.",
+  promise: "Your Trusted Partner in Logistics & Supply Solutions.",
   description:
-    "TekAccess sources gypsum, coal and clinker and moves them by truck, ship and rail across Rwanda, Tanzania, Kenya, DRC and Uganda. One office in Kigali answers for every load.",
+    "Delivering excellence through innovative transportation and supply chain management services tailored to your business needs.",
+  footer: "Empowering global trade with innovative logistics solutions, precision analytics, and unwavering reliability.",
   phone: "+250 788 320 200",
   phoneHref: "tel:+250788320200",
   whatsappHref: "https://wa.me/250788320200",
@@ -37,8 +39,10 @@ export const nav = [
   { label: "Contact", to: "/contact" },
 ] as const;
 
+// Original site copy (Services.tsx call to action + header banner).
 export const closing = {
-  lead: "Send us the load.",
-  quiet: site.replyPromise,
-  text: "Tell us the material, the tonnage and the destination. We come back with a price, a lead time and the name of your contact.",
+  lead: "Need custom logistics?",
+  quiet: "Efficient. Reliable. Scalable.",
+  text: "We provide tailored operational strategies designed to handle your most complex supply chain challenges.",
+  cta: "Request a Consultation",
 };

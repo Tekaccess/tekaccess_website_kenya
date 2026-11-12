@@ -30,15 +30,14 @@ export default function Projects() {
     <Page
       meta={{
         title: "Projects",
-        description: "Six regular projects across Rwanda, Tanzania, Kenya, DRC and Uganda: by road, across Lake Kivu and on Tanzania's central line.",
+        description: "Explore our successful logistics projects and milestones across Tanzania, Rwanda, Kenya, DRC and Uganda: by truck, by ship via Lake Kivu and by train.",
         path: "/projects",
       }}
     >
       <PageHead
-        label="Projects"
-        lead="Six projects, five countries."
-        quiet="All run from one office in Kigali."
-        aside={<p className="text-[1.0625rem] text-body">Each project is listed with its mode, its cargo and its distance. Every one is run by the same team.</p>}
+        label="Our Projects"
+        lead={<>Proven Operations Across <span className="text-accent">East Africa.</span></>}
+        aside={<p className="text-[1.0625rem] text-body">Explore our successful logistics projects and milestones that demonstrate our commitment to operational excellence.</p>}
       />
 
       {/* Table */}

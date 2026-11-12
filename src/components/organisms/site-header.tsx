@@ -63,7 +63,7 @@ export function SiteHeader() {
             {site.phone}
           </a>
           <LinkButton to="/contact" variant="ink" size="sm" className="hidden sm:inline-flex">
-            Request a quote
+            Get in Touch
           </LinkButton>
 
           <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -112,7 +112,7 @@ export function SiteHeader() {
                   </nav>
                   <div className="mt-auto grid gap-3 pt-10">
                     <LinkButton to="/contact" variant="accent" size="lg" className="w-full">
-                      Request a quote
+                      Get in Touch
                     </LinkButton>
                     <div className="grid grid-cols-2 gap-3">
                       <a href={site.phoneHref} className="flex h-12 items-center justify-center gap-2 rounded border border-line-strong text-small font-medium text-ink">

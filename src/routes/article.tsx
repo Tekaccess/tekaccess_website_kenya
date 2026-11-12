@@ -106,7 +106,7 @@ export default function Article() {
   if (!post && pending)
     return (
       <Container className="pt-[calc(var(--header-h)+5rem)] pb-section" role="status" aria-busy="true">
-        <h1 className="sr-only">Loading the note…</h1>
+        <h1 className="sr-only">Loading the post…</h1>
         <Skeleton className="h-4 w-48" />
         <Skeleton className="mt-8 h-14 w-full max-w-3xl" />
         <Skeleton className="mt-4 h-14 w-2/3 max-w-2xl" />
@@ -201,14 +201,14 @@ export default function Article() {
       </Section>
 
       {next && next.slug !== post.slug && (
-        <Section tone="paper" space="sm" className="pt-0" aria-label="Next note">
-          <NextRow label="Next note" to={`/insights/${next.slug}`} title={next.title} />
+        <Section tone="paper" space="sm" className="pt-0" aria-label="Next post">
+          <NextRow label="Next post" to={`/insights/${next.slug}`} title={next.title} />
         </Section>
       )}
 
       {more.length > 0 && (
         <Section tone="white" aria-labelledby="more-title">
-          <SectionHead lead={<span id="more-title">More notes.</span>} action={<TextLink to="/insights" arrow>All insights</TextLink>} />
+          <SectionHead lead={<span id="more-title">More posts.</span>} action={<TextLink to="/insights" arrow>All posts</TextLink>} />
           <div className="grid gap-x-8 gap-y-7 tablet:grid-cols-2 lg:grid-cols-3" data-reveal="stagger">
             {more.map((p) => (
               <ArticleCard key={p.slug} post={p} />

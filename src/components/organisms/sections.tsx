@@ -23,7 +23,8 @@ export function InstitutionsList() {
     <Section tone="paper" space="none" divider={false} aria-labelledby="institutions-title" className="overflow-hidden py-12 tablet:py-16">
       <div className="text-center">
         <h2 id="institutions-title" data-reveal="lines" className="text-h2 font-medium">
-          Trusted by the institutions we deliver for. <span className="text-quiet">Hospitals, utilities and government.</span>
+          <span className="mb-3 block text-label font-medium text-muted">Partners</span>
+          Trusted by Leading <span className="text-accent">Institutions</span>
         </h2>
       </div>
       {/* Two centred rows, wide over narrow (a "V"): 5 logos then 3. */}
@@ -54,11 +55,11 @@ export function AboutTeaser() {
     >
       <SectionHead
         className="mb-6 tablet:mb-8"
-        lead={<span id="about-teaser-title">A partner that answers the phone.</span>}
-        quiet="From one office in Kigali since 2019."
+        lead={<span id="about-teaser-title">Driving Logistics <span className="text-accent">Excellence</span></span>}
+        quiet="Across Rwanda."
         action={
           <TextLink to="/about" arrow>
-            About TekAccess
+            About Us
           </TextLink>
         }
       />
@@ -73,10 +74,10 @@ export function AboutTeaser() {
           />
         </Link>
         <div className="flex flex-col justify-end lg:col-span-4" data-reveal="fade">
-          <Eyebrow>About TekAccess</Eyebrow>
-          <h3 className="mt-2 text-h2 font-medium">One office, one contact, one invoice.</h3>
+          <Eyebrow>Since 2019</Eyebrow>
+          <h3 className="mt-2 text-h2 font-medium">Our Story</h3>
           <p className="mt-3 text-[0.9375rem] text-body">
-            We source gypsum, coal and clinker and move them by road, lake and rail. Eleven people in Kigali run every load, and each client has one of them as their contact.
+            From import to final delivery, we modernize logistics operations with reliable transport solutions that connect businesses across Rwanda and beyond.
           </p>
           <FactList
             className="mt-5"
@@ -86,8 +87,8 @@ export function AboutTeaser() {
               { label: "Countries", value: String(site.countries.length) },
             ]}
           />
-          <LinkButton to="/about" variant="ink" className="mt-6 self-start">
-            Meet the team
+          <LinkButton to="/contact" variant="ink" className="mt-6 self-start">
+            Partner with us
           </LinkButton>
         </div>
       </div>
@@ -98,8 +99,8 @@ export function AboutTeaser() {
 /** FAQ: heading left, accordion right. */
 export function FaqSection({
   items,
-  lead = "What clients ask first.",
-  quiet = "Lead times are question one.",
+  lead = "Frequently Asked Questions.",
+  quiet = "Clarity at every step.",
   tone = "paper",
   defaultOpen,
   divider,
@@ -132,7 +133,7 @@ export function FaqSection({
 }
 
 /** Three latest insights. */
-export function InsightsRow({ posts, lead = "Notes from the field.", quiet = "Written by the people who move the loads.", label }: { posts: Insight[]; lead?: string; quiet?: string; label?: string }) {
+export function InsightsRow({ posts, lead = "Our Proven Track Record.", quiet, label = "Past Achievements" }: { posts: Insight[]; lead?: string; quiet?: string; label?: string }) {
   return (
     <Section tone="white" space="none" aria-labelledby="insights-row-title" className="border-line py-9 tablet:py-10 desktop:py-12">
       <SectionHead
@@ -141,7 +142,7 @@ export function InsightsRow({ posts, lead = "Notes from the field.", quiet = "Wr
         quiet={quiet}
         action={
           <TextLink to="/insights" arrow>
-            All insights
+            All posts
           </TextLink>
         }
       />

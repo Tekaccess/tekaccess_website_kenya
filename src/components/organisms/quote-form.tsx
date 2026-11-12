@@ -57,14 +57,14 @@ export function QuoteForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate aria-labelledby="form-title" className="relative">
       <h2 id="form-title" className="text-h3 font-medium">
-        Plan your shipment
+        Request a Consultation
       </h2>
       <p className="mt-2 text-small text-muted">Fields marked * are required. It takes about a minute.</p>
 
       <div className="mt-10 grid gap-x-8 gap-y-9 tablet:grid-cols-2">
-        <Field label="Your name" required autoComplete="name" placeholder="Jean Mukamana" error={errors.name?.message} {...register("name")} />
+        <Field label="Your Name" required autoComplete="name" placeholder="Jean Mukamana" error={errors.name?.message} {...register("name")} />
         <Field label="Company" autoComplete="organization" placeholder="Company name" error={errors.company?.message} {...register("company")} />
-        <Field label="Email" required type="email" inputMode="email" autoComplete="email" placeholder="you@company.com" error={errors.email?.message} {...register("email")} />
+        <Field label="Email Address" required type="email" inputMode="email" autoComplete="email" placeholder="you@company.com" error={errors.email?.message} {...register("email")} />
         <Field label="Phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+250 7XX XXX XXX" error={errors.phone?.message} {...register("phone")} />
 
         <Controller
@@ -83,7 +83,7 @@ export function QuoteForm() {
         <SelectField label="Tonnage per month" options={tonnage} placeholder="Choose a range" {...register("tonnage")} />
         <Field label="When do you need it?" placeholder="A date or a week" error={errors.when?.message} {...register("when")} />
         <TextareaField
-          label="Anything we should know"
+          label="Your Message"
           className="tablet:col-span-2"
           placeholder="Site access, a deadline, a contract that ends in June."
           error={errors.message?.message}
@@ -118,9 +118,9 @@ export function QuoteForm() {
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
         <Button type="submit" variant="accent" size="lg" arrow loading={isSubmitting}>
-          {isSubmitting ? "Sending…" : "Send the request"}
+          {isSubmitting ? "Sending…" : "Send Message"}
         </Button>
-        <p className="text-small text-muted">No newsletter, no sales calls. One reply from your contact.</p>
+        <p className="text-small text-muted">Reliable communication for your business.</p>
       </div>
     </form>
   );

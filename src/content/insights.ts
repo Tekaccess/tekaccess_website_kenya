@@ -34,46 +34,66 @@ const d = (s: string) => new Date(s).getTime();
 export const staticInsights: Insight[] = [
   {
     slug: "kwibuka-32",
-    title: "Kwibuka 32: A journey of remembrance and resilience",
+    title: "Kwibuka 32: A Journey of Remembrance and Resilience",
     category: "Community",
     date: d("2026-04-15"),
-    author: "TekAccess Team",
-    excerpt:
-      "As Rwanda marks the 32nd commemoration of the 1994 Genocide against the Tutsi, our team joined the nation in honouring those lost.",
+    author: "Tekaccess Team",
+    excerpt: "As Rwanda marks the 32nd commemoration of the 1994 Genocide against the Tutsi, the Tekaccess team joined the nation in honoring the memory of those lost and reflecting on the journey of reconstruction and unity.",
     cover: "kwibukaTeam",
-    coverCaption: "Our team at the Kigali Genocide Memorial, April 2026.",
+    coverCaption: "Tekaccess Team at Memorial",
     readMinutes: 3,
+    // Original article, word for word (Tekaccess1 staticBlogs.ts).
     blocks: [
       {
-        type: "p",
-        text: "As Rwanda marks the 32nd commemoration of the 1994 Genocide against the Tutsi, the TekAccess team joined the nation in honouring the memory of those lost and reflecting on the journey of reconstruction and unity.",
+            "type": "p",
+            "text": "As Rwanda marks the 32nd commemoration of the 1994 Genocide against the Tutsi, the Tekaccess team joined the nation in honoring the memory of those lost and reflecting on the journey of reconstruction and unity."
       },
       {
-        type: "p",
-        text: "Kwibuka, which means “to remember”, is a time for us to pause and pay tribute to the more than one million lives taken during the 100 days. It is also a time to recognise the resilience of the Rwandan people and the progress our country has made in rebuilding its social fabric and economy.",
-      },
-      { type: "img", photo: "kwibukaGroup", caption: "The TekAccess team at the memorial." },
-      { type: "h2", text: "Our visit to the memorial" },
-      {
-        type: "p",
-        text: "During this period of reflection, our team visited the Kigali Genocide Memorial to lay wreaths and pay our respects. Standing at the site where more than 250,000 victims are laid to rest, we were reminded of “Never Again” and the responsibility we all share in building a peaceful and prosperous future.",
+            "type": "p",
+            "text": "Kwibuka, which means \"to remember,\" is a time for us to pause and pay tribute to the more than one million lives taken during the 100 days of darkness. It is also a time to recognize the incredible resilience of the Rwandan people and the progress our country has made in rebuilding its social fabric and economy."
       },
       {
-        type: "p",
-        text: "At TekAccess, we believe that development and business cannot thrive without a foundation of peace, unity and social responsibility. Our commitment to Rwanda goes beyond logistics; it is rooted in being part of a community that values every human life.",
-      },
-      { type: "quote", text: "Remembrance is not just about looking back. It is about honouring the past to build a better future together." },
-      { type: "img", photo: "kwibukaGroup2", caption: "In quiet remembrance, April 2026." },
-      { type: "h2", text: "Building a brighter future" },
-      {
-        type: "p",
-        text: "Today, Rwanda stands as a beacon of hope and transformation. The progress seen in every sector is a testament to the strength of a united people. We are proud to contribute to this transformation and remain dedicated to our role in Rwanda's continued development.",
+            "type": "img",
+            "photo": "kwibukaGroup",
+            "caption": "Tekaccess Team at Memorial"
       },
       {
-        type: "p",
-        text: "As we remember, we renew our commitment to integrity, excellence and community. We stand with the survivors and honour the memory of the victims by striving for a world where such atrocities never happen again.",
+            "type": "h2",
+            "text": "Our Visit to the Memorial"
       },
-      { type: "tags", text: "#Kwibuka32  #RememberUniteRenew" },
+      {
+            "type": "p",
+            "text": "During this period of reflection, our team visited the Kigali Genocide Memorial to lay wreaths and pay our respects. Standing at the site where over 250,000 victims are laid to rest, we were reminded of the importance of \"Never Again\" and the responsibility we all share in building a peaceful and prosperous future."
+      },
+      {
+            "type": "p",
+            "text": "At Tekaccess, we believe that development and business cannot thrive without a foundation of peace, unity, and social responsibility. Our commitment to Rwanda goes beyond logistics and technology; it is rooted in being part of a community that values every human life and strives for collective growth."
+      },
+      {
+            "type": "quote",
+            "text": "Remembrance is not just about looking back; it is about honoring the past to build a better future together."
+      },
+      {
+            "type": "img",
+            "photo": "kwibukaGroup2",
+            "caption": "Tekaccess Team Commemoration"
+      },
+      {
+            "type": "h2",
+            "text": "Building a Brighter Future"
+      },
+      {
+            "type": "p",
+            "text": "Today, Rwanda stands as a beacon of hope and transformation. The progress seen in every sector—from technology to logistics—is a testament to the strength of a united people. We are proud to contribute to this transformation and remain dedicated to our role in Rwanda's continued development."
+      },
+      {
+            "type": "p",
+            "text": "As we remember, we also renew our commitment to the values of integrity, excellence, and community. We stand with the survivors and honor the memory of the victims by striving for a world where such atrocities never happen again."
+      },
+      {
+            "type": "tags",
+            "text": "#Kwibuka32 #RememberUniteRenew"
+      }
     ],
   },
   {

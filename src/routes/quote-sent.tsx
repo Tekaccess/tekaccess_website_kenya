@@ -18,7 +18,7 @@ export default function QuoteSent() {
             <Check aria-hidden className="size-7" strokeWidth={2} />
           </span>
           <h1 className="animate-fade-in mt-10 max-w-4xl text-display font-medium text-ink">
-            {state?.name ? `Thank you, ${state.name}.` : "Request sent."} <span className="text-quiet">{site.replyPromise}</span>
+            {state?.name ? `Thank you, ${state.name}.` : "Message sent successfully!"} <span className="text-quiet">{site.replyPromise}</span>
           </h1>
           {state?.reference && (
             <p className="mt-8 text-[1.0625rem] text-body" data-reveal="fade">
@@ -41,9 +41,9 @@ export default function QuoteSent() {
 
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-5" data-reveal="fade">
             <LinkButton to="/" variant="ink">
-              Back to the home page
+              Return to Home
             </LinkButton>
-            <TextLink to="/projects">See our projects</TextLink>
+            <TextLink to="/services">Our Services</TextLink>
           </div>
           <p className="mt-6 text-small text-muted">
             Urgent? Call or WhatsApp{" "}

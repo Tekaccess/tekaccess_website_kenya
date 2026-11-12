@@ -1,15 +1,15 @@
 export type Faq = { q: string; a: string; tags: ("general" | "services" | "contact")[] };
 
-// TODO(real): answers drafted from the current site's facts; confirm with the team.
+// New copy in the original site's voice, built from its own phrases. TODO(real): confirm with the team.
 export const faqs: Faq[] = [
   {
     q: "Which materials do you supply?",
-    a: "Gypsum sourced in Garissa, Kenya; coal from Songea, Tanzania; and clinker from Kenyan producers. All three are bought from established miners and checked before loading.",
+    a: "Gypsum supply sourced in Garissa, Kenya; coal supply sourced in Songea, Tanzania; and clinker supply sourced in Kenya. Our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs.",
     tags: ["general", "services"],
   },
   {
     q: "Which countries do you deliver to?",
-    a: "Rwanda, Tanzania, Kenya, the Democratic Republic of Congo and Uganda, by truck, by ship across Lake Kivu, and by rail on Tanzania's central line.",
+    a: "Regional transport to Tanzania, Rwanda, Kenya, DRC and Uganda: by truck, by ship from Gisenyi to Katana via Lake Kivu, and by train from Dodoma to Kigoma.",
     tags: ["general", "services", "contact"],
   },
   {
@@ -19,7 +19,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Who handles customs clearing?",
-    a: "Our own clearing team. Papers are prepared before the truck reaches the border, and you hear from us when each crossing is done.",
+    a: "Our own clearing team, so cross-border supply chains run with consistency and reliability. Papers are prepared before the truck reaches the border.",
     tags: ["general", "services"],
   },
   {
@@ -34,7 +34,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "How fast do you reply?",
-    a: "Within one working day, with a price, a lead time and the name of your contact. For urgent loads, call or WhatsApp +250 788 320 200 at any hour.",
+    a: "Within one working day, with a price, a lead time and the name of your contact. WhatsApp & Call +250 788 320 200, available 24/7 for urgent inquiries.",
     tags: ["contact"],
   },
 ];

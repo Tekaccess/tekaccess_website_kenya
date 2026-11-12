@@ -3,10 +3,10 @@ import type { PhotoKey } from "./images";
 export type Service = {
   slug: string;
   no: string;
-  group: "Supply" | "Transport";
+  group: "Supply" | "Logistics";
   title: string;
-  summary: string; // one line, used in rows
-  lead: string; // page head summary
+  summary: string; // one line, used in rows (first clause of the original description)
+  lead: string; // page head summary: original TekAccess site copy, word for word
   intro: string; // 24px overview paragraph
   howSource: { title: string; text: string };
   howReach: { title: string; text: string };
@@ -46,9 +46,9 @@ export const services: Service[] = [
     slug: "gypsum-supply",
     no: "01",
     group: "Supply",
-    title: "Gypsum supply",
-    summary: "Sourced in Garissa, Kenya, from the region's leading miners.",
-    lead: "Sourced in Garissa, Kenya, from the region's leading miners. A consistent, high-quality supply for cement and industrial plants.",
+    title: "Gypsum Supply",
+    summary: "Gypsum supply sourced in Garissa, Kenya.",
+    lead: "Gypsum supply sourced in Garissa, Kenya — our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs.",
     intro: "Our network with Garissa's leading miners keeps gypsum moving even when a single quarry slows down.",
     howSource: {
       title: "How we source it",
@@ -87,9 +87,9 @@ export const services: Service[] = [
     slug: "coal-supply",
     no: "02",
     group: "Supply",
-    title: "Coal supply",
-    summary: "Sourced in Songea, Tanzania, steady quality for industrial kilns.",
-    lead: "Sourced in Songea, Tanzania, through our network with the region's leading miners. Steady quality for kilns and industrial boilers.",
+    title: "Coal Supply",
+    summary: "Coal supply sourced in Songea, Tanzania.",
+    lead: "Coal supply sourced in Songea, Tanzania — our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs.",
     intro: "Kilns cannot wait for coal. We keep stock moving from Songea so a slow week at one mine never reaches your plant.",
     howSource: {
       title: "How we source it",
@@ -128,9 +128,9 @@ export const services: Service[] = [
     slug: "clinker-supply",
     no: "03",
     group: "Supply",
-    title: "Clinker supply",
-    summary: "Sourced in Kenya for cement production.",
-    lead: "Sourced in Kenya through our network with the region's leading producers, delivered to cement plants by road and across Lake Kivu.",
+    title: "Clinker Supply",
+    summary: "Clinker supply sourced in Kenya.",
+    lead: "Clinker supply sourced in Kenya — our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs.",
     intro: "Clinker is the heart of cement. We move it from Kenyan producers to grinding plants on both sides of Lake Kivu.",
     howSource: {
       title: "How we source it",
@@ -168,10 +168,10 @@ export const services: Service[] = [
   {
     slug: "truck-delivery",
     no: "04",
-    group: "Transport",
-    title: "Truck delivery",
-    summary: "Regional projects in Tanzania, Rwanda, Kenya, DRC and Uganda.",
-    lead: "Operational excellence and precision logistics for large industrial projects. Regional transport across Tanzania, Rwanda, Kenya, DRC and Uganda.",
+    group: "Logistics",
+    title: "Trucks Delivery",
+    summary: "Regional transport to Tanzania, Rwanda, Kenya, DRC and Uganda.",
+    lead: "We have demonstrated operational excellence and precision logistics for large scale industrial projects. Regional transport to Tanzania, Rwanda, Kenya, DRC and Uganda, ensuring timely, secure, cost-effective and on-time deliveries to clients.",
     intro: "Our own fleet runs every one of our projects across the region, so we plan capacity instead of hoping to find it.",
     howSource: {
       title: "How we plan it",
@@ -209,10 +209,10 @@ export const services: Service[] = [
   {
     slug: "ship-delivery",
     no: "05",
-    group: "Transport",
-    title: "Ship delivery",
-    summary: "Gisenyi to Katana across Lake Kivu.",
-    lead: "Clinker and gypsum by ship from Gisenyi to Katana across Lake Kivu, steady support for cement production on the western shore.",
+    group: "Logistics",
+    title: "Ship Delivery",
+    summary: "Gisenyi to Katana via Lake Kivu.",
+    lead: "We supplied clinker and gypsum through reliable ship deliveries from Gisenyi to Katana via Lake Kivu, ensuring steady support for cement production. This business demonstrated our capability to manage cross-border supply chains with consistency and reliability.",
     intro: "Across Lake Kivu the water is the shortest road. We run the crossing so cement plants on the far shore never run short.",
     howSource: {
       title: "How we plan it",
@@ -249,10 +249,10 @@ export const services: Service[] = [
   {
     slug: "train-delivery",
     no: "06",
-    group: "Transport",
-    title: "Train delivery",
-    summary: "Gypsum by rail from Dodoma to Kigoma, Tanzania.",
-    lead: "Under our framework business, we manage efficient gypsum transport by train from Dodoma to Kigoma, Tanzania, supporting cement manufacturing.",
+    group: "Logistics",
+    title: "Train Delivery",
+    summary: "Gypsum transport by train from Dodoma to Kigoma, Tanzania.",
+    lead: "Under our framework business, we manage efficient gypsum transport by train from Dodoma to Kigoma, Tanzania, ensuring reliable and consistent delivery to support cement manufacturing requirements.",
     intro: "For heavy, steady volumes, rail beats road. We book the wagons, load them and meet them at Kigoma.",
     howSource: {
       title: "How we plan it",
@@ -295,17 +295,17 @@ export const nextService = (slug: string) => {
 };
 
 export const whatsIncluded = [
-  { icon: "BadgeCheck", title: "Vetted miners", text: "Established producers only, checked before we buy." },
+  { icon: "BadgeCheck", title: "Vetted miners", text: "The region’s leading miners, checked before we buy." },
   { icon: "Microscope", title: "Quality checks", text: "Every load sampled against your specification." },
   { icon: "Scale", title: "Weighing and paperwork", text: "Weighbridge tickets and documents for every truck." },
   { icon: "ShieldCheck", title: "Customs clearing", text: "Our own clearing team at every border." },
-  { icon: "MapPin", title: "Updates at each handover", text: "Loaded, crossed, cleared, arrived. You always know." },
+  { icon: "MapPin", title: "Updates at each handover", text: "Loaded, crossed, cleared, arrived. Seamless visibility." },
   { icon: "FileCheck2", title: "Proof of delivery", text: "Signed delivery notes and one invoice per shipment." },
 ] as const;
 
 export const process = [
   { no: "1", title: "Request", text: "Tell us the material, the tonnage and the destination." },
-  { no: "2", title: "Quote", text: "A price and a lead time within one working day." },
-  { no: "3", title: "Move", text: "Sourced, loaded, shipped and cleared by our team." },
-  { no: "4", title: "Deliver", text: "Proof of delivery and one invoice at the end." },
+  { no: "2", title: "Quote", text: "A tailored price and lead time within one working day." },
+  { no: "3", title: "Move", text: "Sourced, loaded, shipped and cleared with precision." },
+  { no: "4", title: "Deliver", text: "Timely, secure and on-time delivery, with one invoice." },
 ];

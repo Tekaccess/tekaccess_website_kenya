@@ -16,14 +16,14 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <p className="max-w-[26rem] text-[1.125rem] font-medium leading-snug text-white">
-              TekAccess sources industrial raw materials and moves them across East Africa. One office, one contact, one invoice.
+              {site.footer}
             </p>
-            <p className="mt-3 text-[0.9375rem] text-on-night">{site.address}</p>
+            <p className="mt-3 text-[0.9375rem] text-on-night">TekAccess Global HQ · {site.address}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 tablet:grid-cols-3 lg:col-span-7">
             <div>
-              <h3 className={head}>Site</h3>
+              <h3 className={head}>Digital Navigation</h3>
               <ul className="mt-2.5 space-y-1 leading-[1.75]">
                 {nav.map((n) => (
                   <li key={n.to}>
@@ -35,7 +35,7 @@ export function SiteFooter() {
               </ul>
             </div>
             <div>
-              <h3 className={head}>Office</h3>
+              <h3 className={head}>Global HQ</h3>
               <ul className="mt-2.5 space-y-1 leading-[1.75]">
                 <li>
                   <a href={site.phoneHref} className={`${link} tabular`}>
@@ -49,14 +49,14 @@ export function SiteFooter() {
                 </li>
                 <li>
                   <a href={site.whatsappHref} target="_blank" rel="noreferrer" className={link}>
-                    WhatsApp, 24/7
+                    WhatsApp & Call, 24/7
                   </a>
                 </li>
                 <li className="text-[0.9375rem] text-on-night">{site.hours}</li>
               </ul>
             </div>
             <div>
-              <h3 className={head}>Social</h3>
+              <h3 className={head}>Connect with Us</h3>
               <ul className="mt-2.5 space-y-1 leading-[1.75]">
                 {site.social.map((s) => (
                   <li key={s.label}>

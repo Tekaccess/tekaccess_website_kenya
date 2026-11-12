@@ -31,7 +31,7 @@ const orgLd = {
 
 export default function Home() {
   return (
-    <Page meta={{ title: "Gypsum, coal and clinker across East Africa", description: site.description, path: "/", jsonLd: orgLd }}>
+    <Page meta={{ title: "Premium Logistics Solutions", description: site.description, path: "/", jsonLd: orgLd }}>
       {/* 1 · Hero + project skyline */}
       <section aria-labelledby="hero-title" className="overflow-hidden bg-paper pb-12 pt-[calc(var(--header-h)+4rem)] tablet:pb-14 tablet:pt-[calc(var(--header-h)+5.5rem)]">
         <Container>
@@ -47,13 +47,13 @@ export default function Home() {
           />
           <div className="relative z-10 mt-6 tablet:mt-8 lg:max-w-[calc(50%-0.625rem)]" data-reveal="fade" data-delay="0.35">
             <p className="text-[1.0625rem] leading-relaxed text-body">
-              On time, every time. Experience peak supply-chain efficiency with TekAccess: precision-led logistics that help your business move faster and further.
+              On Time, Every Time. Experience peak supply chain efficiency with TekAccess. Our precision-led logistics solutions empower your business to move faster and further.
             </p>
             <div className="mt-6 flex flex-col items-start gap-5">
-              <LinkButton to="/contact" variant="accent">
-                Request a quote
+              <LinkButton to="/services" variant="accent">
+                Our Services
               </LinkButton>
-              <TextLink to="/projects">See our projects</TextLink>
+              <TextLink to="/contact">Get in Touch</TextLink>
             </div>
           </div>
           <Skyline items={projectsByDistance} priority fullBleed height="clamp(240px, min(34vw, calc(100svh - 452px)), 520px)" className="mt-10 tablet:mt-12 lg:-mt-32" />
@@ -68,11 +68,11 @@ export default function Home() {
         className="pb-[44px] pt-[44px] tablet:pb-[56px] tablet:pt-[56px] desktop:pb-[70px] desktop:pt-[70px]"
       >
         <div className="flex flex-col gap-6 desktop:grid desktop:grid-cols-4 desktop:gap-0">
-          <p className="text-[15px] font-medium leading-[1.3] tracking-[-0.01em] text-on-night">About TekAccess</p>
+          <p className="text-[15px] font-medium leading-[1.3] tracking-[-0.01em] text-on-night">Since 2019</p>
           <Heading
             id="about-title"
-            lead="We move the materials cement plants run on."
-            quiet="One named contact, one invoice, one line to call."
+            lead="Founded on integrity and excellence, TekAccess is a trusted logistics and transport solutions provider specializing in high-performance supply chain operations."
+            quiet="Efficient. Reliable. Scalable."
             quietClassName="block text-signal"
             className="max-w-[920px] text-white text-[32px] leading-[1.05] tracking-[-0.04em] [text-wrap:pretty] tablet:text-[40px] desktop:col-span-3 desktop:text-[48px]"
           />
@@ -104,10 +104,11 @@ export default function Home() {
       <Section tone="paper" space="none" divider={false} aria-labelledby="services-title" className="py-12 tablet:py-16 desktop:py-[72px]">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <Heading id="services-title" lead="One partner for supply and transport." quiet="Sourcing, moving and clearing, under one contract." />
+            <p className="mb-4 text-label font-medium text-muted">Our Services</p>
+            <Heading id="services-title" lead={<>Comprehensive <span className="text-accent">Logistics Solutions.</span></>} />
             <div className="mt-6" data-reveal="fade">
               <LinkButton to="/services" variant="ink">
-                See all services
+                Explore Details
               </LinkButton>
             </div>
             <Img photo="fleetQuay" ratio="16/9" reveal="image" sizes="(min-width:1024px) 38vw, 100vw" className="mt-8" />

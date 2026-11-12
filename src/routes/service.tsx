@@ -53,7 +53,7 @@ export default function ServicePage() {
           <div className="flex flex-col lg:col-span-4" data-reveal="fade">
             <FactList items={s.facts} />
             <LinkButton to="/contact" variant="accent" size="lg" className="mt-8 w-full sm:w-auto">
-              Request a quote
+              Request a Consultation
             </LinkButton>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function ServicePage() {
       <Section tone="white" aria-labelledby="included-title">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-3">
-            <Heading id="included-title" size="h3" lead="Included." quiet="In one price." />
+            <Heading id="included-title" size="h3" lead="Included." quiet="Seamless from source to site." />
           </div>
           <ul className="grid border-t border-line tablet:grid-cols-2 tablet:gap-x-10 lg:col-span-9" data-reveal="stagger">
             {s.included.map((it) => (

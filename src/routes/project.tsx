@@ -42,7 +42,7 @@ export default function ProjectPage() {
           <div className="lg:col-span-4" data-reveal="fade">
             <FactList items={c.facts} />
             <LinkButton to="/contact" variant="accent" size="lg" className="mt-8 w-full sm:w-auto">
-              Request a quote
+              Request a Consultation
             </LinkButton>
           </div>
         </div>

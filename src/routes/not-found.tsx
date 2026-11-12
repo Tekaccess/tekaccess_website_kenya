@@ -8,10 +8,10 @@ import { Page } from "@/components/templates/page";
 import { RouteLine } from "@/components/organisms/sections";
 
 const helpful = [
-  { no: "01", title: "Services", summary: "Supply and transport, six ways.", to: "/services" },
-  { no: "02", title: "Projects", summary: "Where our loads move.", to: "/projects" },
-  { no: "03", title: "About", summary: "The team you can call.", to: "/about" },
-  { no: "04", title: "Contact", summary: "Request a quote.", to: "/contact" },
+  { no: "01", title: "Services", summary: "Comprehensive logistics solutions.", to: "/services" },
+  { no: "02", title: "Projects", summary: "Our proven operations across East Africa.", to: "/projects" },
+  { no: "03", title: "About", summary: "Driving logistics excellence since 2019.", to: "/about" },
+  { no: "04", title: "Contact", summary: "Get in touch with our team.", to: "/contact" },
 ];
 
 /** 404: also rendered by detail routes when a slug doesn't exist. */
@@ -21,8 +21,8 @@ export default function NotFound() {
     <Page meta={{ title: "Page not found", description: "This page has moved, or the link was wrong.", path: pathname, noindex: true }}>
       <section className="bg-paper pb-section-sm pt-[calc(var(--header-h)+3.5rem)] tablet:pt-[calc(var(--header-h)+5rem)]">
         <Container>
-          <Eyebrow data-reveal="fade">Page not found · Error 404</Eyebrow>
-          <Heading as="h1" size="display-xl" lead="This load took a wrong turn." quiet="The page has moved, or the link was wrong." reveal={false} className="mt-8 max-w-5xl animate-fade-in" />
+          <Eyebrow data-reveal="fade">404 Error</Eyebrow>
+          <Heading as="h1" size="display-xl" lead="Oops! Page not found" quiet="The page has moved, or the link was wrong." reveal={false} className="mt-8 max-w-5xl animate-fade-in" />
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5" data-reveal="fade">
             <LinkButton to="/" variant="ink" size="lg">
               Back to the home page
@@ -45,7 +45,7 @@ export default function NotFound() {
 
       <Section tone="paper" space="none" divider={false} className="pb-section-sm" aria-hidden>
         <Img photo="roadJunction" ratio="16/6" reveal="image" sizes="(min-width:1440px) 1280px, 100vw" />
-        <p className="mt-3 text-small text-muted">Not every road leads somewhere. These do:</p>
+        <p className="mt-3 text-small text-muted">Return to Home, or continue here:</p>
       </Section>
 
       <Section tone="paper" className="pt-0" aria-label="Helpful links">

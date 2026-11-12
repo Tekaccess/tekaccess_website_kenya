@@ -70,7 +70,7 @@ export function ClosingCta() {
             Or call {site.phone}
           </TextAnchor>
           <LinkButton to="/contact" variant="accent">
-            Request a quote
+            {closing.cta}
           </LinkButton>
         </div>
       </div>

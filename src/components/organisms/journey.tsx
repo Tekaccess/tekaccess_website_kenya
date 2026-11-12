@@ -65,9 +65,9 @@ export function JourneySteps() {
                 The journey
               </p>
               <h2 id="journey-title" className="text-h1 font-medium text-ink">
-                From the mine to your silo.{" "}
+                End-to-End Logistics,{" "}
                 <span className="block text-quiet">
-                  Five handovers, one company.
+                  From Source to Final Delivery.
                 </span>
               </h2>
             </div>

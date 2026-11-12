@@ -9,17 +9,17 @@ import { faqsFor } from "@/content/faqs";
 import { site } from "@/content/site";
 
 const ways = [
-  { icon: MessageCircle, title: "WhatsApp", text: "Fastest for a quick price.", label: `Message ${site.phone}`, href: site.whatsappHref, ext: true },
-  { icon: Phone, title: "Call", text: "For urgent loads, any hour.", label: site.phone, href: site.phoneHref },
-  { icon: Mail, title: "Email", text: "For tenders and documents.", label: site.email, href: site.emailHref },
+  { icon: MessageCircle, title: "WhatsApp & Call", text: "Available 24/7 for urgent inquiries.", label: `Message ${site.phone}`, href: site.whatsappHref, ext: true },
+  { icon: Phone, title: "Call", text: "Available 24/7 for urgent inquiries.", label: site.phone, href: site.phoneHref },
+  { icon: Mail, title: "Email Support", text: "Reliable communication for your business.", label: site.email, href: site.emailHref },
 ];
 
 export default function Contact() {
   const details = [
-    { k: "Office", v: site.address },
-    { k: "Phone and WhatsApp", v: <a href={site.phoneHref} className="tabular hover:text-accent">{site.phone}</a> },
-    { k: "Available", v: "24/7 for urgent loads" },
-    { k: "Email", v: <a href={site.emailHref} className="hover:text-accent">{site.email}</a> },
+    { k: "Global HQ", v: <>{site.address}<span className="mt-1 block text-small font-normal text-muted">Visit our modern logistics facility</span></> },
+    { k: "WhatsApp & Call", v: <a href={site.phoneHref} className="tabular hover:text-accent">{site.phone}</a> },
+    { k: "Available", v: "Available 24/7 for urgent inquiries" },
+    { k: "Email Support", v: <a href={site.emailHref} className="hover:text-accent">{site.email}</a> },
     { k: "Office hours", v: site.hours },
   ];
 
@@ -27,7 +27,7 @@ export default function Contact() {
     <Page
       meta={{
         title: "Contact",
-        description: "Request a quote for gypsum, coal or clinker supply, or truck, ship and rail transport. We reply within one working day.",
+        description: "Ready to streamline your supply chain? Reach out for a customized logistics consultation.",
         path: "/contact",
         jsonLd: {
           "@context": "https://schema.org",
@@ -37,10 +37,9 @@ export default function Contact() {
       }}
     >
       <PageHead
-        label="Contact"
-        lead="Send us the load."
-        quiet={site.replyPromise}
-        aside={<p className="text-[1.0625rem] text-body">Tell us the material, the tonnage and the destination. We come back with a price, a lead time and the name of your contact.</p>}
+        label="Get in Touch"
+        lead={<>Connect with Our <span className="text-accent">Global</span> Team.</>}
+        aside={<p className="text-[1.0625rem] text-body">Ready to streamline your supply chain? Reach out for a customized logistics consultation.</p>}
       />
 
       <Section tone="paper" aria-label="Quote request" className="border-line">
@@ -86,7 +85,7 @@ export default function Contact() {
       {/* Quick answers */}
       <Section tone="paper" divider={false} aria-labelledby="quick-title">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <Heading id="quick-title" lead="Before you write." quiet="The three questions we hear most." className="lg:col-span-4" />
+          <Heading id="quick-title" lead="Frequently Asked Questions." quiet="Clarity before you reach out." className="lg:col-span-4" />
           <div className="lg:col-span-7 lg:col-start-6" data-reveal="fade">
             <Accordion items={faqsFor("contact")} defaultOpen={0} />
           </div>
@@ -103,7 +102,7 @@ export default function Contact() {
       >
         <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-8">
           <h2 id="ways-title" data-reveal="lines" className="text-h1 font-medium text-ink lg:col-span-4">
-            Other ways in. <span className="text-quiet">Pick the one that suits the load.</span>
+            Connect with Us. <span className="text-quiet">Efficient. Reliable. Scalable.</span>
           </h2>
           <ul className="grid gap-px overflow-hidden rounded border border-line bg-line tablet:grid-cols-3 lg:col-span-8" data-reveal="stagger">
             {ways.map((w) => (

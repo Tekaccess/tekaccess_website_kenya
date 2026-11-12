@@ -12,15 +12,15 @@ export default function About() {
     <Page
       meta={{
         title: "About",
-        description: "TekAccess has run logistics and raw-materials supply from one office in Kigali since 2019. Meet the CEO and the eleven people you can call.",
+        description: "Founded on integrity and excellence, TekAccess is a trusted logistics and transport solutions provider specializing in high-performance supply chain operations.",
         path: "/about",
       }}
     >
       <PageHead
-        label="About"
-        lead="A partner that answers the phone."
-        quiet="From one office in Kigali since 2019."
-        aside={<p className="text-[1.0625rem] text-body">TekAccess supplies and moves the raw materials East Africa's cement plants run on.</p>}
+        label={story.label}
+        lead={<>{story.lead} <span className="text-accent">{story.accent}</span></>}
+        quiet={story.tail}
+        aside={<p className="text-[1.0625rem] text-body">{story.intro}</p>}
       />
 
       {/* Story */}
@@ -29,18 +29,11 @@ export default function About() {
           <Img photo="fleetRow" ratio="4/3" reveal="parallax" priority sizes="(min-width:1024px) 55vw, 100vw" className="lg:col-span-7" />
           <div className="lg:col-span-5 lg:pl-6">
             <Eyebrow id="story-title" className="mb-6">
-              Our story
+              {story.storyTitle}
             </Eyebrow>
             <Lead data-reveal="lines" className="text-h3 font-medium">
-              {story.lead}
+              {story.story}
             </Lead>
-            <div className="mt-8 space-y-4" data-reveal="stagger">
-              {story.body.map((t) => (
-                <p key={t} className="text-[0.9375rem] text-body">
-                  {t}
-                </p>
-              ))}
-            </div>
           </div>
         </div>
       </Section>
@@ -77,10 +70,11 @@ export default function About() {
             </div>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
-            <Eyebrow id="ceo-title">From the CEO</Eyebrow>
-            <blockquote className="mt-4">
-              <p data-reveal="lines" className="text-h1 font-medium text-ink">
-                {ceoMessage.quote}
+            <Eyebrow id="ceo-title">{ceoMessage.label}</Eyebrow>
+            <p className="mt-4 text-body text-muted">{ceoMessage.intro}</p>
+            <blockquote className="mt-5">
+              <p data-reveal="lines" className="text-h3 font-medium text-ink">
+                “{ceoMessage.quote}”
               </p>
             </blockquote>
             <div className="mt-5 space-y-3" data-reveal="stagger">
@@ -94,6 +88,14 @@ export default function About() {
               <p className="text-[1.0625rem] font-medium text-ink">{ceo.name}</p>
               <p className="text-small text-muted">{ceo.role}</p>
             </div>
+            <dl className="mt-6 grid grid-cols-3 gap-4" data-reveal="stagger">
+              {ceoMessage.impact.map((m) => (
+                <div key={m.label} className="border-t border-line pt-3">
+                  <dt className="text-small text-muted">{m.label}</dt>
+                  <dd className="mt-1 text-h4 font-medium text-ink">{m.val}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </Section>
@@ -101,7 +103,8 @@ export default function About() {
       {/* Team */}
       <Section tone="paper" aria-labelledby="team-title" className="border-line">
         <div className="mb-10 tablet:mb-7">
-          <Heading id="team-title" lead="Eleven people you can name." quiet="Each client has one of them as their contact." className="max-w-4xl" />
+          <Eyebrow className="mb-4">The Team</Eyebrow>
+          <Heading id="team-title" lead={<>The Visionaries Behind <span className="text-accent">TekAccess.</span></>} className="max-w-4xl" />
         </div>
         <TeamGrid />
       </Section>
@@ -109,7 +112,7 @@ export default function About() {
       {/* Rules — dark band */}
       <Section tone="white" space="none" aria-labelledby="rules-title" className="border-line py-12 tablet:py-14">
         <h2 id="rules-title" data-reveal="lines" className="max-w-3xl text-h1 font-medium text-ink">
-          Three rules we do not bend. <span className="text-quiet">They are the reason clients stay.</span>
+          Our Commitment to <span className="text-accent">Excellence.</span>
         </h2>
         <ol className="mt-7 grid gap-px overflow-hidden rounded-xs border border-line bg-line lg:grid-cols-3" data-reveal="stagger">
           {rules.map((r, i) => (

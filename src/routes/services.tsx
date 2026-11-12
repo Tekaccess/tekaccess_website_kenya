@@ -12,27 +12,26 @@ import { faqsFor } from "@/content/faqs";
 const icons = { BadgeCheck, Microscope, Scale, ShieldCheck, MapPin, FileCheck2 };
 
 export default function Services() {
-  const groups = (["Supply", "Transport"] as const).map((g) => ({ g, items: services.filter((s) => s.group === g) }));
+  const groups = (["Supply", "Logistics"] as const).map((g) => ({ g, items: services.filter((s) => s.group === g) }));
 
   return (
     <Page
       meta={{
         title: "Services",
-        description: "Gypsum, coal and clinker supply, and truck, ship and rail delivery across East Africa, under one contract and one invoice.",
+        description: "Comprehensive logistics solutions: gypsum, coal and clinker supply, and trucks, ship and train delivery across Tanzania, Rwanda, Kenya, DRC and Uganda.",
         path: "/services",
       }}
     >
       <PageHead
-        label="Services"
-        lead="Six things we do."
-        quiet="Supply and transport, each priced in the open."
+        label="Our Services"
+        lead={<>Comprehensive <span className="text-accent">Logistics Solutions.</span></>}
         aside={
           <>
             <p className="text-[1.0625rem] text-body">
-              We source gypsum, coal and clinker from the region's leading miners and move them by road, lake and rail to your site.
+              We provide tailored operational strategies designed to handle your most complex supply chain challenges.
             </p>
             <LinkButton to="/contact" variant="accent" className="mt-6">
-              Request a quote
+              Request a Consultation
             </LinkButton>
           </>
         }
@@ -44,7 +43,7 @@ export default function Services() {
           <div className="lg:col-span-4">
             <Eyebrow className="mb-3">How it works</Eyebrow>
             <h2 id="process-title" data-reveal="lines" className="text-h1 font-medium text-ink">
-              From order to site. <span className="text-quiet">Four steps, one contact.</span>
+              From Request to Delivery. <span className="text-quiet">Precision at Every Step.</span>
             </h2>
           </div>
           <ol className="grid gap-px overflow-hidden rounded border border-line bg-line tablet:grid-cols-2 lg:col-span-8" data-reveal="stagger">
@@ -59,7 +58,7 @@ export default function Services() {
         </div>
       </Section>
 
-      {/* Supply + Transport groups */}
+      {/* Supply + Logistics groups */}
       <Section tone="night" space="none" divider={false} aria-label="All services" className="bg-none bg-night py-12 tablet:py-14 [--ink:255_255_255] [--body:196_204_224] [--muted:160_170_204] [--line:44_58_110] [--accent:122_165_245]">
         <div className="space-y-8 tablet:space-y-10">
           {groups.map(({ g, items }) => (
@@ -67,7 +66,7 @@ export default function Services() {
               <div className="lg:col-span-3 lg:pt-3">
                 <h2 className="text-h3 font-medium">{g}</h2>
                 <p className="mt-2 max-w-[26ch] text-small text-muted">
-                  {g === "Supply" ? "Raw materials for cement and industry, bought from vetted miners." : "Our own fleet and partners on road, lake and rail."}
+                  {g === "Supply" ? "Our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs." : "Timely, secure, cost-effective and on-time deliveries by truck, ship and train."}
                 </p>
               </div>
               <div className="lg:col-span-9" data-reveal="fade">
@@ -90,7 +89,7 @@ export default function Services() {
       >
         <div className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="lg:col-span-4">
-            <Heading id="included-title" lead="One contract covers all of it." quiet="No hidden handovers." />
+            <Heading id="included-title" lead="End-to-End Logistics." quiet="One Trusted Partner." />
           </div>
           <ul className="grid gap-px overflow-hidden rounded border border-line bg-line tablet:grid-cols-2 lg:col-span-8 lg:grid-cols-3" data-reveal="stagger">
             {whatsIncluded.map((it) => {
@@ -107,7 +106,7 @@ export default function Services() {
         </div>
       </Section>
 
-      <FaqSection items={faqsFor("services")} lead="Questions about services." defaultOpen={0} tone="white" divider={false} />
+      <FaqSection items={faqsFor("services")} lead="Frequently Asked Questions." defaultOpen={0} tone="white" divider={false} />
 
       <ClosingCta />
     </Page>

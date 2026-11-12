@@ -36,7 +36,7 @@ const included = {
     "Border and customs paperwork",
     "Customs clearing",
     "Transit updates at every handover",
-    "Safe, insured carriage", // TODO(real): confirm insurance cover
+    "Safe, insured carriage", // TODO: confirm insurance cover
     "Proof of delivery and one invoice",
   ],
 };
@@ -48,7 +48,7 @@ export const services: Service[] = [
     group: "Supply",
     title: "Gypsum Supply",
     summary: "Gypsum supply sourced in Garissa, Kenya.",
-    lead: "Gypsum supply sourced in Garissa, Kenya — our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs.",
+    lead: "Gypsum supply sourced in Garissa, Kenya. Our extensive network with the region’s leading miners ensures a consistent and high quality supply for industrial needs.",
     intro: "Our network with Garissa's leading miners keeps gypsum moving even when a single quarry slows down.",
     howSource: {
       title: "How we source it",
@@ -89,7 +89,7 @@ export const services: Service[] = [
     group: "Supply",
     title: "Coal Supply",
     summary: "Coal supply sourced in Songea, Tanzania.",
-    lead: "Coal supply sourced in Songea, Tanzania — our extensive network with the region’s leading miners places us in the best position to deliver consistent quality and reliability to our clients.",
+    lead: "Coal supply sourced in Songea, Tanzania. Our extensive network with the region’s leading miners places us in the best position to deliver consistent quality and reliability to our clients.",
     intro: "Kilns cannot wait for coal. We keep stock moving from Songea so a slow week at one mine never reaches your plant.",
     howSource: {
       title: "How we source it",
@@ -130,7 +130,7 @@ export const services: Service[] = [
     group: "Supply",
     title: "Clinker Supply",
     summary: "Clinker supply sourced in Kenya.",
-    lead: "Clinker supply sourced in Kenya — our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs.",
+    lead: "Clinker supply sourced in Kenya. Our extensive network with the region’s leading miners ensures a consistent and high quality supply for industrial needs.",
     intro: "Clinker is the heart of cement. We move it from Kenyan producers to grinding plants on both sides of Lake Kivu.",
     howSource: {
       title: "How we source it",
@@ -171,7 +171,7 @@ export const services: Service[] = [
     group: "Logistics",
     title: "Trucks Delivery",
     summary: "Regional transport to Tanzania, Rwanda, Kenya, DRC and Uganda.",
-    lead: "We have demonstrated operational excellence and precision logistics for large scale industrial projects. Regional transport to Tanzania, Rwanda, Kenya, DRC and Uganda, ensuring timely, secure, cost-effective and on-time deliveries to clients.",
+    lead: "We have demonstrated operational excellence and precision logistics for large scale industrial projects. Regional transport to Tanzania, Rwanda, Kenya, DRC and Uganda, ensuring timely, secure, cost effective and on time deliveries to clients.",
     intro: "Our own fleet runs every one of our projects across the region, so we plan capacity instead of hoping to find it.",
     howSource: {
       title: "How we plan it",
@@ -185,7 +185,7 @@ export const services: Service[] = [
       { label: "Fleet", value: "Shacman tractor units" },
       { label: "Countries", value: "TZ, RW, KE, DRC, UG" },
       { label: "Cargo", value: "Bulk and bagged" },
-      { label: "Borders", value: "Cleared in-house" },
+      { label: "Borders", value: "Cleared in house" },
       { label: "Updates", value: "At every handover" },
       { label: "Lead time", value: "On request" },
     ],
@@ -197,7 +197,7 @@ export const services: Service[] = [
       { stop: "Destination", note: "Arrived" },
       { stop: "Your site", note: "Delivered" },
     ],
-    photos: ["fleetRow", "truckDeliveries", "fleetQuay", "fleetFront", "fleetYard"],
+    photos: ["fleetRow", "fleetQuay", "truckDeliveries", "fleetFront", "fleetYard"],
     strip: [
       { photo: "fleetCab", caption: "Our own fleet" },
       { photo: "truckLoading", caption: "Loading" },
@@ -212,7 +212,7 @@ export const services: Service[] = [
     group: "Logistics",
     title: "Ship Delivery",
     summary: "Gisenyi to Katana via Lake Kivu.",
-    lead: "We supplied clinker and gypsum through reliable ship deliveries from Gisenyi to Katana via Lake Kivu, ensuring steady support for cement production. This business demonstrated our capability to manage cross-border supply chains with consistency and reliability.",
+    lead: "We supplied clinker and gypsum through reliable ship deliveries from Gisenyi to Katana via Lake Kivu, ensuring steady support for cement production. This business demonstrated our capability to manage cross border supply chains with consistency and reliability.",
     intro: "Across Lake Kivu the water is the shortest road. We run the crossing so cement plants on the far shore never run short.",
     howSource: {
       title: "How we plan it",
@@ -223,11 +223,11 @@ export const services: Service[] = [
       text: "At Katana our team clears the cargo and hands it to the plant with the delivery papers, so the crossing is one service, not three.",
     },
     facts: [
-      { label: "Route", value: "Gisenyi → Katana" },
+      { label: "Route", value: "Gisenyi to Katana" },
       { label: "Crossing", value: "Lake Kivu" },
       { label: "Cargo", value: "Clinker, gypsum" },
       { label: "Client", value: "Cement production" },
-      { label: "Borders", value: "Rwanda → DRC" },
+      { label: "Borders", value: "Rwanda to DRC" },
       { label: "Lead time", value: "On request" },
     ],
     included: included.transport,
@@ -263,7 +263,7 @@ export const services: Service[] = [
       text: "At Kigoma our trucks collect the gypsum from the railhead and carry it the last miles to the plant, with one invoice for the whole move.",
     },
     facts: [
-      { label: "Route", value: "Dodoma → Kigoma" },
+      { label: "Route", value: "Dodoma to Kigoma" },
       { label: "Line", value: "Tanzania central line" },
       { label: "Cargo", value: "Gypsum" },
       { label: "Client", value: "Cement manufacturing" },
@@ -307,5 +307,5 @@ export const process = [
   { no: "1", title: "Request", text: "Tell us the material, the tonnage and the destination." },
   { no: "2", title: "Quote", text: "A tailored price and lead time within one working day." },
   { no: "3", title: "Move", text: "Sourced, loaded, shipped and cleared with precision." },
-  { no: "4", title: "Deliver", text: "Timely, secure and on-time delivery, with one invoice." },
+  { no: "4", title: "Deliver", text: "Timely, secure and on time delivery, with one invoice." },
 ];

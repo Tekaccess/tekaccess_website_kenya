@@ -1,7 +1,7 @@
 import { forwardRef, type ComponentPropsWithoutRef, type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-/** Page-width column with responsive side gutters (20 → 80px). */
+/** Page-width column with responsive side gutters (20 to 80px). */
 export const Container = ({ className, ...p }: ComponentPropsWithoutRef<"div">) => (
   <div className={cn("mx-auto w-full max-w-page px-gutter", className)} {...p} />
 );
@@ -32,7 +32,7 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
         tones[tone],
         spacing[space],
         "relative",
-        (divider ?? (tone !== "night" && !/\bpt-0\b/.test(className ?? ""))) && "border-t border-ink/80",
+        (divider ?? (tone !== "night" && !/\bpt-0\b/.test(className ?? ""))) && "border-t border-[#ECEEF2]",
         className,
       )}
       {...p}
@@ -48,7 +48,7 @@ export const Hairline = ({ className, reveal, strong }: { className?: string; re
   <div
     aria-hidden
     data-reveal={reveal ? "hairline" : undefined}
-    className={cn("h-px w-full", strong ? "bg-ink" : "bg-line", className)}
+    className={cn("h-px w-full", strong ? "bg-[#ECEEF2]" : "bg-line", className)}
   />
 );
 

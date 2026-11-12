@@ -6,7 +6,7 @@ import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 /**
- * Storey's "year line", rebuilt for the five handovers. The section is tall and its
+ * Year-line layout for the five handovers. The section is tall and its
  * panel sticks under the header; scroll progress picks the active step. The active
  * photo grows wide and tall, the rest shrink to faded thumbnails on one ground line,
  * and the caption (top right) cross-fades. Steps are also buttons, so click and
@@ -56,7 +56,7 @@ export function JourneySteps() {
       aria-labelledby="journey-title"
       className="relative border-t border-line bg-white lg:h-[200vh] lg:py-16"
     >
-      <div className="lg:sticky lg:top-[calc(var(--header-h)+(100vh-var(--header-h))*0.2)] lg:flex lg:h-[calc((100vh-var(--header-h))*0.6)] lg:flex-col">
+      <div className="lg:sticky lg:top-[calc(var(--header-h)+(100vh-var(--header-h))*0.06)] lg:flex lg:flex-col">
         <Container className="flex flex-1 flex-col py-section-sm lg:py-10">
           {/* Title left, live caption right */}
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
@@ -65,7 +65,7 @@ export function JourneySteps() {
                 The journey
               </p>
               <h2 id="journey-title" className="text-h1 font-medium text-ink">
-                End-to-End Logistics,{" "}
+                End to End Logistics,{" "}
                 <span className="block text-quiet">
                   From Source to Final Delivery.
                 </span>
@@ -86,8 +86,8 @@ export function JourneySteps() {
           </div>
 
           {/* Strip: photos stand on one ground line, labels below */}
-          <div className="mt-10 flex min-h-0 flex-1 flex-col lg:mt-6">
-            <div className="flex h-[220px] items-end gap-2 tablet:h-[300px] lg:h-auto lg:min-h-0 lg:flex-1 lg:gap-3">
+          <div className="mt-10 flex flex-col lg:mt-[4.5rem]">
+            <div className="flex h-[220px] items-end gap-2 tablet:h-[300px] lg:h-[calc((100vh-var(--header-h))*0.442)] lg:gap-3">
               {journey.map((j, i) => {
                 const on = i === active;
                 return (
@@ -114,7 +114,7 @@ export function JourneySteps() {
                 );
               })}
             </div>
-            <div className="flex gap-2 border-t border-ink pt-3 lg:gap-3">
+            <div className="flex gap-2 border-t border-[#ECEEF2] pt-3 lg:gap-3">
               {journey.map((j, i) => (
                 <button
                   key={j.title}

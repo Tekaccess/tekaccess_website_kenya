@@ -1,7 +1,30 @@
 {
   "redirects": [
-    { "source": "/corridors", "destination": "/projects", "permanent": true },
-    { "source": "/corridors/:slug", "destination": "/projects/:slug", "permanent": true }
+    {
+      "source": "/corridors",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/corridors/:slug",
+      "destination": "/projects/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/insights",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/insights/:slug",
+      "destination": "/blog/:slug",
+      "permanent": true
+    }
   ],
-  "rewrites": [{ "source": "/((?!.*\\.).*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/((?!.*\\.).*)",
+      "destination": "/index.html"
+    }
+  ]
 }

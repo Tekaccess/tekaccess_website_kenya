@@ -122,7 +122,7 @@ export function SiteHeader() {
                         <MessageCircle aria-hidden className="size-4" strokeWidth={1.75} /> WhatsApp
                       </a>
                     </div>
-                    <p className="pt-2 text-center text-small tabular text-muted">{site.phone} · 24/7</p>
+                    <p className="pt-2 text-center text-small tabular text-muted">{site.phone}, 24/7</p>
                   </div>
                 </Container>
               </Dialog.Content>

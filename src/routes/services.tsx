@@ -37,7 +37,7 @@ export default function Services() {
         }
       />
 
-      {/* From order to site — dark band */}
+      {/* From request to delivery */}
       <Section tone="white" space="none" aria-labelledby="process-title" className="border-line py-10 tablet:py-12">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="lg:col-span-4">
@@ -66,7 +66,7 @@ export default function Services() {
               <div className="lg:col-span-3 lg:pt-3">
                 <h2 className="text-h3 font-medium">{g}</h2>
                 <p className="mt-2 max-w-[26ch] text-small text-muted">
-                  {g === "Supply" ? "Our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs." : "Timely, secure, cost-effective and on-time deliveries by truck, ship and train."}
+                  {g === "Supply" ? "Our extensive network with the region’s leading miners ensures a consistent and high quality supply for industrial needs." : "Timely, secure, cost effective and on time deliveries by truck, ship and train."}
                 </p>
               </div>
               <div className="lg:col-span-9" data-reveal="fade">
@@ -89,7 +89,7 @@ export default function Services() {
       >
         <div className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="lg:col-span-4">
-            <Heading id="included-title" lead="End-to-End Logistics." quiet="One Trusted Partner." />
+            <Heading id="included-title" lead="End to End Logistics." quiet="One Trusted Partner." />
           </div>
           <ul className="grid gap-px overflow-hidden rounded border border-line bg-line tablet:grid-cols-2 lg:col-span-8 lg:grid-cols-3" data-reveal="stagger">
             {whatsIncluded.map((it) => {

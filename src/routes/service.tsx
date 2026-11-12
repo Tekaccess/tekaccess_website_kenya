@@ -43,11 +43,12 @@ export default function ServicePage() {
         crumbs={[{ label: "Services", to: "/services" }, { label: s.group }, { label: s.title }]}
         lead={s.title}
         size="display-xl"
+        compact
         aside={<p className="text-[1.0625rem] text-body">{s.lead}</p>}
       />
 
       {/* Gallery + key facts */}
-      <Section tone="paper" space="sm" aria-label="Key facts">
+      <Section tone="paper" space="sm" divider={false} aria-label="Key facts">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <Gallery key={s.slug} items={s.photos} ratio="16/11" priority className="lg:col-span-8" />
           <div className="flex flex-col lg:col-span-4" data-reveal="fade">
@@ -101,7 +102,7 @@ export default function ServicePage() {
       </Section>
 
       {/* Figures */}
-      <Section tone="paper" space="sm" aria-label="Figures">
+      <Section tone="paper" space="sm" divider={false} aria-label="Figures">
         <FiguresRow
           items={[
             { value: `${site.founded}`, label: "Supplying the region since" },
@@ -111,8 +112,8 @@ export default function ServicePage() {
         />
       </Section>
 
-      {/* Route — dark band */}
-      <Section tone="night" aria-labelledby="route-title" className="overflow-hidden">
+      {/* Route, dark band */}
+      <Section tone="night" space="none" aria-labelledby="route-title" className="overflow-hidden py-12 tablet:py-14">
         <div className="grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="lg:col-span-7">
             <h2 id="route-title" data-reveal="lines" className="text-h1 font-medium">
@@ -135,7 +136,7 @@ export default function ServicePage() {
               </p>
             )}
           </div>
-          <Img photo={s.photos[1] ?? s.photos[0]} ratio="4/5" reveal="image" sizes="(min-width:1024px) 30vw, 100vw" className="lg:col-span-4 lg:col-start-9" />
+          <Img photo={s.photos[1] ?? s.photos[0]} ratio="3/2" reveal="image" sizes="(min-width:1024px) 30vw, 100vw" className="lg:col-span-4 lg:col-start-9" />
         </div>
       </Section>
 

@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate, type RouteObject } from "react-router-do
 import { RootLayout } from "./root-layout";
 import { RouteError } from "./route-error";
 import { pages } from "./preload";
-import { BlogRedirect, CorridorRedirect, ExternalRedirect } from "./redirects";
+import { CorridorRedirect, ExternalRedirect, InsightsRedirect } from "./redirects";
 
 const lazy = (load: () => Promise<{ default: React.ComponentType }>) => async () => ({ Component: (await load()).default });
 
@@ -18,12 +18,12 @@ const routes: RouteObject[] = [
       { path: "projects/:slug", lazy: lazy(pages.project) },
       { path: "corridors/:slug?", element: <CorridorRedirect /> },
       { path: "about", lazy: lazy(pages.about) },
-      { path: "insights", lazy: lazy(pages.insights) },
-      { path: "insights/:slug", lazy: lazy(pages.article) },
+      { path: "blog", lazy: lazy(pages.blog) },
+      { path: "blog/:slug", lazy: lazy(pages.article) },
       { path: "contact", lazy: lazy(pages.contact) },
       { path: "contact/sent", lazy: lazy(pages.quoteSent) },
       { path: "legal/:slug", lazy: lazy(pages.legal) },
-      { path: "blog/:id", element: <BlogRedirect /> },
+      { path: "insights/:slug?", element: <InsightsRedirect /> },
       { path: "login", element: <ExternalRedirect /> },
       { path: "dashboard", element: <Navigate to="/" replace /> },
       { path: "*", lazy: lazy(pages.notFound) },

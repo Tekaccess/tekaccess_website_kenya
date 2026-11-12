@@ -12,7 +12,7 @@ export default function About() {
     <Page
       meta={{
         title: "About",
-        description: "Founded on integrity and excellence, TekAccess is a trusted logistics and transport solutions provider specializing in high-performance supply chain operations.",
+        description: "Founded on integrity and excellence, TekAccess is a trusted logistics and transport solutions provider specializing in high performance supply chain operations.",
         path: "/about",
       }}
     >
@@ -38,7 +38,7 @@ export default function About() {
         </div>
       </Section>
 
-      {/* Vision + mission — navy band */}
+      {/* Vision and mission, navy band */}
       <Section tone="night" space="none" divider={false} aria-label="Vision and mission" className="py-16 tablet:py-20 desktop:py-[88px]">
         <div className="grid gap-8 tablet:grid-cols-2 tablet:gap-0" data-reveal="stagger">
           {[
@@ -100,7 +100,7 @@ export default function About() {
         <TeamGrid />
       </Section>
 
-      {/* Rules — dark band */}
+      {/* Rules */}
       <Section tone="white" space="none" aria-labelledby="rules-title" className="border-line py-12 tablet:py-14">
         <h2 id="rules-title" data-reveal="lines" className="max-w-3xl text-h1 font-medium text-ink">
           Our Commitment to <span className="text-accent">Excellence.</span>

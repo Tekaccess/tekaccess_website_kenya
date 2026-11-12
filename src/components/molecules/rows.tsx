@@ -6,7 +6,7 @@ import type { PhotoKey } from "@/content/images";
 import { cn } from "@/lib/utils";
 
 /**
- * Hairline row: number · title · summary · ↗. Whole row is the link.
+ * Hairline row: number, title, summary and arrow. Whole row is the link.
  * Hover: title turns accent, arrow lifts, optional thumbnail slides in (desktop).
  */
 export function NumberedRow({
@@ -85,18 +85,36 @@ export function FactList({ items, className, dark }: { items: { label: string; v
   );
 }
 
-/** Big number on a hairline with a short caption; counts up on scroll. */
+/**
+ * Stat card: big bold number and caption, centred, with the same number as a faint oversized
+ * watermark bleeding off the top. Counts up on scroll; lifts and brightens on hover.
+ */
 export function Stat({ value, label, dark, className }: { value: string; label: string; dark?: boolean; className?: string }) {
   const countable = /\d/.test(value);
   return (
-    <div className={cn("border-t pt-5", dark ? "border-night-line" : "border-ink", className)}>
+    <div
+      className={cn(
+        "group/stat relative flex min-h-[8.5rem] flex-col items-center justify-between overflow-hidden rounded-[10px] p-5 text-center transition-[transform,background-color,box-shadow] duration-3 ease-out hover:-translate-y-1 tablet:min-h-[10rem] tablet:p-6 desktop:min-h-[11rem]",
+        dark ? "bg-white/[0.06] ring-1 ring-inset ring-white/10 hover:bg-white/[0.1]" : "bg-white ring-1 ring-inset ring-line hover:shadow-[0_12px_32px_-16px_rgb(10_20_55/0.25)]",
+        className,
+      )}
+    >
+      <span
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[38%] select-none whitespace-nowrap text-[5.5rem] font-semibold leading-none tracking-[-0.05em] transition-transform duration-6 ease-out group-hover/stat:-translate-y-[30%] tablet:text-[6.5rem]",
+          dark ? "text-white/[0.05]" : "text-ink/[0.05]",
+        )}
+      >
+        {value}
+      </span>
       <p
         data-reveal={countable ? "count" : undefined}
-        className={cn("text-stat font-medium tabular", dark ? "text-white" : "text-ink")}
+        className={cn("relative text-[36px] font-bold leading-none tracking-[-0.04em] tabular tablet:text-[42px] desktop:text-[48px]", dark ? "text-white" : "text-ink")}
       >
         {value}
       </p>
-      <p className={cn("mt-3 max-w-[22ch] text-small", dark ? "text-on-night" : "text-muted")}>{label}</p>
+      <p className={cn("relative mt-6 max-w-[24ch] text-[15px] leading-[1.45] tablet:text-[16px]", dark ? "text-on-night" : "text-muted")}>{label}</p>
     </div>
   );
 }

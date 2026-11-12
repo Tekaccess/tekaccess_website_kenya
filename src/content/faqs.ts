@@ -1,10 +1,10 @@
 export type Faq = { q: string; a: string; tags: ("general" | "services" | "contact")[] };
 
-// New copy in the original site's voice, built from its own phrases. TODO(real): confirm with the team.
+// New copy in the original site's voice, built from its own phrases. TODO: confirm with the team.
 export const faqs: Faq[] = [
   {
     q: "Which materials do you supply?",
-    a: "Gypsum supply sourced in Garissa, Kenya; coal supply sourced in Songea, Tanzania; and clinker supply sourced in Kenya. Our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs.",
+    a: "Gypsum supply sourced in Garissa, Kenya; coal supply sourced in Songea, Tanzania; and clinker supply sourced in Kenya. Our extensive network with the region’s leading miners ensures a consistent and high quality supply for industrial needs.",
     tags: ["general", "services"],
   },
   {
@@ -19,7 +19,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Who handles customs clearing?",
-    a: "Our own clearing team, so cross-border supply chains run with consistency and reliability. Papers are prepared before the truck reaches the border.",
+    a: "Our own clearing team, so cross border supply chains run with consistency and reliability. Papers are prepared before the truck reaches the border.",
     tags: ["general", "services"],
   },
   {

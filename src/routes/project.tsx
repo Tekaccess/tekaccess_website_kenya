@@ -7,8 +7,7 @@ import { Page } from "@/components/templates/page";
 import { ClosingCta, FiguresRow, PageHead } from "@/components/organisms/blocks";
 import { Gallery } from "@/components/organisms/gallery";
 import { PhotoStrip } from "@/components/organisms/sections";
-import { Skyline } from "@/components/organisms/skyline";
-import { projectBySlug, projectName, projectsByDistance, nextProject } from "@/content/projects";
+import { projectBySlug, projectName, nextProject } from "@/content/projects";
 import { serviceBySlug } from "@/content/services";
 import { formatNumber } from "@/lib/utils";
 import NotFound from "./not-found";
@@ -20,7 +19,6 @@ export default function ProjectPage() {
   const name = projectName(c);
   const next = nextProject(c.slug);
   const svc = c.services.map(serviceBySlug).filter((s) => !!s);
-  const nearby = projectsByDistance.filter((x) => x.slug !== c.slug).slice(-3);
 
   return (
     <Page
@@ -31,11 +29,12 @@ export default function ProjectPage() {
         crumbs={[{ label: "Projects", to: "/projects" }, { label: c.mode }, { label: name }]}
         lead={name}
         size="display-xl"
+        compact
         aside={<p className="text-[1.0625rem] text-body">{c.summary}</p>}
       />
 
       {/* Gallery + fact file */}
-      <Section tone="paper" space="sm" aria-label="Fact file">
+      <Section tone="paper" space="sm" divider={false} aria-label="Fact file">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <Gallery key={c.slug} items={c.gallery} ratio="16/11" priority className="lg:col-span-8" />
           <div className="lg:col-span-4" data-reveal="fade">
@@ -65,23 +64,24 @@ export default function ProjectPage() {
       </Section>
 
 
-      <Section tone="paper" space="sm" aria-label="Figures">
-        <FiguresRow
+      {/* Figures: the Home "About TekAccess" navy band, scaled down */}
+      <Section tone="night" space="none" divider={false} aria-label="Figures" className="py-8 tablet:py-10 desktop:py-12">
+        <FiguresRow dark
           items={[
             { value: `${formatNumber(c.km)} km`, label: "Route length (approx.)" },
-            { value: String(c.countries.split("→").length), label: c.countries.includes("→") ? "Countries" : "Country" },
+            { value: String(c.countries.split(" to ").length), label: c.countries.includes(" to ") ? "Countries" : "Country" },
             { value: String(c.cargo.split(",").length), label: "Materials carried" },
             { value: "1", label: "Invoice per shipment" },
           ]}
         />
       </Section>
 
-      <Section tone="white" aria-label="On the ground">
+      <Section tone="white" divider={false} aria-label="On the ground">
         <PhotoStrip items={c.strip} />
       </Section>
 
       {/* Services on this project */}
-      <Section tone="paper" aria-labelledby="svc-title">
+      <Section tone="paper" divider={false} aria-labelledby="svc-title">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
           <Eyebrow id="svc-title" className="lg:col-span-3">
             Services on this project
@@ -94,10 +94,9 @@ export default function ProjectPage() {
         </div>
       </Section>
 
-      {/* Next project + mini skyline */}
+      {/* Next project */}
       <Section tone="paper" className="pt-0" aria-label="Next project">
         <NextRow label="Next project" to={`/projects/${next.slug}`} title={projectName(next)} meta={next.mode} />
-        <Skyline items={nearby} height="clamp(220px, 22vw, 320px)" compact className="mt-7 lg:max-w-3xl" />
       </Section>
 
       <ClosingCta />

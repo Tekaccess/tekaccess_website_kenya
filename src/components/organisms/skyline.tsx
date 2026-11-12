@@ -7,8 +7,8 @@ import { cn, formatNumber } from "@/lib/utils";
 const CAPTION_H = "4.25rem"; // fixed so the ground line sits exactly under every photo
 
 /**
- * Storey's signature skyline, rebuilt for projects: photo columns stand on one
- * continuous ink ground line, height proportional to route distance, sorted short →
+ * Project skyline: photo columns stand on one
+ * continuous ink ground line, height proportional to route distance, sorted short to
  * tall. Columns wipe up from the ground (0.9s, 60ms stagger), km labels fade in 0.55s
  * later. Phones: horizontal snap-scroll with the same proportions and line.
  */
@@ -25,7 +25,7 @@ export function Skyline({
   compact?: boolean;
   className?: string;
   priority?: boolean;
-  /** Ground line runs edge to edge across the viewport (Storey hero); the section must clip overflow. */
+  /** Ground line runs edge to edge across the viewport; the section must clip overflow. */
   fullBleed?: boolean;
 }) {
   const max = Math.max(...items.map((c) => c.km));
@@ -78,7 +78,7 @@ export function Skyline({
                     {projectName(c)}
                   </p>
                   <p className="mt-0.5 truncate text-micro text-muted">
-                    {c.mode} · {c.countries}
+                    {c.mode}, {c.countries}
                   </p>
                 </div>
               </Link>
@@ -86,7 +86,7 @@ export function Skyline({
           })}
         </div>
       </div>
-      <p className="mt-2 text-micro text-muted lg:hidden">Swipe to see every project →</p>
+      <p className="mt-2 text-micro text-muted lg:hidden">Swipe to see every project</p>
     </div>
   );
 }

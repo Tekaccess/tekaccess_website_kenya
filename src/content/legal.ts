@@ -6,7 +6,7 @@ export type LegalDoc = {
   sections: { id: string; title: string; body: string[] }[];
 };
 
-// TODO(real): placeholder legal text written in plain language. Have it reviewed by
+// TODO: placeholder legal text written in plain language. Have it reviewed by
 // counsel before launch; it is not legal advice.
 export const legal: LegalDoc[] = [
   {
@@ -18,7 +18,7 @@ export const legal: LegalDoc[] = [
       {
         id: "who-we-are",
         title: "Who we are",
-        body: ["TekAccess Ltd, a logistics and raw-materials supply company based in Kigali, Rwanda, is responsible for this website and the information you send through it."],
+        body: ["TekAccess Ltd, a logistics and raw materials supply company based in Kigali, Rwanda, is responsible for this website and the information you send through it."],
       },
       {
         id: "what-we-collect",
@@ -37,14 +37,14 @@ export const legal: LegalDoc[] = [
         id: "who-we-share-it-with",
         title: "Who we share it with",
         body: [
-          "We never sell your details. The quote form is delivered to our inbox by a form-forwarding service (FormSubmit), which processes it only to deliver the message.",
+          "We never sell your details. The quote form is delivered to our inbox by a form forwarding service (FormSubmit), which processes it only to deliver the message.",
           "When you become a client, shipment details are shared with the carriers and authorities a delivery legally requires.",
         ],
       },
       {
         id: "how-long-we-keep-it",
         title: "How long we keep it",
-        body: ["As long as needed to answer you and to meet record-keeping duties under Rwandan law, then deleted."],
+        body: ["As long as needed to answer you and to meet record keeping duties under Rwandan law, then deleted."],
       },
       {
         id: "your-rights",

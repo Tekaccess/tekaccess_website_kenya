@@ -5,14 +5,14 @@ import { Img } from "@/components/atoms/media";
 import { NumberedRow } from "@/components/molecules/rows";
 import { Page } from "@/components/templates/page";
 import { Skyline } from "@/components/organisms/skyline";
-import { ClosingCta } from "@/components/organisms/blocks";
-import { AboutTeaser, FaqSection, InsightsRow, InstitutionsList } from "@/components/organisms/sections";
+import { ClosingCta, FiguresRow } from "@/components/organisms/blocks";
+import { AboutTeaser, FaqSection, BlogRow, InstitutionsList } from "@/components/organisms/sections";
 import { JourneySteps } from "@/components/organisms/journey";
 import { projectsByDistance } from "@/content/projects";
 import { services } from "@/content/services";
 import { figures } from "@/content/company";
 import { faqsFor } from "@/content/faqs";
-import { staticInsights } from "@/content/insights";
+import { staticPosts } from "@/content/posts";
 import { site } from "@/content/site";
 
 const orgLd = {
@@ -32,14 +32,14 @@ const orgLd = {
 export default function Home() {
   return (
     <Page meta={{ title: "Premium Logistics Solutions", description: site.description, path: "/", jsonLd: orgLd }}>
-      {/* 1 · Hero + project skyline */}
+      {/* Hero + project skyline */}
       <section aria-labelledby="hero-title" className="overflow-hidden bg-paper pb-12 pt-[calc(var(--header-h)+4rem)] tablet:pb-14 tablet:pt-[calc(var(--header-h)+5.5rem)]">
         <Container>
           <Heading
             as="h1"
             id="hero-title"
             size="display-xl"
-            lead={<>End-to-End <span className="text-accent">Logistics</span></>}
+            lead={<>End to End <span className="text-accent">Logistics</span></>}
             quiet="You Can Trust."
             quietClassName="block text-ink"
             reveal={false}
@@ -47,7 +47,7 @@ export default function Home() {
           />
           <div className="relative z-10 mt-6 tablet:mt-8 lg:max-w-[calc(50%-0.625rem)]" data-reveal="fade" data-delay="0.35">
             <p className="text-[1.0625rem] leading-relaxed text-body">
-              On Time, Every Time. Experience peak supply chain efficiency with TekAccess. Our precision-led logistics solutions empower your business to move faster and further.
+              On Time, Every Time. Experience peak supply chain efficiency with TekAccess. Our precision led logistics solutions empower your business to move faster and further.
             </p>
             <div className="mt-6 flex flex-col items-start gap-5">
               <LinkButton to="/services" variant="accent">
@@ -60,7 +60,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 3 · Statement + figures — measured 1:1 from Storey's "About" block */}
+      {/* Statement + figures */}
       <Section
         tone="night"
         space="none"
@@ -71,36 +71,22 @@ export default function Home() {
           <p className="text-[15px] font-medium leading-[1.3] tracking-[-0.01em] text-on-night">Since 2019</p>
           <Heading
             id="about-title"
-            lead="Founded on integrity and excellence, TekAccess is a trusted logistics and transport solutions provider specializing in high-performance supply chain operations."
+            lead="Founded on integrity and excellence, TekAccess is a trusted logistics and transport solutions provider specializing in high performance supply chain operations."
             quiet="Efficient. Reliable. Scalable."
             quietClassName="block text-signal"
             className="max-w-[920px] text-white text-[32px] leading-[1.05] tracking-[-0.04em] [text-wrap:pretty] tablet:text-[40px] desktop:col-span-3 desktop:text-[48px]"
           />
         </div>
-        <ul className="mt-6 grid grid-cols-2 gap-y-9 tablet:mt-8 tablet:grid-cols-4 tablet:gap-y-0 desktop:mt-[44px]" data-reveal="stagger">
-          {figures.map((f) => (
-            <li key={f.label} className="flex flex-col gap-[14px] tablet:gap-[18px]">
-              <p
-                data-reveal="count"
-                className="text-[38px] font-medium leading-none tracking-[-0.045em] text-white tabular tablet:text-[46px] desktop:text-[56px]"
-              >
-                {f.value}
-              </p>
-              <p className="max-w-[220px] border-t border-white/25 pt-[14px] text-[16px] leading-[1.5] tracking-[-0.01em] text-on-night tablet:max-w-none tablet:pr-8 tablet:pt-[18px] tablet:text-[17px]">
-                {f.label}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <FiguresRow dark items={figures} className="mt-6 tablet:mt-8 desktop:mt-[44px]" />
       </Section>
 
-      {/* 2 · Clients */}
+      {/* Clients */}
       <InstitutionsList />
 
-      {/* 4 · Journey */}
+      {/* Journey */}
       <JourneySteps />
 
-      {/* 6 · Services */}
+      {/* Services */}
       <Section tone="paper" space="none" divider={false} aria-labelledby="services-title" className="py-12 tablet:py-16 desktop:py-[72px]">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
@@ -121,16 +107,16 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 7 · Project in focus */}
+      {/* Project in focus */}
       <AboutTeaser />
 
-      {/* 9 · FAQ */}
+      {/* FAQ */}
       <FaqSection items={faqsFor("general")} divider={false} />
 
-      {/* 10 · Insights */}
-      <InsightsRow posts={staticInsights} />
+      {/* Blog */}
+      <BlogRow posts={[...staticPosts].sort((a, b) => b.date - a.date)} />
 
-      {/* 11 · Closing */}
+      {/* Closing */}
       <ClosingCta />
     </Page>
   );

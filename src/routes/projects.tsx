@@ -51,7 +51,7 @@ export default function Projects() {
             <table className="w-full border-collapse text-left">
               <caption className="sr-only">TekAccess projects with mode, cargo and distance</caption>
               <thead>
-                <tr className="border-b border-ink/80">
+                <tr className="border-b border-[#ECEEF2]">
                   {cols.map((c) => (
                     <th
                       key={c.key}

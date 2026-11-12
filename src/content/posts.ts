@@ -11,7 +11,7 @@ export type Block =
   | { type: "tags"; text: string }
   | { type: "gallery"; photos: PhotoKey[] };
 
-export type Insight = {
+export type Post = {
   slug: string;
   title: string;
   category: Category;
@@ -26,13 +26,15 @@ export type Insight = {
   readMinutes: number;
   /** Firestore posts whose title contains any of these words are this post; the built-in copy is shown instead. */
   supersededBy?: string[];
+  /** Firestore document id the old site linked to (/blog/<id>). */
+  oldId?: string;
 };
 
 const d = (s: string) => new Date(s).getTime();
 
 // Static posts. ERP launch, Kwibuka 32, Community impact, EDCL and Nourishing are the original
 // posts word for word; CHUK, lab chemicals and RAB are new write-ups of photos from the old site.
-export const staticInsights: Insight[] = [
+export const staticPosts: Post[] = [
   {
     // Original post, word for word (live tekaccess.rw build, static post "tekaccess-erp-launch").
     slug: "tekaccess-erp-launch",
@@ -62,7 +64,7 @@ export const staticInsights: Insight[] = [
       },
       {
         "type": "p",
-        "text": "Designed to connect key areas of the business, from finance and fleet operations to procurement, human resources, sales, and field operations, the ERP brings information and processes together in one integrated system. It gives teams greater visibility, supports faster decision-making, and creates a stronger foundation for managing a growing business."
+        "text": "Designed to connect key areas of the business, from finance and fleet operations to procurement, human resources, sales, and field operations, the ERP brings information and processes together in one integrated system. It gives teams greater visibility, supports faster decision making, and creates a stronger foundation for managing a growing business."
       },
       {
         "type": "p",
@@ -122,6 +124,7 @@ export const staticInsights: Insight[] = [
   {
     // Original post, word for word (Firestore blogs/WfjTgckGDIdR2EOtyNc4).
     slug: "community-impact",
+    oldId: "WfjTgckGDIdR2EOtyNc4",
     supersededBy: ["community impact"],
     title: "COMMUNITY IMPACT",
     category: "Community",
@@ -144,7 +147,7 @@ export const staticInsights: Insight[] = [
     cover: "kwibukaTeam",
     coverCaption: "Tekaccess Team at Memorial",
     readMinutes: 3,
-    // Original article, word for word (Tekaccess1 staticBlogs.ts).
+    // Original article, word for word (original site).
     blocks: [
       {
             "type": "p",
@@ -186,7 +189,7 @@ export const staticInsights: Insight[] = [
       },
       {
             "type": "p",
-            "text": "Today, Rwanda stands as a beacon of hope and transformation. The progress seen in every sector—from technology to logistics—is a testament to the strength of a united people. We are proud to contribute to this transformation and remain dedicated to our role in Rwanda's continued development."
+            "text": "Today, Rwanda stands as a beacon of hope and transformation. The progress seen in every sector, from technology to logistics, is a testament to the strength of a united people. We are proud to contribute to this transformation and remain dedicated to our role in Rwanda's continued development."
       },
       {
             "type": "p",
@@ -200,7 +203,7 @@ export const staticInsights: Insight[] = [
   },
   {
     slug: "infection-prevention-supplies-chuk-chub",
-    title: "Delivering infection-prevention supplies to CHUK and CHUB",
+    title: "Delivering infection prevention supplies to CHUK and CHUB",
     category: "Deliveries",
     date: d("2026-03-10"),
     author: "TekAccess Team",
@@ -210,7 +213,7 @@ export const staticInsights: Insight[] = [
     blocks: [
       {
         type: "p",
-        text: "TekAccess delivered infection-prevention supplies to the University Teaching Hospitals of Kigali (CHUK) and Butare (CHUB). Health logistics leaves no room for a missing carton, so every consignment was counted at loading and signed for on arrival.",
+        text: "TekAccess delivered infection prevention supplies to the University Teaching Hospitals of Kigali (CHUK) and Butare (CHUB). Health logistics leaves no room for a missing carton, so every consignment was counted at loading and signed for on arrival.",
       },
       { type: "h2", text: "Why it matters" },
       { type: "p", text: "Infection prevention depends on supplies being on the shelf before they are needed. Our job was to make sure they were." },
@@ -219,6 +222,7 @@ export const staticInsights: Insight[] = [
   {
     // Original post, word for word (Firestore blogs/eUJgBH6gbfIUDuyawoyI); the live Firestore copy replaces it when connected.
     slug: "hot-water-solutions-edcl",
+    oldId: "eUJgBH6gbfIUDuyawoyI",
     supersededBy: ["edcl", "hot water"],
     title: "EMPOWERING HOMES WITH SUSTAINABLE HOT WATER SOLUTIONS IN PARTNERSHIP WITH ENERGY DEVELOPMENT CORPORATION LIMITED (EDCL)",
     category: "Partnerships",
@@ -229,12 +233,12 @@ export const staticInsights: Insight[] = [
     readMinutes: 1,
     blocks: [
       { type: "p", text: "Installed 10,000+ liters of solar water heaters in Rwandan homes." },
-      { type: "p", text: "Delivering sustainable, cost-saving, and eco-friendly hot water solutions through innovative solar technology." },
+      { type: "p", text: "Delivering sustainable, cost saving, and eco friendly hot water solutions through innovative solar technology." },
     ],
   },
   {
     slug: "laboratory-chemicals-research",
-    title: "High-quality laboratory chemicals for Rwandan research",
+    title: "High quality laboratory chemicals for Rwandan research",
     category: "Deliveries",
     date: d("2026-01-20"),
     author: "TekAccess Team",
@@ -251,6 +255,7 @@ export const staticInsights: Insight[] = [
   {
     // Original post, word for word (Firestore blogs/oU0KPkAKqdvjlfDHFDiB).
     slug: "nourishing-rwandas-future",
+    oldId: "oU0KPkAKqdvjlfDHFDiB",
     supersededBy: ["nourishing"],
     title: "NOURISHING RWANDA’S FUTURE WITH TEKACCESS",
     category: "Community",
@@ -262,7 +267,7 @@ export const staticInsights: Insight[] = [
     blocks: [
       { type: "p", text: "When nutrition meets education, children thrive." },
       { type: "p", text: "Supplied 2,961+ metric tons of quality food to 230 schools across 27 sectors in Gatsibo, Kirehe and Nyaruguru districts.\nReaching 326,000+ students." },
-      { type: "p", text: "Together, we’re not just feeding students— we’re empowering Rwanda’s future" },
+      { type: "p", text: "Together, we’re not just feeding students, we’re empowering Rwanda’s future" },
     ],
   },
   {

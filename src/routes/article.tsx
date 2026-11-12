@@ -11,8 +11,8 @@ import { Page } from "@/components/templates/page";
 import { ClosingCta } from "@/components/organisms/blocks";
 import { SectionHead } from "@/components/organisms/blocks";
 import { TextLink } from "@/components/atoms/button";
-import { sanitizeHtml, useInsights } from "@/data/insights";
-import type { Block, Insight } from "@/content/insights";
+import { sanitizeHtml, usePosts } from "@/data/posts";
+import type { Block, Post } from "@/content/posts";
 import { site } from "@/content/site";
 import { formatDate } from "@/lib/utils";
 import NotFound from "./not-found";
@@ -77,8 +77,8 @@ function ReadingProgress({ target }: { target: React.RefObject<HTMLElement> }) {
   return <div ref={bar} aria-hidden className="fixed inset-x-0 top-0 z-[45] h-0.5 origin-left scale-x-0 bg-accent" />;
 }
 
-function Share({ post }: { post: Insight }) {
-  const url = `${site.url}/insights/${post.slug}`;
+function Share({ post }: { post: Post }) {
+  const url = `${site.url}/blog/${post.slug}`;
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(url);
@@ -105,9 +105,9 @@ function Share({ post }: { post: Insight }) {
 
 export default function Article() {
   const { slug = "" } = useParams();
-  const { posts, pending } = useInsights();
+  const { posts, pending } = usePosts();
   const body = useRef<HTMLElement>(null);
-  const i = posts.findIndex((p) => p.slug === slug);
+  const i = posts.findIndex((p) => p.slug === slug || p.oldId === slug);
   const post = posts[i];
   const html = useMemo(() => (post?.html ? sanitizeHtml(post.html) : ""), [post]);
 
@@ -133,7 +133,7 @@ export default function Article() {
       meta={{
         title: post.title,
         description: post.excerpt,
-        path: `/insights/${post.slug}`,
+        path: `/blog/${post.slug}`,
         type: "article",
         image: post.cover ? undefined : post.coverUrl,
         jsonLd: {
@@ -152,7 +152,7 @@ export default function Article() {
       <header className="bg-paper pt-[calc(var(--header-h)+3.5rem)] tablet:pt-[calc(var(--header-h)+5rem)]">
         <Container>
           <div data-reveal="fade">
-            <Breadcrumb items={[{ label: "Insights", to: "/insights" }, { label: post.category, to: `/insights?c=${post.category}` }, { label: "Note" }]} />
+            <Breadcrumb items={[{ label: "Blog", to: "/blog" }, { label: post.category, to: `/blog?c=${post.category}` }, { label: "Note" }]} />
           </div>
           <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-8">
             <h1 className="animate-fade-in text-h1 font-medium text-ink tablet:text-display lg:col-span-8">
@@ -210,13 +210,13 @@ export default function Article() {
 
       {next && next.slug !== post.slug && (
         <Section tone="paper" space="sm" className="pt-0" aria-label="Next post">
-          <NextRow label="Next post" to={`/insights/${next.slug}`} title={next.title} />
+          <NextRow label="Next post" to={`/blog/${next.slug}`} title={next.title} />
         </Section>
       )}
 
       {more.length > 0 && (
         <Section tone="white" aria-labelledby="more-title">
-          <SectionHead lead={<span id="more-title">More posts.</span>} action={<TextLink to="/insights" arrow>All posts</TextLink>} />
+          <SectionHead lead={<span id="more-title">More posts.</span>} action={<TextLink to="/blog" arrow>All posts</TextLink>} />
           <div className="grid gap-x-8 gap-y-7 tablet:grid-cols-2 lg:grid-cols-3" data-reveal="stagger">
             {more.map((p) => (
               <ArticleCard key={p.slug} post={p} />

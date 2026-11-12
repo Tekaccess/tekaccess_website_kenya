@@ -9,14 +9,14 @@ import { ArticleCard } from "@/components/molecules/cards";
 import { FactList } from "@/components/molecules/rows";
 import { SectionHead } from "./blocks";
 import { institutions } from "@/content/company";
-import type { Insight } from "@/content/insights";
+import type { Post } from "@/content/posts";
 import type { PhotoKey } from "@/content/images";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 /**
  * Clients on the navy band: real logos on white tiles, name + what we delivered,
- * Storey-style ink rule above each entry. Tiles rise in one after another on scroll.
+ * Ink rule above each entry. Tiles rise in one after another on scroll.
  */
 export function InstitutionsList() {
   return (
@@ -132,21 +132,21 @@ export function FaqSection({
   );
 }
 
-/** Three latest insights. */
-export function InsightsRow({ posts, lead = "Our Proven Track Record.", quiet, label = "Past Achievements" }: { posts: Insight[]; lead?: string; quiet?: string; label?: string }) {
+/** Three latest blog posts. */
+export function BlogRow({ posts, lead = "Our Proven Track Record.", quiet, label = "Past Achievements" }: { posts: Post[]; lead?: string; quiet?: string; label?: string }) {
   return (
-    <Section tone="white" space="none" aria-labelledby="insights-row-title" className="border-line py-9 tablet:py-10 desktop:py-12">
+    <Section tone="white" space="none" aria-labelledby="blog-row-title" className="border-line py-14 tablet:py-16 desktop:py-20">
       <SectionHead
         label={label}
-        lead={<span id="insights-row-title">{lead}</span>}
+        lead={<span id="blog-row-title">{lead}</span>}
         quiet={quiet}
         action={
-          <TextLink to="/insights" arrow>
+          <TextLink to="/blog" arrow>
             All posts
           </TextLink>
         }
       />
-      <div className="grid gap-x-6 gap-y-8 tablet:grid-cols-2 lg:grid-cols-3 lg:gap-x-8" data-reveal="stagger">
+      <div className="mt-4 grid gap-x-8 gap-y-12 tablet:grid-cols-2 lg:grid-cols-3 lg:gap-x-12" data-reveal="stagger">
         {posts.slice(0, 3).map((p) => (
           <ArticleCard key={p.slug} post={p} ratio="2/1" compact />
         ))}
@@ -165,7 +165,7 @@ export function PhotoStrip({ items, className }: { items: { photo: PhotoKey; cap
             <div data-sky-photo className="overflow-hidden">
               <Img photo={s.photo} ratio="4/5" sizes="(min-width:1024px) 23vw, 46vw" className="rounded-none" />
             </div>
-            <p data-sky-num className="border-t border-ink pt-3 text-small text-muted">
+            <p data-sky-num className="border-t border-[#ECEEF2] pt-3 text-small text-muted">
               {s.caption}
             </p>
           </li>
@@ -180,7 +180,7 @@ export function PhotoStrip({ items, className }: { items: { photo: PhotoKey; cap
  * Horizontal from tablet up, vertical on phones. Line draws in on scroll.
  */
 export function RouteLine({ stops, dark, endAccent }: { stops: { stop: string; note: string }[]; dark?: boolean; endAccent?: boolean }) {
-  const line = dark ? "bg-white/30" : "bg-ink";
+  const line = dark ? "bg-white/30" : "bg-[#ECEEF2]";
   return (
     <ol className="relative grid gap-8 tablet:flex tablet:justify-between tablet:gap-4">
       <span aria-hidden data-reveal="hairline" className={cn("absolute hidden h-px tablet:left-1.5 tablet:right-1.5 tablet:top-[5px] tablet:block", line)} />

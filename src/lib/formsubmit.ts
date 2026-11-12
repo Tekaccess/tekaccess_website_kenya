@@ -21,7 +21,7 @@ export async function submitQuote(data: QuotePayload): Promise<SubmitResult> {
       body: JSON.stringify({
         ...data,
         reference,
-        _subject: `Quote request ${reference} — ${data.material ?? ""} ${data.from ?? ""} → ${data.to ?? ""}`.trim(),
+        _subject: [`Consultation request ${reference}`, data.company, data.material, data.to && `to ${data.to}`].filter(Boolean).join(", "),
         _template: "table",
         _captcha: "false",
       }),

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getDb } from "@/lib/firebase";
 import { slugify } from "@/lib/utils";
-import { staticInsights, type Category, type Insight } from "@/content/insights";
+import { staticPosts, type Category, type Post } from "@/content/posts";
 
 const KNOWN: Category[] = ["Community", "Deliveries", "Partnerships", "Operations"];
 
@@ -16,7 +16,7 @@ const PROPER: [RegExp, string | ((m: string) => string)][] = [
   [/\bkwibuka\b/g, "Kwibuka"],
 ];
 
-/** "EMPOWERING HOMES WITH … (EDCL)" → "Empowering homes with … (EDCL)". Leaves mixed-case titles alone. */
+/** "EMPOWERING HOMES WITH … (EDCL)" becomes "Empowering homes with … (EDCL)". Leaves mixed-case titles alone. */
 export function tidyTitle(t: string) {
   if (t !== t.toUpperCase()) return t;
   let s = t.toLowerCase();
@@ -39,7 +39,7 @@ const guessCategory = (text: string): Category => {
   return "Operations";
 };
 
-function fromDoc(id: string, d: Record<string, unknown>): Insight | null {
+function fromDoc(id: string, d: Record<string, unknown>): Post | null {
   const raw = typeof d.title === "string" ? d.title.trim() : "";
   if (!raw) return null;
   const title = tidyTitle(raw);
@@ -59,12 +59,12 @@ function fromDoc(id: string, d: Record<string, unknown>): Insight | null {
   };
 }
 
-let cache: Promise<Insight[]> | null = null;
+let cache: Promise<Post[]> | null = null;
 
 /** Static posts merged with Firestore posts (if configured), newest first. Never rejects. */
-export function loadInsights(): Promise<Insight[]> {
+export function loadPosts(): Promise<Post[]> {
   cache ??= (async () => {
-    let remote: Insight[] = [];
+    let remote: Post[] = [];
     try {
       const db = await getDb();
       if (db) {
@@ -73,31 +73,31 @@ export function loadInsights(): Promise<Insight[]> {
           Promise.all(["blogs", "blog"].map((c) => getDocs(collection(db, c)))),
           new Promise<never>((_, rej) => setTimeout(() => rej(new Error("timeout")), 6000)),
         ]);
-        remote = snaps.flatMap((s) => s.docs.map((doc) => fromDoc(doc.id, doc.data()))).filter((x): x is Insight => !!x);
+        remote = snaps.flatMap((s) => s.docs.map((doc) => fromDoc(doc.id, doc.data()))).filter((x): x is Post => !!x);
       }
     } catch (e) {
-      console.warn("Insights: Firestore unavailable, showing built-in posts.", e);
+      console.warn("Blog: Firestore unavailable, showing built-in posts.", e);
     }
     // Built-in copies of Firestore posts win (same words, stable URLs); new admin posts still appear.
-    const known = staticInsights.flatMap((p) => p.supersededBy ?? []);
+    const known = staticPosts.flatMap((p) => p.supersededBy ?? []);
     const fresh = remote.filter((r) => !known.some((k) => r.title.toLowerCase().includes(k)));
-    return [...fresh, ...staticInsights].sort((a, b) => b.date - a.date);
+    return [...fresh, ...staticPosts].sort((a, b) => b.date - a.date);
   })();
   return cache;
 }
 
-const builtIn = [...staticInsights].sort((a, b) => b.date - a.date);
+const builtIn = [...staticPosts].sort((a, b) => b.date - a.date);
 
 /**
  * Built-in posts render immediately (no skeleton, fast LCP); Firestore posts are
  * merged in when they arrive. `pending` is true until that merge finishes, so a page
  * looking for a Firestore-only slug can wait instead of showing a 404.
  */
-export function useInsights() {
-  const [state, setState] = useState<{ posts: Insight[]; pending: boolean }>({ posts: builtIn, pending: true });
+export function usePosts() {
+  const [state, setState] = useState<{ posts: Post[]; pending: boolean }>({ posts: builtIn, pending: true });
   useEffect(() => {
     let alive = true;
-    loadInsights().then((posts) => alive && setState({ posts, pending: false }));
+    loadPosts().then((posts) => alive && setState({ posts, pending: false }));
     return () => {
       alive = false;
     };

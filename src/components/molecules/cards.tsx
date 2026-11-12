@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Linkedin } from "lucide-react";
 import { Img } from "@/components/atoms/media";
-import type { Insight } from "@/content/insights";
+import type { Post } from "@/content/posts";
 import { initials, type Person } from "@/content/people";
 import { cn, formatDate } from "@/lib/utils";
 
-/** Borderless article entry: photo, category · date, title, excerpt. */
-export function ArticleCard({ post, className, ratio = "3/2", compact, sizes = "(min-width:1024px) 30vw, (min-width:810px) 45vw, 100vw" }: { post: Insight; className?: string; ratio?: string; compact?: boolean; sizes?: string }) {
+/** Borderless article entry: photo, category and date, title, excerpt. */
+export function ArticleCard({ post, className, ratio = "16/10", compact, sizes = "(min-width:1024px) 30vw, (min-width:810px) 45vw, 100vw" }: { post: Post; className?: string; ratio?: string; compact?: boolean; sizes?: string }) {
   return (
-    <Link to={`/insights/${post.slug}`} className={cn("group/card flex flex-col", className)}>
+    <Link to={`/blog/${post.slug}`} className={cn("group/card flex flex-col", className)}>
       <div className="overflow-hidden rounded-xs">
         <Img
           photo={post.cover}
@@ -19,19 +19,19 @@ export function ArticleCard({ post, className, ratio = "3/2", compact, sizes = "
           imgClassName="transition-transform duration-5 ease-out group-hover/card:scale-[1.04]"
         />
       </div>
-      <div className={cn("flex items-center justify-between gap-4 text-micro text-muted", compact ? "mt-3" : "mt-5")}>
+      <div className={cn("flex items-center justify-between gap-4 text-micro text-muted", compact ? "mt-4" : "mt-5")}>
         <span className="font-medium uppercase tracking-[0.08em]">{post.category}</span>
         <time dateTime={new Date(post.date).toISOString()}>{formatDate(post.date)}</time>
       </div>
-      <h3 className="mt-2 text-h4 font-medium text-ink transition-colors duration-2 group-hover/card:text-accent tablet:text-[1.375rem]">
+      <h3 title={post.title} className="mt-3 line-clamp-2 text-h4 font-medium leading-snug text-ink transition-colors duration-2 group-hover/card:text-accent tablet:text-[1.25rem]">
         {post.title}
       </h3>
-      <p className="mt-2 line-clamp-2 text-small text-body">{post.excerpt}</p>
+      <p className="mt-3 line-clamp-2 text-small leading-relaxed text-body">{post.excerpt}</p>
     </Link>
   );
 }
 
-/** Portrait (4:5), greyscale → colour on hover, name and role. Opens the person dialog. */
+/** Portrait (4:5), greyscale, colour on hover, name and role. Opens the person dialog. */
 export function PersonCard({ person, onOpen }: { person: Person; onOpen: () => void }) {
   return (
     <button type="button" onClick={onOpen} className="group/person flex w-full flex-col text-left" aria-haspopup="dialog">

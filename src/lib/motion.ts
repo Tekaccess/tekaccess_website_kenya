@@ -14,9 +14,9 @@ import {
  *   data-reveal="lines"     headline lines rise out of a mask (SplitText)
  *   data-reveal="fade"      fade + 24px rise
  *   data-reveal="stagger"   each direct child fades up in turn
- *   data-reveal="hairline"  1px rule draws left → right
+ *   data-reveal="hairline"  1px rule draws left to right
  *   data-reveal="count"     number counts up (keeps prefix/suffix, e.g. "1,480 km", "500+")
- *   data-reveal="sky"       Storey skyline: [data-sky-photo] wipe up from the ground line
+ *   data-reveal="sky"       skyline: [data-sky-photo] wipe up from the ground line
  *                           (0.9s, 60ms stagger), [data-sky-num] fade in 0.55s later
  *   data-reveal="image"     image unmasks upward and settles from 1.08 scale
  *   data-reveal="parallax"  image drifts ±6% while scrolling (desktop only)

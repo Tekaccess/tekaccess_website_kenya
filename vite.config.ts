@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { services } from "./src/content/services";
 import { projects } from "./src/content/projects";
-import { staticInsights } from "./src/content/insights";
+import { staticPosts } from "./src/content/posts";
 import { legal } from "./src/content/legal";
 import { site } from "./src/content/site";
 
@@ -20,8 +20,8 @@ function sitemap(): Plugin {
         "/projects",
         ...projects.map((c) => `/projects/${c.slug}`),
         "/about",
-        "/insights",
-        ...staticInsights.map((p) => `/insights/${p.slug}`),
+        "/blog",
+        ...staticPosts.map((p) => `/blog/${p.slug}`),
         "/contact",
         ...legal.map((l) => `/legal/${l.slug}`),
       ];

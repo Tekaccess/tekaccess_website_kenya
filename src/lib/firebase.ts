@@ -1,4 +1,4 @@
-// Firestore is loaded lazily, only by the Insights data layer, so other pages never pay for it.
+// Firestore is loaded lazily, only by the Blog data layer, so other pages never pay for it.
 // Web config is public by design (it ships in every client bundle, as on the old site); access is
 // governed by Firestore rules. Env vars override it, e.g. to point a country site at another project.
 const env = import.meta.env;

@@ -17,7 +17,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-/** "Rogers PARIS LYIMO" → "rogers-paris-lyimo" */
+/** "Rogers PARIS LYIMO" becomes "rogers-paris-lyimo" */
 export const slugify = (s: string) =>
   s
     .normalize("NFKD")

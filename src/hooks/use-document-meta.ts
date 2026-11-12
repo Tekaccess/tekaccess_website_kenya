@@ -35,7 +35,7 @@ const meta = (key: "name" | "property", k: string, v: string) =>
 /** Per-route title, description, canonical, Open Graph, Twitter and JSON-LD. */
 export function useDocumentMeta({ title, description, path, image, type = "website", jsonLd, noindex }: Meta) {
   useEffect(() => {
-    const full = path === "/" ? `${site.name} — ${title}` : `${title} — ${site.name}`;
+    const full = path === "/" ? `${site.name} | ${title}` : `${title} | ${site.name}`;
     const url = site.url + path;
     const img = (image ?? site.ogImage).startsWith("http") ? (image ?? site.ogImage) : site.url + (image ?? site.ogImage);
     document.title = full;

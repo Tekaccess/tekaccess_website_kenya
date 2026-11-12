@@ -42,7 +42,7 @@
     --danger: 196 30 40; /* #C41E28 */
 
     /* Motion */
-    --ease-out-expo: cubic-bezier(0.2, 0.7, 0.1, 1); /* Storey sky-rise curve */
+    --ease-out-expo: cubic-bezier(0.2, 0.7, 0.1, 1); /* sky-rise curve */
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --dur-1: 150ms;

@@ -9,7 +9,7 @@ export type Project = {
   to: string;
   mode: Mode;
   cargo: string;
-  km: number; // TODO(real): approximate route distances, confirm with operations
+  km: number; // TODO: approximate route distances, confirm with operations
   countries: string; // place label under the skyline column
   summary: string;
   facts: { label: string; value: string }[];
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     mode: "Ship",
     cargo: "Clinker, gypsum",
     km: 110,
-    countries: "Rwanda → DRC",
+    countries: "Rwanda to DRC",
     summary: "Clinker and gypsum by ship across Lake Kivu, a steady supply line for cement production on the western shore.",
     facts: [
       { label: "Mode", value: "Ship" },
@@ -74,8 +74,8 @@ export const projects: Project[] = [
     mode: "Truck",
     cargo: "Mixed cargo",
     km: 160,
-    countries: "Rwanda → DRC",
-    summary: "The short road west from Kigali to the Goma border, for project cargo and supplies into eastern DRC.", // TODO(real): confirm this project
+    countries: "Rwanda to DRC",
+    summary: "The short road west from Kigali to the Goma border, for project cargo and supplies into eastern DRC.", // TODO: confirm this project
     facts: [
       { label: "Mode", value: "Truck" },
       { label: "From", value: "Kigali, Rwanda" },
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     mode: "Truck",
     cargo: "Clinker",
     km: 1450,
-    countries: "Kenya → Rwanda",
+    countries: "Kenya to Rwanda",
     summary: "Clinker on the northern corridor from Kenyan producers through Uganda to Kigali.",
     facts: [
       { label: "Mode", value: "Truck" },
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     mode: "Truck",
     cargo: "Gypsum",
     km: 1650,
-    countries: "Kenya → Rwanda",
+    countries: "Kenya to Rwanda",
     summary: "Gypsum from Garissa's quarries by road through Kenya and Uganda to plants in Rwanda.",
     facts: [
       { label: "Mode", value: "Truck" },
@@ -243,7 +243,7 @@ export const projects: Project[] = [
     mode: "Truck",
     cargo: "Coal",
     km: 1900,
-    countries: "Tanzania → Rwanda",
+    countries: "Tanzania to Rwanda",
     summary: "Coal from the Songea basin north through Tanzania and across Rusumo to Kigali.",
     facts: [
       { label: "Mode", value: "Truck" },
@@ -280,11 +280,11 @@ export const projects: Project[] = [
   },
 ];
 
-/** Skyline order: shortest → tallest. */
+/** Skyline order: shortest to tallest. */
 export const projectsByDistance = [...projects].sort((a, b) => a.km - b.km);
 export const projectBySlug = (slug: string) => projects.find((c) => c.slug === slug);
 export const nextProject = (slug: string) => {
   const i = projectsByDistance.findIndex((c) => c.slug === slug);
   return projectsByDistance[(i + 1) % projectsByDistance.length];
 };
-export const projectName = (c: Project) => `${c.from} → ${c.to}`;
+export const projectName = (c: Project) => `${c.from} to ${c.to}`;

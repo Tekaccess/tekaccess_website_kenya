@@ -5,7 +5,7 @@ import { nav, site } from "@/content/site";
 const head = "text-[0.875rem] text-on-night/60";
 const link = "text-[0.9375rem] text-white transition-colors duration-2 hover:text-signal";
 
-/** Navy footer, continuous with the closing call to action above it (Storey layout). */
+/** Navy footer, continuous with the closing call to action above it. */
 export function SiteFooter() {
   return (
     <footer className="on-night bg-night pt-12 tablet:pt-14" aria-labelledby="footer-title">
@@ -18,7 +18,7 @@ export function SiteFooter() {
             <p className="max-w-[26rem] text-[1.125rem] font-medium leading-snug text-white">
               {site.footer}
             </p>
-            <p className="mt-3 text-[0.9375rem] text-on-night">TekAccess Global HQ · {site.address}</p>
+            <p className="mt-3 text-[0.9375rem] text-on-night">TekAccess Global HQ, {site.address}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 tablet:grid-cols-3 lg:col-span-7">
@@ -87,7 +87,7 @@ export function SiteFooter() {
             </li>
             <li>
               <a href={site.appUrl} className="transition-colors hover:text-white">
-                Staff sign-in
+                Staff sign in
               </a>
             </li>
           </ul>

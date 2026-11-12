@@ -3,14 +3,14 @@ import type { City } from "./geo";
 export type CountryCode = "rw" | "ug" | "ke" | "tz";
 
 /**
- * One entry per country site. `iso` matches the map data, `capital` is the marked city and `zoom`
- * enlarges the real map around it so small countries read clearly (shapes stay true).
+ * One entry per country site. `iso` matches the map data and `capital` is the main city.
+ * The hero map scales each country to the same on-screen size automatically.
  */
-export const countries: Record<CountryCode, { iso: string; name: string; capital: City; zoom: number }> = {
-  rw: { iso: "RWA", name: "Rwanda", capital: "Kigali", zoom: 2 },
-  ug: { iso: "UGA", name: "Uganda", capital: "Kampala", zoom: 1.5 },
-  ke: { iso: "KEN", name: "Kenya", capital: "Nairobi", zoom: 1.15 },
-  tz: { iso: "TZA", name: "Tanzania", capital: "Dodoma", zoom: 1 },
+export const countries: Record<CountryCode, { iso: string; name: string; capital: City }> = {
+  rw: { iso: "RWA", name: "Rwanda", capital: "Kigali" },
+  ug: { iso: "UGA", name: "Uganda", capital: "Kampala" },
+  ke: { iso: "KEN", name: "Kenya", capital: "Nairobi" },
+  tz: { iso: "TZA", name: "Tanzania", capital: "Dodoma" },
 };
 
 /** Which country each route city is in (border towns count for both sides). */

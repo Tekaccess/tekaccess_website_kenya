@@ -19,7 +19,6 @@ export function Skyline({
   className,
   priority,
   fullBleed,
-  onActive,
 }: {
   items: Project[];
   height?: string;
@@ -28,8 +27,6 @@ export function Skyline({
   priority?: boolean;
   /** Ground line runs edge to edge across the viewport; the section must clip overflow. */
   fullBleed?: boolean;
-  /** Hover or focus on a column reports its project (used to light its route on the hero map). */
-  onActive?: (slug: string | null) => void;
 }) {
   const max = Math.max(...items.map((c) => c.km));
   const minShare = 0.34; // the shortest column still reads as a building, not a stub
@@ -53,10 +50,6 @@ export function Skyline({
               <Link
                 key={c.slug}
                 to={`/projects/${c.slug}`}
-                onMouseEnter={() => onActive?.(c.slug)}
-                onMouseLeave={() => onActive?.(null)}
-                onFocus={() => onActive?.(c.slug)}
-                onBlur={() => onActive?.(null)}
                 className="group/col flex w-[46vw] shrink-0 snap-start flex-col sm:w-[30vw] tablet:w-[23vw] lg:w-auto"
               >
                 <div className="flex flex-col justify-end" style={{ height }}>

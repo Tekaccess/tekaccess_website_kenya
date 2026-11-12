@@ -71,10 +71,9 @@ export default function About() {
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
             <Eyebrow id="ceo-title">{ceoMessage.label}</Eyebrow>
-            <p className="mt-4 text-body text-muted">{ceoMessage.intro}</p>
-            <blockquote className="mt-5">
-              <p data-reveal="lines" className="text-h3 font-medium text-ink">
-                “{ceoMessage.quote}”
+            <blockquote className="mt-4">
+              <p data-reveal="lines" className="text-h1 font-medium text-ink">
+                {ceoMessage.quote}
               </p>
             </blockquote>
             <div className="mt-5 space-y-3" data-reveal="stagger">
@@ -88,14 +87,6 @@ export default function About() {
               <p className="text-[1.0625rem] font-medium text-ink">{ceo.name}</p>
               <p className="text-small text-muted">{ceo.role}</p>
             </div>
-            <dl className="mt-6 grid grid-cols-3 gap-4" data-reveal="stagger">
-              {ceoMessage.impact.map((m) => (
-                <div key={m.label} className="border-t border-line pt-3">
-                  <dt className="text-small text-muted">{m.label}</dt>
-                  <dd className="mt-1 text-h4 font-medium text-ink">{m.val}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
       </Section>

@@ -6,8 +6,7 @@ import { FactList, NextRow, NumberedRow } from "@/components/molecules/rows";
 import { Page } from "@/components/templates/page";
 import { ClosingCta, FiguresRow, PageHead } from "@/components/organisms/blocks";
 import { Gallery } from "@/components/organisms/gallery";
-import { PhotoStrip, RouteLine } from "@/components/organisms/sections";
-import { ProjectMap } from "@/components/organisms/project-map";
+import { PhotoStrip } from "@/components/organisms/sections";
 import { Skyline } from "@/components/organisms/skyline";
 import { projectBySlug, projectName, projectsByDistance, nextProject } from "@/content/projects";
 import { serviceBySlug } from "@/content/services";
@@ -65,23 +64,6 @@ export default function ProjectPage() {
         </div>
       </Section>
 
-      {/* Crossing — dark band with map */}
-      <Section tone="night" aria-labelledby="crossing-title" className="overflow-hidden">
-        <div className="grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-8">
-          <div className="lg:col-span-6">
-            <h2 id="crossing-title" data-reveal="lines" className="text-h1 font-medium">
-              {c.mode === "Ship" ? "The crossing." : "The run."}{" "}
-              <span className="text-signal">{c.stops.length} handovers, one company.</span>
-            </h2>
-            <div className="mt-7">
-              <RouteLine stops={c.stops} dark />
-            </div>
-          </div>
-          <div className="lg:col-span-5 lg:col-start-8">
-            <ProjectMap focus={c.slug} />
-          </div>
-        </div>
-      </Section>
 
       <Section tone="paper" space="sm" aria-label="Figures">
         <FiguresRow

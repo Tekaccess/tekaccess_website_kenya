@@ -17,18 +17,13 @@ export const ceo: Person = {
   photo: p("murinzi-bertin"),
 };
 
+// Original CEO message, split back into the short quote + body format the page was designed for.
 export const ceoMessage = {
   label: "CEO'S MESSAGE",
-  intro: "Leading with vision, integrity, and a commitment to transforming logistics in Rwanda and beyond.",
-  // Original copy; "any delivery" corrected to "every delivery".
-  quote: "At TekAccess, we believe logistics is more than movement, it is trust, precision, and responsibility in action. Every client, every delivery, and every partnership is an opportunity to demonstrate excellence.",
+  quote: "Logistics is more than movement, it is trust, precision, and responsibility in action.",
   body: [
+    "Every client, every delivery, and every partnership is an opportunity to demonstrate excellence.",
     "We are committed to building solutions that strengthen industries, empower communities, and contribute to Rwanda’s growth story. Thank you for trusting us to move your world.",
-  ],
-  impact: [
-    { label: "Founded", val: "2019" },
-    { label: "Impact", val: "500+" },
-    { label: "Vision", val: "Excellence" },
   ],
 };
 

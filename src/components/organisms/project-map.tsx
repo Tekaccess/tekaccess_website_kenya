@@ -1,19 +1,19 @@
 import { useRef } from "react";
-import { corridors, type Corridor } from "@/content/corridors";
+import { projects, type Project } from "@/content/projects";
 import { cities, coast, countryLabels, lakes, project, scale, xy, type City } from "@/content/geo";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
-const dash: Record<Corridor["mode"], string | undefined> = { Truck: undefined, Rail: "6 5", Ship: "1.5 5" };
+const dash: Record<Project["mode"], string | undefined> = { Truck: undefined, Rail: "6 5", Ship: "1.5 5" };
 
 /**
  * Schematic East Africa map (dark band). Real city coordinates, simplified lakes and
  * coastline. Routes draw in on scroll (stroke-dashoffset). `focus` highlights one
- * corridor and dims the rest.
+ * project and dims the rest.
  */
-export function CorridorMap({ focus, className }: { focus?: string; className?: string }) {
+export function ProjectMap({ focus, className }: { focus?: string; className?: string }) {
   const root = useRef<SVGSVGElement>(null);
-  const list = focus ? [...corridors.filter((c) => c.slug !== focus), ...corridors.filter((c) => c.slug === focus)] : corridors;
+  const list = focus ? [...projects.filter((c) => c.slug !== focus), ...projects.filter((c) => c.slug === focus)] : projects;
   const used = new Set<City>(list.flatMap((c) => c.path));
 
   useGSAP(
@@ -40,7 +40,7 @@ export function CorridorMap({ focus, className }: { focus?: string; className?: 
   );
 
   return (
-    <svg ref={root} viewBox="0 0 600 560" role="img" aria-label="Map of TekAccess corridors across East Africa" className={cn("h-auto w-full", className)}>
+    <svg ref={root} viewBox="0 0 600 560" role="img" aria-label="Map of TekAccess projects across East Africa" className={cn("h-auto w-full", className)}>
       {/* coastline + ocean */}
       <path
         d={`M${coast.map((p) => project(p).join(",")).join(" L")} L600,560 L600,0 Z`}

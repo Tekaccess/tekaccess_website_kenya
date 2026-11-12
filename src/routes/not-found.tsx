@@ -9,7 +9,7 @@ import { RouteLine } from "@/components/organisms/sections";
 
 const helpful = [
   { no: "01", title: "Services", summary: "Supply and transport, six ways.", to: "/services" },
-  { no: "02", title: "Corridors", summary: "Where our loads move.", to: "/corridors" },
+  { no: "02", title: "Projects", summary: "Where our loads move.", to: "/projects" },
   { no: "03", title: "About", summary: "The team you can call.", to: "/about" },
   { no: "04", title: "Contact", summary: "Request a quote.", to: "/contact" },
 ];

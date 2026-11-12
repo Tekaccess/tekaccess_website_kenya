@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate, type RouteObject } from "react-router-do
 import { RootLayout } from "./root-layout";
 import { RouteError } from "./route-error";
 import { pages } from "./preload";
-import { BlogRedirect, ExternalRedirect } from "./redirects";
+import { BlogRedirect, CorridorRedirect, ExternalRedirect } from "./redirects";
 
 const lazy = (load: () => Promise<{ default: React.ComponentType }>) => async () => ({ Component: (await load()).default });
 
@@ -14,8 +14,9 @@ const routes: RouteObject[] = [
       { index: true, lazy: lazy(pages.home) },
       { path: "services", lazy: lazy(pages.services) },
       { path: "services/:slug", lazy: lazy(pages.service) },
-      { path: "corridors", lazy: lazy(pages.corridors) },
-      { path: "corridors/:slug", lazy: lazy(pages.corridor) },
+      { path: "projects", lazy: lazy(pages.projects) },
+      { path: "projects/:slug", lazy: lazy(pages.project) },
+      { path: "corridors/:slug?", element: <CorridorRedirect /> },
       { path: "about", lazy: lazy(pages.about) },
       { path: "insights", lazy: lazy(pages.insights) },
       { path: "insights/:slug", lazy: lazy(pages.article) },

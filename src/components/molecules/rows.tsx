@@ -101,7 +101,7 @@ export function Stat({ value, label, dark, className }: { value: string; label: 
   );
 }
 
-/** Large "Next service / Next corridor" row. */
+/** Large "Next service / Next project" row. */
 export function NextRow({ label, to, title, meta }: { label: string; to: string; title: string; meta?: string }) {
   return (
     <div>

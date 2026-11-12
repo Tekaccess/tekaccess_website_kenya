@@ -3,7 +3,7 @@ import type { City } from "./geo";
 
 export type Mode = "Truck" | "Ship" | "Rail";
 
-export type Corridor = {
+export type Project = {
   slug: string;
   from: string;
   to: string;
@@ -20,10 +20,10 @@ export type Corridor = {
   gallery: PhotoKey[];
   strip: { photo: PhotoKey; caption: string }[];
   services: string[]; // service slugs
-  path: City[]; // cities in travel order, drawn by CorridorMap
+  path: City[]; // cities in travel order, drawn by ProjectMap
 };
 
-export const corridors: Corridor[] = [
+export const projects: Project[] = [
   {
     slug: "gisenyi-katana",
     from: "Gisenyi",
@@ -43,7 +43,7 @@ export const corridors: Corridor[] = [
       { label: "Client", value: "Cement production" },
     ],
     started: {
-      title: "When we started this lane",
+      title: "When we started this project",
       text: "A cement plant on the western shore needed clinker and gypsum without the long road around the lake. The water was the shortest road, so we built a crossing around it.",
     },
     today: {
@@ -75,7 +75,7 @@ export const corridors: Corridor[] = [
     cargo: "Mixed cargo",
     km: 160,
     countries: "Rwanda → DRC",
-    summary: "The short road west from Kigali to the Goma border, for project cargo and supplies into eastern DRC.", // TODO(real): confirm this corridor
+    summary: "The short road west from Kigali to the Goma border, for project cargo and supplies into eastern DRC.", // TODO(real): confirm this project
     facts: [
       { label: "Mode", value: "Truck" },
       { label: "From", value: "Kigali, Rwanda" },
@@ -85,7 +85,7 @@ export const corridors: Corridor[] = [
       { label: "Border", value: "Rubavu / Goma" },
     ],
     started: {
-      title: "When we started this lane",
+      title: "When we started this project",
       text: "Clients in eastern DRC needed one partner on both sides of the border rather than a handover at the gate.",
     },
     today: {
@@ -127,7 +127,7 @@ export const corridors: Corridor[] = [
       { label: "Line", value: "Central line" },
     ],
     started: {
-      title: "When we started this lane",
+      title: "When we started this project",
       text: "Volumes grew past what road alone could carry economically, so we moved the long middle stretch onto rail.",
     },
     today: {
@@ -169,7 +169,7 @@ export const corridors: Corridor[] = [
       { label: "Borders", value: "Malaba, Gatuna" },
     ],
     started: {
-      title: "When we started this lane",
+      title: "When we started this project",
       text: "Rwandan grinding plants needed a dependable clinker supply from Kenya, with one company accountable from producer to silo.",
     },
     today: {
@@ -212,7 +212,7 @@ export const corridors: Corridor[] = [
       { label: "Borders", value: "Malaba, Gatuna" },
     ],
     started: {
-      title: "When we started this lane",
+      title: "When we started this project",
       text: "We built relationships with several Garissa miners so that one slow quarry would never stop a plant.",
     },
     today: {
@@ -254,7 +254,7 @@ export const corridors: Corridor[] = [
       { label: "Border", value: "Rusumo" },
     ],
     started: {
-      title: "When we started this lane",
+      title: "When we started this project",
       text: "Industrial kilns in Rwanda needed coal of a steady grade, delivered on a rhythm they could plan around.",
     },
     today: {
@@ -281,10 +281,10 @@ export const corridors: Corridor[] = [
 ];
 
 /** Skyline order: shortest → tallest. */
-export const corridorsByDistance = [...corridors].sort((a, b) => a.km - b.km);
-export const corridorBySlug = (slug: string) => corridors.find((c) => c.slug === slug);
-export const nextCorridor = (slug: string) => {
-  const i = corridorsByDistance.findIndex((c) => c.slug === slug);
-  return corridorsByDistance[(i + 1) % corridorsByDistance.length];
+export const projectsByDistance = [...projects].sort((a, b) => a.km - b.km);
+export const projectBySlug = (slug: string) => projects.find((c) => c.slug === slug);
+export const nextProject = (slug: string) => {
+  const i = projectsByDistance.findIndex((c) => c.slug === slug);
+  return projectsByDistance[(i + 1) % projectsByDistance.length];
 };
-export const corridorName = (c: Corridor) => `${c.from} → ${c.to}`;
+export const projectName = (c: Project) => `${c.from} → ${c.to}`;

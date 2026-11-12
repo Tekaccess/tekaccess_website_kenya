@@ -43,7 +43,7 @@ export default function QuoteSent() {
             <LinkButton to="/" variant="ink">
               Back to the home page
             </LinkButton>
-            <TextLink to="/corridors">See our corridors</TextLink>
+            <TextLink to="/projects">See our projects</TextLink>
           </div>
           <p className="mt-6 text-small text-muted">
             Urgent? Call or WhatsApp{" "}

@@ -15,7 +15,7 @@ export type Service = {
   route: { stop: string; note: string }[];
   photos: PhotoKey[]; // carousel, first is the hero
   strip: { photo: PhotoKey; caption: string }[];
-  corridors: string[]; // corridor slugs this service runs on
+  projects: string[]; // project slugs this service runs on
 };
 
 const included = {
@@ -81,7 +81,7 @@ export const services: Service[] = [
       { photo: "gypsumTrucks", caption: "Weighed and covered" },
       { photo: "cementSilos", caption: "Delivery at the plant" },
     ],
-    corridors: ["garissa-kigali", "dodoma-kigoma", "gisenyi-katana"],
+    projects: ["garissa-kigali", "dodoma-kigoma", "gisenyi-katana"],
   },
   {
     slug: "coal-supply",
@@ -122,7 +122,7 @@ export const services: Service[] = [
       { photo: "fleetYard", caption: "Covered for the road" },
       { photo: "cementPlant", caption: "Delivery at the plant" },
     ],
-    corridors: ["songea-kigali"],
+    projects: ["songea-kigali"],
   },
   {
     slug: "clinker-supply",
@@ -163,16 +163,16 @@ export const services: Service[] = [
       { photo: "kivuBoats", caption: "Across Lake Kivu" },
       { photo: "cementSilos", caption: "Delivery at the plant" },
     ],
-    corridors: ["kenya-kigali", "gisenyi-katana"],
+    projects: ["kenya-kigali", "gisenyi-katana"],
   },
   {
     slug: "truck-delivery",
     no: "04",
     group: "Transport",
     title: "Truck delivery",
-    summary: "Regional lanes to Tanzania, Rwanda, Kenya, DRC and Uganda.",
+    summary: "Regional projects in Tanzania, Rwanda, Kenya, DRC and Uganda.",
     lead: "Operational excellence and precision logistics for large industrial projects. Regional transport across Tanzania, Rwanda, Kenya, DRC and Uganda.",
-    intro: "Our own fleet runs the region's main lanes, so we plan capacity instead of hoping to find it.",
+    intro: "Our own fleet runs every one of our projects across the region, so we plan capacity instead of hoping to find it.",
     howSource: {
       title: "How we plan it",
       text: "Each load gets a route, a truck and a driver before it is collected. We check axle loads at the weighbridge and keep paperwork ready for every border on the way.",
@@ -204,7 +204,7 @@ export const services: Service[] = [
       { photo: "fleetQuay", caption: "Ready to roll" },
       { photo: "hillsRoad", caption: "On the road" },
     ],
-    corridors: ["songea-kigali", "garissa-kigali", "kenya-kigali", "kigali-goma"],
+    projects: ["songea-kigali", "garissa-kigali", "kenya-kigali", "kigali-goma"],
   },
   {
     slug: "ship-delivery",
@@ -244,7 +244,7 @@ export const services: Service[] = [
       { photo: "kivuIsland", caption: "On the lake" },
       { photo: "cementSilos", caption: "Delivery at the plant" },
     ],
-    corridors: ["gisenyi-katana"],
+    projects: ["gisenyi-katana"],
   },
   {
     slug: "train-delivery",
@@ -284,7 +284,7 @@ export const services: Service[] = [
       { photo: "forestRoad", caption: "The last miles" },
       { photo: "cementPlant", caption: "Delivery at the plant" },
     ],
-    corridors: ["dodoma-kigoma"],
+    projects: ["dodoma-kigoma"],
   },
 ];
 

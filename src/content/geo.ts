@@ -1,4 +1,4 @@
-// Real coordinates (lon, lat) projected into the CorridorMap viewBox (600 × 560).
+// Real coordinates (lon, lat) projected into the ProjectMap viewBox (600 × 560).
 // Extent: lon 27°E–42°E, lat 2°N–12°S (west margin leaves room for Katana's label). Equirectangular is fine at this scale.
 const LON0 = 27, LON1 = 42, LAT0 = 2, LAT1 = -12, W = 600, H = 560;
 /** viewBox units per degree, used to size lakes. */

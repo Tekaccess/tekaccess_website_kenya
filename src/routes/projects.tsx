@@ -6,22 +6,22 @@ import { Img } from "@/components/atoms/media";
 import { Eyebrow } from "@/components/atoms/typography";
 import { Page } from "@/components/templates/page";
 import { ClosingCta, PageHead } from "@/components/organisms/blocks";
-import { corridors, corridorName, type Corridor } from "@/content/corridors";
+import { projects, projectName, type Project } from "@/content/projects";
 import { cn, formatNumber } from "@/lib/utils";
 
 type Key = "name" | "mode" | "cargo" | "km";
 const cols: { key: Key; label: string; className?: string }[] = [
-  { key: "name", label: "Corridor" },
+  { key: "name", label: "Project" },
   { key: "mode", label: "Mode" },
   { key: "cargo", label: "Cargo", className: "hidden tablet:table-cell" },
   { key: "km", label: "Distance", className: "text-right" },
 ];
-const val = (c: Corridor, k: Key) => (k === "name" ? corridorName(c) : k === "km" ? c.km : c[k]);
+const val = (c: Project, k: Key) => (k === "name" ? projectName(c) : k === "km" ? c.km : c[k]);
 
-export default function Corridors() {
+export default function Projects() {
   const [sort, setSort] = useState<{ key: Key; dir: 1 | -1 }>({ key: "km", dir: -1 });
   const rows = useMemo(
-    () => [...corridors].sort((a, b) => (val(a, sort.key) > val(b, sort.key) ? 1 : -1) * sort.dir),
+    () => [...projects].sort((a, b) => (val(a, sort.key) > val(b, sort.key) ? 1 : -1) * sort.dir),
     [sort],
   );
   const toggle = (key: Key) => setSort((s) => ({ key, dir: s.key === key ? (-s.dir as 1 | -1) : key === "km" ? -1 : 1 }));
@@ -29,28 +29,28 @@ export default function Corridors() {
   return (
     <Page
       meta={{
-        title: "Corridors",
-        description: "Six regular corridors across Rwanda, Tanzania, Kenya, DRC and Uganda: by road, across Lake Kivu and on Tanzania's central line.",
-        path: "/corridors",
+        title: "Projects",
+        description: "Six regular projects across Rwanda, Tanzania, Kenya, DRC and Uganda: by road, across Lake Kivu and on Tanzania's central line.",
+        path: "/projects",
       }}
     >
       <PageHead
-        label="Corridors"
-        lead="Six corridors, five countries."
+        label="Projects"
+        lead="Six projects, five countries."
         quiet="All run from one office in Kigali."
-        aside={<p className="text-[1.0625rem] text-body">Each corridor is listed with its mode, its cargo and its distance. Every one is run by the same team.</p>}
+        aside={<p className="text-[1.0625rem] text-body">Each project is listed with its mode, its cargo and its distance. Every one is run by the same team.</p>}
       />
 
       {/* Table */}
       <Section tone="white" space="none" aria-labelledby="table-title" className="border-line py-16 tablet:py-20 desktop:py-24">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-3">
-            <Eyebrow id="table-title">All corridors</Eyebrow>
+            <Eyebrow id="table-title">All projects</Eyebrow>
             <p className="mt-3 max-w-[24ch] text-small text-muted">Sort by any column. Distances are approximate.</p>
           </div>
           <div className="lg:col-span-9" data-reveal="fade">
             <table className="w-full border-collapse text-left">
-              <caption className="sr-only">TekAccess corridors with mode, cargo and distance</caption>
+              <caption className="sr-only">TekAccess projects with mode, cargo and distance</caption>
               <thead>
                 <tr className="border-b border-ink/80">
                   {cols.map((c) => (
@@ -74,8 +74,8 @@ export default function Corridors() {
                 {rows.map((c) => (
                   <tr key={c.slug} className="group/tr relative border-b border-line transition-colors duration-2 hover:bg-paper">
                     <th scope="row" className="py-6 pr-4 font-medium text-ink">
-                      <Link to={`/corridors/${c.slug}`} className="text-[1.0625rem] after:absolute after:inset-0 group-hover/tr:text-accent tablet:text-[1.1875rem]">
-                        {corridorName(c)}
+                      <Link to={`/projects/${c.slug}`} className="text-[1.0625rem] after:absolute after:inset-0 group-hover/tr:text-accent tablet:text-[1.1875rem]">
+                        {projectName(c)}
                       </Link>
                       <span className="mt-0.5 block text-micro font-normal text-muted tablet:hidden">{c.cargo}</span>
                     </th>

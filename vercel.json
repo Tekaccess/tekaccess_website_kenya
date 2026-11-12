@@ -1,1 +1,7 @@
-{ "rewrites": [{ "source": "/((?!.*\\.).*)", "destination": "/index.html" }] }
+{
+  "redirects": [
+    { "source": "/corridors", "destination": "/projects", "permanent": true },
+    { "source": "/corridors/:slug", "destination": "/projects/:slug", "permanent": true }
+  ],
+  "rewrites": [{ "source": "/((?!.*\\.).*)", "destination": "/index.html" }]
+}

@@ -2,7 +2,7 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { services } from "./src/content/services";
-import { corridors } from "./src/content/corridors";
+import { projects } from "./src/content/projects";
 import { staticInsights } from "./src/content/insights";
 import { legal } from "./src/content/legal";
 import { site } from "./src/content/site";
@@ -17,8 +17,8 @@ function sitemap(): Plugin {
         "/",
         "/services",
         ...services.map((s) => `/services/${s.slug}`),
-        "/corridors",
-        ...corridors.map((c) => `/corridors/${c.slug}`),
+        "/projects",
+        ...projects.map((c) => `/projects/${c.slug}`),
         "/about",
         "/insights",
         ...staticInsights.map((p) => `/insights/${p.slug}`),

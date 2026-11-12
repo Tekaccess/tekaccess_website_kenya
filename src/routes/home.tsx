@@ -8,7 +8,7 @@ import { Skyline } from "@/components/organisms/skyline";
 import { ClosingCta } from "@/components/organisms/blocks";
 import { AboutTeaser, FaqSection, InsightsRow, InstitutionsList } from "@/components/organisms/sections";
 import { JourneySteps } from "@/components/organisms/journey";
-import { corridorsByDistance } from "@/content/corridors";
+import { projectsByDistance } from "@/content/projects";
 import { services } from "@/content/services";
 import { figures } from "@/content/company";
 import { faqsFor } from "@/content/faqs";
@@ -32,7 +32,7 @@ const orgLd = {
 export default function Home() {
   return (
     <Page meta={{ title: "Gypsum, coal and clinker across East Africa", description: site.description, path: "/", jsonLd: orgLd }}>
-      {/* 1 · Hero + corridor skyline */}
+      {/* 1 · Hero + project skyline */}
       <section aria-labelledby="hero-title" className="overflow-hidden bg-paper pb-12 pt-[calc(var(--header-h)+4rem)] tablet:pb-14 tablet:pt-[calc(var(--header-h)+5.5rem)]">
         <Container>
           <Heading
@@ -53,10 +53,10 @@ export default function Home() {
               <LinkButton to="/contact" variant="accent">
                 Request a quote
               </LinkButton>
-              <TextLink to="/corridors">See our corridors</TextLink>
+              <TextLink to="/projects">See our projects</TextLink>
             </div>
           </div>
-          <Skyline items={corridorsByDistance} priority fullBleed height="clamp(240px, min(34vw, calc(100svh - 452px)), 520px)" className="mt-10 tablet:mt-12 lg:-mt-32" />
+          <Skyline items={projectsByDistance} priority fullBleed height="clamp(240px, min(34vw, calc(100svh - 452px)), 520px)" className="mt-10 tablet:mt-12 lg:-mt-32" />
         </Container>
       </section>
 
@@ -120,7 +120,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 7 · Corridor in focus */}
+      {/* 7 · Project in focus */}
       <AboutTeaser />
 
       {/* 9 · FAQ */}

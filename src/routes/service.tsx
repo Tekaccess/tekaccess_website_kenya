@@ -10,7 +10,7 @@ import { ClosingCta, FiguresRow, PageHead } from "@/components/organisms/blocks"
 import { Gallery } from "@/components/organisms/gallery";
 import { PhotoStrip, RouteLine } from "@/components/organisms/sections";
 import { nextService, serviceBySlug, services } from "@/content/services";
-import { corridorBySlug, corridorName } from "@/content/corridors";
+import { projectBySlug, projectName } from "@/content/projects";
 import { site } from "@/content/site";
 import NotFound from "./not-found";
 
@@ -19,7 +19,7 @@ export default function ServicePage() {
   const s = serviceBySlug(slug);
   if (!s) return <NotFound />;
   const next = nextService(s.slug);
-  const lanes = s.corridors.map(corridorBySlug).filter((c) => !!c);
+  const projects = s.projects.map(projectBySlug).filter((c) => !!c);
   const related = services.filter((x) => x.slug !== s.slug && x.slug !== next.slug).slice(0, 2);
 
   return (
@@ -121,15 +121,15 @@ export default function ServicePage() {
             <div className="mt-7">
               <RouteLine stops={s.route} dark />
             </div>
-            {lanes.length > 0 && (
+            {projects.length > 0 && (
               <p className="mt-6 text-small text-on-night/80">
                 Runs on:{" "}
-                {lanes.map((c, n) => (
+                {projects.map((c, n) => (
                   <span key={c.slug}>
-                    <Link to={`/corridors/${c.slug}`} className="font-medium text-white underline decoration-white/30 underline-offset-4 hover:decoration-white">
-                      {corridorName(c)}
+                    <Link to={`/projects/${c.slug}`} className="font-medium text-white underline decoration-white/30 underline-offset-4 hover:decoration-white">
+                      {projectName(c)}
                     </Link>
-                    {n < lanes.length - 1 ? ", " : ""}
+                    {n < projects.length - 1 ? ", " : ""}
                   </span>
                 ))}
               </p>

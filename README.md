@@ -18,7 +18,7 @@ npm run preview
 | Path                                                             | What                                                                                                                                |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `src/index.css`, `tailwind.config.ts`                            | Design tokens: colours, fluid type scale, spacing, breakpoints (`tablet` 810, `lg` 1024, `desktop` 1200), motion                    |
-| `src/content/`                                                   | **All copy and data**: site facts, services, corridors, people, FAQs, insights, legal, image registry. Edit here, not in components |
+| `src/content/`                                                   | **All copy and data**: site facts, services, projects, people, FAQs, insights, legal, image registry. Edit here, not in components |
 | `src/components/atoms` → `molecules` → `organisms` → `templates` | UI from smallest to largest                                                                                                         |
 | `src/routes/`                                                    | One file per page; `router.tsx` lazy-loads each, `preload.ts` warms chunks on nav hover                                             |
 | `src/lib/motion.ts`                                              | Scroll motion: add `data-reveal="lines                                                                                              | fade | stagger | hairline | count | sky | image | parallax"` to an element |
@@ -28,7 +28,7 @@ npm run preview
 
 ## Placeholders to confirm before launch
 
-Search the code for `TODO(real)`: corridor distances and the Kigali → Goma lane, the "500+ deliveries" figure,
+Search the code for `TODO(real)`: project distances and the Kigali → Goma project, the "500+ deliveries" figure,
 FAQ answers, pricing basis, the one-working-day reply promise, office hours, street address, insurance cover,
 the three "rules", and the legal text (needs counsel review).
 

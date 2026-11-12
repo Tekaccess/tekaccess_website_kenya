@@ -31,7 +31,7 @@ export function ArticleCard({ post, className, ratio = "16/10", compact, sizes =
   );
 }
 
-/** Portrait (4:5), greyscale, colour on hover, name and role. Opens the person dialog. */
+/** Portrait (4:5) in full colour, name and role. Opens the person dialog. */
 export function PersonCard({ person, onOpen }: { person: Person; onOpen: () => void }) {
   return (
     <button type="button" onClick={onOpen} className="group/person flex w-full flex-col text-left" aria-haspopup="dialog">
@@ -45,7 +45,7 @@ export function PersonCard({ person, onOpen }: { person: Person; onOpen: () => v
             loading="lazy"
             width={480}
             height={600}
-            className="absolute inset-0 size-full object-cover grayscale-[0.85] transition-[filter,transform] duration-4 ease-out group-hover/person:scale-[1.03] group-hover/person:grayscale-0 group-focus-visible/person:grayscale-0"
+            className="absolute inset-0 size-full object-cover transition-transform duration-4 ease-out group-hover/person:scale-[1.03]"
           />
         ) : (
           <span aria-hidden className="absolute inset-0 grid place-items-center text-display font-medium text-quiet">

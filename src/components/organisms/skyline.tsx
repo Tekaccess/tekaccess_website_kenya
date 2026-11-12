@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { Img } from "@/components/atoms/media";
-import type { Corridor } from "@/content/corridors";
-import { corridorName } from "@/content/corridors";
+import type { Project } from "@/content/projects";
+import { projectName } from "@/content/projects";
 import { cn, formatNumber } from "@/lib/utils";
 
 const CAPTION_H = "4.25rem"; // fixed so the ground line sits exactly under every photo
 
 /**
- * Storey's signature skyline, rebuilt for corridors: photo columns stand on one
+ * Storey's signature skyline, rebuilt for projects: photo columns stand on one
  * continuous ink ground line, height proportional to route distance, sorted short →
  * tall. Columns wipe up from the ground (0.9s, 60ms stagger), km labels fade in 0.55s
  * later. Phones: horizontal snap-scroll with the same proportions and line.
@@ -20,7 +20,7 @@ export function Skyline({
   priority,
   fullBleed,
 }: {
-  items: Corridor[];
+  items: Project[];
   height?: string;
   compact?: boolean;
   className?: string;
@@ -49,7 +49,7 @@ export function Skyline({
             return (
               <Link
                 key={c.slug}
-                to={`/corridors/${c.slug}`}
+                to={`/projects/${c.slug}`}
                 className="group/col flex w-[46vw] shrink-0 snap-start flex-col sm:w-[30vw] tablet:w-[23vw] lg:w-auto"
               >
                 <div className="flex flex-col justify-end" style={{ height }}>
@@ -59,7 +59,7 @@ export function Skyline({
                   <div data-sky-photo className="overflow-hidden" style={{ height: `${share * 86}%` }}>
                     <Img
                       photo={c.photo}
-                      alt={`${corridorName(c)} by ${c.mode.toLowerCase()}`}
+                      alt={`${projectName(c)} by ${c.mode.toLowerCase()}`}
                       ratio="auto"
                       priority={priority && i >= items.length - 2}
                       sizes="(min-width:1024px) 16vw, 46vw"
@@ -75,7 +75,7 @@ export function Skyline({
                       compact ? "text-small" : "text-[0.9375rem]",
                     )}
                   >
-                    {corridorName(c)}
+                    {projectName(c)}
                   </p>
                   <p className="mt-0.5 truncate text-micro text-muted">
                     {c.mode} · {c.countries}
@@ -86,7 +86,7 @@ export function Skyline({
           })}
         </div>
       </div>
-      <p className="mt-2 text-micro text-muted lg:hidden">Swipe to see every corridor →</p>
+      <p className="mt-2 text-micro text-muted lg:hidden">Swipe to see every project →</p>
     </div>
   );
 }

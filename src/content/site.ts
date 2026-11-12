@@ -32,7 +32,7 @@ export const site = {
 export const nav = [
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Corridors", to: "/corridors" },
+  { label: "Projects", to: "/projects" },
   { label: "Insights", to: "/insights" },
   { label: "Contact", to: "/contact" },
 ] as const;

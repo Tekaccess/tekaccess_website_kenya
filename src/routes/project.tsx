@@ -7,29 +7,29 @@ import { Page } from "@/components/templates/page";
 import { ClosingCta, FiguresRow, PageHead } from "@/components/organisms/blocks";
 import { Gallery } from "@/components/organisms/gallery";
 import { PhotoStrip, RouteLine } from "@/components/organisms/sections";
-import { CorridorMap } from "@/components/organisms/corridor-map";
+import { ProjectMap } from "@/components/organisms/project-map";
 import { Skyline } from "@/components/organisms/skyline";
-import { corridorBySlug, corridorName, corridorsByDistance, nextCorridor } from "@/content/corridors";
+import { projectBySlug, projectName, projectsByDistance, nextProject } from "@/content/projects";
 import { serviceBySlug } from "@/content/services";
 import { formatNumber } from "@/lib/utils";
 import NotFound from "./not-found";
 
-export default function CorridorPage() {
+export default function ProjectPage() {
   const { slug = "" } = useParams();
-  const c = corridorBySlug(slug);
+  const c = projectBySlug(slug);
   if (!c) return <NotFound />;
-  const name = corridorName(c);
-  const next = nextCorridor(c.slug);
+  const name = projectName(c);
+  const next = nextProject(c.slug);
   const svc = c.services.map(serviceBySlug).filter((s) => !!s);
-  const nearby = corridorsByDistance.filter((x) => x.slug !== c.slug).slice(-3);
+  const nearby = projectsByDistance.filter((x) => x.slug !== c.slug).slice(-3);
 
   return (
     <Page
       motionKey={c.slug}
-      meta={{ title: `${name} corridor`, description: c.summary, path: `/corridors/${c.slug}` }}
+      meta={{ title: `${name} project`, description: c.summary, path: `/projects/${c.slug}` }}
     >
       <PageHead
-        crumbs={[{ label: "Corridors", to: "/corridors" }, { label: c.mode }, { label: name }]}
+        crumbs={[{ label: "Projects", to: "/projects" }, { label: c.mode }, { label: name }]}
         lead={name}
         size="display-xl"
         aside={<p className="text-[1.0625rem] text-body">{c.summary}</p>}
@@ -78,7 +78,7 @@ export default function CorridorPage() {
             </div>
           </div>
           <div className="lg:col-span-5 lg:col-start-8">
-            <CorridorMap focus={c.slug} />
+            <ProjectMap focus={c.slug} />
           </div>
         </div>
       </Section>
@@ -98,11 +98,11 @@ export default function CorridorPage() {
         <PhotoStrip items={c.strip} />
       </Section>
 
-      {/* Services on this lane */}
+      {/* Services on this project */}
       <Section tone="paper" aria-labelledby="svc-title">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
           <Eyebrow id="svc-title" className="lg:col-span-3">
-            Services on this corridor
+            Services on this project
           </Eyebrow>
           <div className="lg:col-span-9" data-reveal="fade">
             {svc.map((s) => (
@@ -112,9 +112,9 @@ export default function CorridorPage() {
         </div>
       </Section>
 
-      {/* Next corridor + mini skyline */}
-      <Section tone="paper" className="pt-0" aria-label="Next corridor">
-        <NextRow label="Next corridor" to={`/corridors/${next.slug}`} title={corridorName(next)} meta={next.mode} />
+      {/* Next project + mini skyline */}
+      <Section tone="paper" className="pt-0" aria-label="Next project">
+        <NextRow label="Next project" to={`/projects/${next.slug}`} title={projectName(next)} meta={next.mode} />
         <Skyline items={nearby} height="clamp(220px, 22vw, 320px)" compact className="mt-7 lg:max-w-3xl" />
       </Section>
 

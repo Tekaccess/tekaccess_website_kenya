@@ -34,7 +34,7 @@ export const rules = [
 ]; // TODO(real): confirm these commitments
 
 export const story = {
-  lead: "Founded on integrity and excellence, we started with one corridor and one promise: every load arrives, and every client knows who to call.",
+  lead: "Founded on integrity and excellence, we started with one project and one promise: every load arrives, and every client knows who to call.",
   body: [
     "From import to final delivery, TekAccess modernises logistics with reliable transport that connects businesses across Rwanda and beyond.",
     "Today we source gypsum, coal and clinker for cement and industrial plants, and move them by road, lake and rail across five countries, still run from one office in Kigali.",

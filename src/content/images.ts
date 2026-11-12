@@ -303,7 +303,7 @@ export const photos = {
     "color": "#6f6150"
   },
   "kivuBoats": {
-    "base": "/images/corridors/kivuBoats",
+    "base": "/images/projects/kivuBoats",
     "widths": [
       400,
       640,
@@ -317,7 +317,7 @@ export const photos = {
     "color": "#cbbeae"
   },
   "kivuCoast": {
-    "base": "/images/corridors/kivuCoast",
+    "base": "/images/projects/kivuCoast",
     "widths": [
       400,
       640,
@@ -331,7 +331,7 @@ export const photos = {
     "color": "#868b8f"
   },
   "kivuHills": {
-    "base": "/images/corridors/kivuHills",
+    "base": "/images/projects/kivuHills",
     "widths": [
       400,
       640,
@@ -345,7 +345,7 @@ export const photos = {
     "color": "#8999a0"
   },
   "kivuIsland": {
-    "base": "/images/corridors/kivuIsland",
+    "base": "/images/projects/kivuIsland",
     "widths": [
       400,
       640,
@@ -359,7 +359,7 @@ export const photos = {
     "color": "#94948e"
   },
   "cementSilos": {
-    "base": "/images/corridors/cementSilos",
+    "base": "/images/projects/cementSilos",
     "widths": [
       400,
       640,
@@ -373,7 +373,7 @@ export const photos = {
     "color": "#557489"
   },
   "cementPlant": {
-    "base": "/images/corridors/cementPlant",
+    "base": "/images/projects/cementPlant",
     "widths": [
       400,
       640,
@@ -387,7 +387,7 @@ export const photos = {
     "color": "#909f96"
   },
   "roadJunction": {
-    "base": "/images/corridors/roadJunction",
+    "base": "/images/projects/roadJunction",
     "widths": [
       400,
       640,
@@ -401,7 +401,7 @@ export const photos = {
     "color": "#a3a99c"
   },
   "hillsRoad": {
-    "base": "/images/corridors/hillsRoad",
+    "base": "/images/projects/hillsRoad",
     "widths": [
       400,
       640,
@@ -415,7 +415,7 @@ export const photos = {
     "color": "#82826f"
   },
   "forestRoad": {
-    "base": "/images/corridors/forestRoad",
+    "base": "/images/projects/forestRoad",
     "widths": [
       400,
       640,
@@ -429,7 +429,7 @@ export const photos = {
     "color": "#2e4e36"
   },
   "highway": {
-    "base": "/images/corridors/highway",
+    "base": "/images/projects/highway",
     "widths": [
       400,
       640,

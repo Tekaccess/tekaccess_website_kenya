@@ -134,7 +134,7 @@ export default function Article() {
           headline: post.title,
           datePublished: iso,
           author: { "@type": "Organization", name: post.author },
-          publisher: { "@type": "Organization", name: site.legalName, logo: { "@type": "ImageObject", url: `${site.url}/images/brand/logo.png` } },
+          publisher: { "@type": "Organization", name: site.legalName, logo: { "@type": "ImageObject", url: `${site.url}/images/brand/nuru-tekaccess-colour.svg` } },
         },
       }}
     >

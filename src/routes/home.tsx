@@ -20,7 +20,7 @@ const orgLd = {
   "@type": "Organization",
   name: site.legalName,
   url: site.url,
-  logo: `${site.url}/images/brand/logo.png`,
+  logo: `${site.url}/images/brand/nuru-tekaccess-colour.svg`,
   foundingDate: String(site.founded),
   email: site.email,
   telephone: site.phone,

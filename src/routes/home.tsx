@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container, Section } from "@/components/atoms/layout";
 import { Heading } from "@/components/atoms/typography";
 import { LinkButton, TextLink } from "@/components/atoms/button";
@@ -5,6 +6,7 @@ import { Img } from "@/components/atoms/media";
 import { NumberedRow } from "@/components/molecules/rows";
 import { Page } from "@/components/templates/page";
 import { Skyline } from "@/components/organisms/skyline";
+import { HeroMap } from "@/components/organisms/hero-map";
 import { ClosingCta, FiguresRow } from "@/components/organisms/blocks";
 import { AboutTeaser, FaqSection, BlogRow, InstitutionsList } from "@/components/organisms/sections";
 import { JourneySteps } from "@/components/organisms/journey";
@@ -30,11 +32,14 @@ const orgLd = {
 };
 
 export default function Home() {
+  const [activeRoute, setActiveRoute] = useState<string | null>(null);
   return (
     <Page meta={{ title: "Premium Logistics Solutions", description: site.description, path: "/", jsonLd: orgLd }}>
       {/* Hero + project skyline */}
-      <section aria-labelledby="hero-title" className="overflow-hidden bg-paper pb-12 pt-[calc(var(--header-h)+4rem)] tablet:pb-14 tablet:pt-[calc(var(--header-h)+5.5rem)]">
-        <Container>
+      <section aria-labelledby="hero-title" className="relative overflow-hidden bg-paper pb-12 pt-[calc(var(--header-h)+4rem)] tablet:pb-14 tablet:pt-[calc(var(--header-h)+5.5rem)]">
+        {/* Dot map behind the right of the hero; desktop only, the skyline stays in front. */}
+        <HeroMap active={activeRoute} className="hidden lg:block" />
+        <Container className="relative">
           <Heading
             as="h1"
             id="hero-title"
@@ -56,7 +61,7 @@ export default function Home() {
               <TextLink to="/contact">Get in Touch</TextLink>
             </div>
           </div>
-          <Skyline items={projectsByDistance} priority fullBleed height="clamp(240px, min(34vw, calc(100svh - 452px)), 520px)" className="mt-10 tablet:mt-12 lg:-mt-32" />
+          <Skyline items={projectsByDistance} onActive={setActiveRoute} priority fullBleed height="clamp(240px, min(34vw, calc(100svh - 452px)), 520px)" className="mt-10 tablet:mt-12 lg:-mt-32" />
         </Container>
       </section>
 

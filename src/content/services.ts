@@ -89,7 +89,7 @@ export const services: Service[] = [
     group: "Supply",
     title: "Coal Supply",
     summary: "Coal supply sourced in Songea, Tanzania.",
-    lead: "Coal supply sourced in Songea, Tanzania — our extensive network with the region’s leading miners ensures a consistent and high-quality supply for industrial needs.",
+    lead: "Coal supply sourced in Songea, Tanzania — our extensive network with the region’s leading miners places us in the best position to deliver consistent quality and reliability to our clients.",
     intro: "Kilns cannot wait for coal. We keep stock moving from Songea so a slow week at one mine never reaches your plant.",
     howSource: {
       title: "How we source it",
@@ -115,7 +115,7 @@ export const services: Service[] = [
       { stop: "Kigali", note: "Arrived" },
       { stop: "Your site", note: "Delivered" },
     ],
-    photos: ["coalStockpile", "coalHeap", "fleetQuay", "cementPlant"],
+    photos: ["coalPile", "coalStockpile", "coalHeap", "fleetQuay", "cementPlant"],
     strip: [
       { photo: "coalHeap", caption: "Stockpile" },
       { photo: "coalStockpile", caption: "Ready to load" },
@@ -197,7 +197,7 @@ export const services: Service[] = [
       { stop: "Destination", note: "Arrived" },
       { stop: "Your site", note: "Delivered" },
     ],
-    photos: ["fleetRow", "fleetQuay", "fleetFront", "fleetYard"],
+    photos: ["fleetRow", "truckDeliveries", "fleetQuay", "fleetFront", "fleetYard"],
     strip: [
       { photo: "fleetCab", caption: "Our own fleet" },
       { photo: "truckLoading", caption: "Loading" },
@@ -237,7 +237,7 @@ export const services: Service[] = [
       { stop: "Katana port", note: "Cleared" },
       { stop: "Cement plant", note: "Delivered" },
     ],
-    photos: ["kivuBoats", "kivuHills", "kivuCoast", "cementSilos"],
+    photos: ["shipKivu", "kivuBoats", "kivuHills", "kivuCoast", "cementSilos"],
     strip: [
       { photo: "kivuCoast", caption: "Gisenyi shore" },
       { photo: "kivuBoats", caption: "Loading the vessel" },
@@ -277,7 +277,7 @@ export const services: Service[] = [
       { stop: "Kigoma", note: "Railhead" },
       { stop: "Your site", note: "Delivered" },
     ],
-    photos: ["railYard", "gypsumTrucks", "gypsumLoad", "cementPlant"],
+    photos: ["trainWagons", "railYard", "gypsumTrucks", "gypsumLoad", "cementPlant"],
     strip: [
       { photo: "railYard", caption: "Wagons at the yard" },
       { photo: "gypsumLoad", caption: "Loaded and covered" },

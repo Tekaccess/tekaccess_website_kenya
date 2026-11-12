@@ -68,6 +68,7 @@ export const team: Person[] = [
     name: "KEZA NKWAYA Keyla",
     role: "Administrative & Secretariat Officer",
     about: "Supports coordination and monitoring of daily operations, administrative efficiency with organization and dedication.",
+    photo: p("keza-nkwaya-keyla"),
     bio: "Ensuring that the heart of TekAccess beats with precision and care.",
     linkedin: "https://www.linkedin.com/in/keyla-keza-146475279/",
   },

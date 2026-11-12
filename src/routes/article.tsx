@@ -23,7 +23,7 @@ function Blocks({ blocks }: { blocks: Block[] }) {
       {blocks.map((b, i) => {
         switch (b.type) {
           case "p":
-            return <p key={i}>{b.text}</p>;
+            return <p key={i} className="whitespace-pre-line">{b.text}</p>;
           case "h2":
             return <h2 key={i}>{b.text}</h2>;
           case "quote":
@@ -38,6 +38,14 @@ function Blocks({ blocks }: { blocks: Block[] }) {
                 <Img photo={b.photo} sizes="(min-width:1024px) 50vw, 100vw" />
                 {b.caption && <figcaption className="mt-3 text-small text-muted">{b.caption}</figcaption>}
               </figure>
+            );
+          case "gallery":
+            return (
+              <div key={i} className="not-prose my-12 grid grid-cols-2 gap-2 tablet:gap-3">
+                {b.photos.map((ph) => (
+                  <Img key={ph} photo={ph} ratio="1/1" sizes="(min-width:1024px) 25vw, 50vw" />
+                ))}
+              </div>
             );
           case "tags":
             return (

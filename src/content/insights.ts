@@ -1,14 +1,15 @@
 import type { PhotoKey } from "./images";
 
-export type Category = "Community" | "Deliveries" | "Partnerships" | "Operations";
-export const categories: Category[] = ["Deliveries", "Partnerships", "Community", "Operations"];
+export type Category = "Milestones" | "Community" | "Deliveries" | "Partnerships" | "Operations";
+export const categories: Category[] = ["Milestones", "Deliveries", "Partnerships", "Community", "Operations"];
 
 export type Block =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
   | { type: "img"; photo: PhotoKey; caption?: string }
   | { type: "quote"; text: string }
-  | { type: "tags"; text: string };
+  | { type: "tags"; text: string }
+  | { type: "gallery"; photos: PhotoKey[] };
 
 export type Insight = {
   slug: string;
@@ -23,15 +24,116 @@ export type Insight = {
   blocks?: Block[];
   html?: string; // Firestore posts
   readMinutes: number;
-  /** Drop this built-in post when a Firestore post title contains any of these words. */
+  /** Firestore posts whose title contains any of these words are this post; the built-in copy is shown instead. */
   supersededBy?: string[];
 };
 
 const d = (s: string) => new Date(s).getTime();
 
-// Static posts. Kwibuka 32 is the published article; the five project notes are short
-// write-ups of deliveries pictured on the current site. TODO(real): dates and fuller text.
+// Static posts. ERP launch, Kwibuka 32, Community impact, EDCL and Nourishing are the original
+// posts word for word; CHUK, lab chemicals and RAB are new write-ups of photos from the old site.
 export const staticInsights: Insight[] = [
+  {
+    // Original post, word for word (live tekaccess.rw build, static post "tekaccess-erp-launch").
+    slug: "tekaccess-erp-launch",
+    title: "Celebrating Progress, Innovation & the Road Ahead",
+    category: "Milestones",
+    date: d("2026-10-07"),
+    author: "Tekaccess Team",
+    excerpt: "Tekaccess celebrates a new chapter with the launch of the Tekaccess ERP and milestones.",
+    cover: "erpIntro",
+    readMinutes: 3,
+    blocks: [
+      {
+        "type": "p",
+        "text": "Tekaccess celebrates a new chapter with the launch of the Tekaccess ERP and milestones."
+      },
+      {
+        "type": "img",
+        "photo": "erpFeature"
+      },
+      {
+        "type": "p",
+        "text": "What started as a vision to build a more connected, efficient, and scalable operation has grown into a company continuously pushing forward, strengthening its systems, expanding its operations, and building the foundation for the future."
+      },
+      {
+        "type": "p",
+        "text": "The launch of Tekaccess ERP marks an important step in that journey."
+      },
+      {
+        "type": "p",
+        "text": "Designed to connect key areas of the business, from finance and fleet operations to procurement, human resources, sales, and field operations, the ERP brings information and processes together in one integrated system. It gives teams greater visibility, supports faster decision-making, and creates a stronger foundation for managing a growing business."
+      },
+      {
+        "type": "p",
+        "text": "But the day was about more than a new system."
+      },
+      {
+        "type": "p",
+        "text": "It was about celebrating the people, progress, and milestones that brought Tekaccess to this point."
+      },
+      {
+        "type": "gallery",
+        "photos": [
+          "erpGallery01",
+          "erpGallery02",
+          "erpGallery03",
+          "erpGallery04",
+          "erpGallery05",
+          "erpGallery06",
+          "erpGallery07",
+          "erpGallery08",
+          "erpGallery09",
+          "erpGallery10",
+          "erpGallery11",
+          "erpGallery12",
+          "erpGallery13",
+          "erpGallery14",
+          "erpGallery15",
+          "erpGallery16",
+          "erpGallery17",
+          "erpGallery18",
+          "erpGallery19",
+          "erpGallery20",
+          "erpGallery21",
+          "erpGallery22",
+          "erpGallery23",
+          "erpGallery24"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "From strengthening our operations to expanding our reach across markets, every milestone represents the collective effort of our teams and the vision that continues to drive the company forward."
+      },
+      {
+        "type": "p",
+        "text": "As we celebrate this achievement, we remain focused on what comes next: building stronger systems, expanding into new markets, and creating a more connected and efficient future for Tekaccess."
+      },
+      {
+        "type": "p",
+        "text": "Here's to the journey so far and to everything still ahead."
+      },
+      {
+        "type": "p",
+        "text": "Tekaccess Group\nBuilding the Future."
+      }
+    ],
+  },
+  {
+    // Original post, word for word (Firestore blogs/WfjTgckGDIdR2EOtyNc4).
+    slug: "community-impact",
+    supersededBy: ["community impact"],
+    title: "COMMUNITY IMPACT",
+    category: "Community",
+    date: d("2026-01-21"),
+    author: "Tekaccess Team",
+    excerpt: "Committed to giving back, TEKACCESS supports local communities through sustainable practices, job creation, and empowerment initiatives.",
+    cover: "communityImpact",
+    readMinutes: 1,
+    blocks: [
+      { type: "p", text: "Committed to giving back, TEKACCESS supports local communities through sustainable practices, job creation, and empowerment initiatives." },
+    ],
+  },
   {
     slug: "kwibuka-32",
     title: "Kwibuka 32: A Journey of Remembrance and Resilience",
@@ -115,21 +217,19 @@ export const staticInsights: Insight[] = [
     ],
   },
   {
+    // Original post, word for word (Firestore blogs/eUJgBH6gbfIUDuyawoyI); the live Firestore copy replaces it when connected.
     slug: "hot-water-solutions-edcl",
     supersededBy: ["edcl", "hot water"],
-    title: "Sustainable hot water for homes with EDCL",
+    title: "EMPOWERING HOMES WITH SUSTAINABLE HOT WATER SOLUTIONS IN PARTNERSHIP WITH ENERGY DEVELOPMENT CORPORATION LIMITED (EDCL)",
     category: "Partnerships",
-    date: d("2026-02-12"),
-    author: "TekAccess Team",
-    excerpt: "Working with Energy Development Corporation Limited to bring solar hot-water systems to Rwandan homes.",
-    cover: "edclHotWater",
-    readMinutes: 2,
+    date: d("2026-01-23"),
+    author: "Tekaccess Team",
+    excerpt: "Installed 10,000+ liters of solar water heaters in Rwandan homes.",
+    cover: "edclSolarHeaters",
+    readMinutes: 1,
     blocks: [
-      {
-        type: "p",
-        text: "In partnership with Energy Development Corporation Limited (EDCL), TekAccess supplied solar water heaters for households, combining procurement and delivery so installers received complete kits on site.",
-      },
-      { type: "p", text: "Each delivery was scheduled with the installation teams, so equipment arrived ready to fit rather than waiting in storage." },
+      { type: "p", text: "Installed 10,000+ liters of solar water heaters in Rwandan homes." },
+      { type: "p", text: "Delivering sustainable, cost-saving, and eco-friendly hot water solutions through innovative solar technology." },
     ],
   },
   {
@@ -149,20 +249,20 @@ export const staticInsights: Insight[] = [
     ],
   },
   {
+    // Original post, word for word (Firestore blogs/oU0KPkAKqdvjlfDHFDiB).
     slug: "nourishing-rwandas-future",
     supersededBy: ["nourishing"],
-    title: "Nourishing Rwanda's future",
+    title: "NOURISHING RWANDA’S FUTURE WITH TEKACCESS",
     category: "Community",
-    date: d("2025-12-08"),
-    author: "TekAccess Team",
-    excerpt: "Supporting school feeding, because a full plate is where learning starts.",
+    date: d("2026-01-21"),
+    author: "Tekaccess Team",
+    excerpt: "When nutrition meets education, children thrive.",
     cover: "schoolFeeding",
-    readMinutes: 2,
+    readMinutes: 1,
     blocks: [
-      {
-        type: "p",
-        text: "TekAccess supported a school feeding initiative, delivering food supplies so pupils could share a meal at school. It is a small part of our commitment to the communities we work in.",
-      },
+      { type: "p", text: "When nutrition meets education, children thrive." },
+      { type: "p", text: "Supplied 2,961+ metric tons of quality food to 230 schools across 27 sectors in Gatsibo, Kirehe and Nyaruguru districts.\nReaching 326,000+ students." },
+      { type: "p", text: "Together, we’re not just feeding students— we’re empowering Rwanda’s future" },
     ],
   },
   {

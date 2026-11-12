@@ -78,9 +78,10 @@ export function loadInsights(): Promise<Insight[]> {
     } catch (e) {
       console.warn("Insights: Firestore unavailable, showing built-in posts.", e);
     }
-    const remoteText = remote.map((r) => r.title.toLowerCase()).join(" | ");
-    const local = staticInsights.filter((p) => !p.supersededBy?.some((k) => remoteText.includes(k)));
-    return [...remote, ...local].sort((a, b) => b.date - a.date);
+    // Built-in copies of Firestore posts win (same words, stable URLs); new admin posts still appear.
+    const known = staticInsights.flatMap((p) => p.supersededBy ?? []);
+    const fresh = remote.filter((r) => !known.some((k) => r.title.toLowerCase().includes(k)));
+    return [...fresh, ...staticInsights].sort((a, b) => b.date - a.date);
   })();
   return cache;
 }

@@ -441,6 +441,421 @@ export const photos = {
     "height": 1500,
     "alt": "A highway at the edge of town under a blue sky",
     "color": "#869499"
+  },
+
+  "erpIntro": {
+    "base": "/images/insights/erp/erpIntro",
+    "widths": [
+      400,
+      640,
+      1024
+    ],
+    "width": 1024,
+    "height": 683,
+    "alt": "The TekAccess media wall lit for the ERP launch celebration",
+    "color": "#b3a2ac"
+  },
+  "erpFeature": {
+    "base": "/images/insights/erp/erpFeature",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 2000,
+    "alt": "A speaker opening the TekAccess ERP launch celebration",
+    "color": "#41443a"
+  },
+  "erpGallery01": {
+    "base": "/images/insights/erp/erpGallery01",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "Three guests at the TekAccess media wall, in black and white",
+    "color": "#a7a7a7"
+  },
+  "erpGallery02": {
+    "base": "/images/insights/erp/erpGallery02",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Guests in evening wear at the TekAccess media wall",
+    "color": "#af968d"
+  },
+  "erpGallery03": {
+    "base": "/images/insights/erp/erpGallery03",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "Guests arriving at the celebration",
+    "color": "#78685c"
+  },
+  "erpGallery04": {
+    "base": "/images/insights/erp/erpGallery04",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "Guests in conversation, in black and white",
+    "color": "#4a4a4a"
+  },
+  "erpGallery05": {
+    "base": "/images/insights/erp/erpGallery05",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Three guests at the TekAccess media wall",
+    "color": "#b28e78"
+  },
+  "erpGallery06": {
+    "base": "/images/insights/erp/erpGallery06",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 2000,
+    "alt": "A guest dancing, in black and white",
+    "color": "#444444"
+  },
+  "erpGallery07": {
+    "base": "/images/insights/erp/erpGallery07",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "A speaker at the podium in front of a TekAccess truck banner",
+    "color": "#6d7870"
+  },
+  "erpGallery08": {
+    "base": "/images/insights/erp/erpGallery08",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "Guests in conversation at the celebration",
+    "color": "#6f5948"
+  },
+  "erpGallery09": {
+    "base": "/images/insights/erp/erpGallery09",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "Guests seated at the tables, in black and white",
+    "color": "#656565"
+  },
+  "erpGallery10": {
+    "base": "/images/insights/erp/erpGallery10",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "A group of guests at the celebration",
+    "color": "#7e6049"
+  },
+  "erpGallery11": {
+    "base": "/images/insights/erp/erpGallery11",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 2000,
+    "alt": "A guest speaking at the podium",
+    "color": "#4b493d"
+  },
+  "erpGallery12": {
+    "base": "/images/insights/erp/erpGallery12",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "The event hall set up for the celebration",
+    "color": "#574f47"
+  },
+  "erpGallery13": {
+    "base": "/images/insights/erp/erpGallery13",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "Two guests in conversation",
+    "color": "#9c807c"
+  },
+  "erpGallery14": {
+    "base": "/images/insights/erp/erpGallery14",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "The TekAccess team at the media wall",
+    "color": "#9f8d8b"
+  },
+  "erpGallery15": {
+    "base": "/images/insights/erp/erpGallery15",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "Guests gathered at the media wall",
+    "color": "#8e6e64"
+  },
+  "erpGallery16": {
+    "base": "/images/insights/erp/erpGallery16",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Three guests at the TekAccess media wall",
+    "color": "#909796"
+  },
+  "erpGallery17": {
+    "base": "/images/insights/erp/erpGallery17",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Four guests at the TekAccess media wall",
+    "color": "#999286"
+  },
+  "erpGallery18": {
+    "base": "/images/insights/erp/erpGallery18",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Two guests at the TekAccess media wall",
+    "color": "#b1afa8"
+  },
+  "erpGallery19": {
+    "base": "/images/insights/erp/erpGallery19",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "alt": "Three guests at the TekAccess media wall",
+    "color": "#8f8e8c"
+  },
+  "erpGallery20": {
+    "base": "/images/insights/erp/erpGallery20",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Three guests at the TekAccess media wall",
+    "color": "#b0a9a4"
+  },
+  "erpGallery21": {
+    "base": "/images/insights/erp/erpGallery21",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "A presentation during the celebration",
+    "color": "#64513f"
+  },
+  "erpGallery22": {
+    "base": "/images/insights/erp/erpGallery22",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Four guests at the celebration",
+    "color": "#806349"
+  },
+  "erpGallery23": {
+    "base": "/images/insights/erp/erpGallery23",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Three guests in evening wear",
+    "color": "#5d5d4a"
+  },
+  "erpGallery24": {
+    "base": "/images/insights/erp/erpGallery24",
+    "widths": [
+      400,
+      640,
+      1024,
+      1600
+    ],
+    "width": 1600,
+    "height": 1280,
+    "alt": "Two guests at the TekAccess media wall",
+    "color": "#beafa2"
+  },
+  "communityImpact": {
+    "base": "/images/insights/communityImpact",
+    "widths": [
+      400,
+      640,
+      1024,
+      1050
+    ],
+    "width": 1050,
+    "height": 1091,
+    "alt": "Community impact: TekAccess teams working with local communities",
+    "color": "#a3a1a4"
+  },
+  "edclSolarHeaters": {
+    "base": "/images/insights/edclSolarHeaters",
+    "widths": [
+      400,
+      640,
+      1024,
+      1133
+    ],
+    "width": 1133,
+    "height": 1175,
+    "alt": "Solar water heaters installed on Rwandan homes",
+    "color": "#b2afb2"
+  },
+  "truckDeliveries": {
+    "base": "/images/operations/truckDeliveries",
+    "widths": [
+      400,
+      640,
+      1024,
+      1162
+    ],
+    "width": 1162,
+    "height": 1204,
+    "alt": "TekAccess trucks on regional deliveries",
+    "color": "#aaa9ac"
+  },
+  "shipKivu": {
+    "base": "/images/operations/shipKivu",
+    "widths": [
+      400,
+      640,
+      1024,
+      1080
+    ],
+    "width": 1080,
+    "height": 809,
+    "alt": "A cargo vessel on Lake Kivu",
+    "color": "#838384"
+  },
+  "trainWagons": {
+    "base": "/images/operations/trainWagons",
+    "widths": [
+      400,
+      640,
+      1024,
+      1080
+    ],
+    "width": 1080,
+    "height": 810,
+    "alt": "Gypsum wagons on the railway in Tanzania",
+    "color": "#707377"
+  },
+  "coalPile": {
+    "base": "/images/operations/coalPile",
+    "widths": [
+      400,
+      640,
+      1000
+    ],
+    "width": 1000,
+    "height": 750,
+    "alt": "A stockpile of coal ready for loading",
+    "color": "#7c8086"
   }
 } satisfies Record<string, Photo>;
 

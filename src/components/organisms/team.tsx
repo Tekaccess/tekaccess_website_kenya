@@ -32,9 +32,9 @@ export function TeamGrid() {
           >
             {p && (
               <div className="grid tablet:grid-cols-[5fr_7fr]">
-                <div className="relative aspect-[4/5] bg-mist tablet:aspect-auto">
+                <div className="relative aspect-[4/5] bg-mist tablet:aspect-[4/5]">
                   {p.photo ? (
-                    <img src={`${p.photo}-800.webp`} alt={p.name} className="absolute inset-0 size-full object-cover" />
+                    <img src={`${p.photo}-800.webp`} alt={p.name} className="absolute inset-0 size-full object-cover object-top" />
                   ) : (
                     <span aria-hidden className="absolute inset-0 grid place-items-center text-display-xl font-medium text-quiet">
                       {initials(p.name)}

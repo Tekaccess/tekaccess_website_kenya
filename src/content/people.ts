@@ -130,6 +130,8 @@ export const team: Person[] = [
     slug: "yvan-ruterana",
     name: "Yvan RUTERANA",
     role: "Field Operations Manager",
+    about: "Leads TekAccess field operations, coordinating teams on the ground to ensure every load is handled with precision, safety and operational excellence.",
+    bio: "Turning plans into results where it matters most: in the field.",
     photo: p("yvan-ruterana"),
     linkedin: "", // TODO: add his LinkedIn URL
   },

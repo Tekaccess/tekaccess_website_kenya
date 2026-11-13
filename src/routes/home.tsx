@@ -71,7 +71,7 @@ export default function Home() {
         className="pb-[44px] pt-[44px] tablet:pb-[56px] tablet:pt-[56px] desktop:pb-[70px] desktop:pt-[70px]"
       >
         <div className="flex flex-col gap-6 desktop:grid desktop:grid-cols-4 desktop:gap-0">
-          <p className="text-[15px] font-medium leading-[1.3] tracking-[-0.01em] text-on-night">Since 2019</p>
+          <p className="text-eyebrow font-medium text-on-night">Since 2019</p>
           <Heading
             id="about-title"
             lead="Founded on integrity and excellence, TekAccess is a trusted logistics and transport solutions provider specializing in high performance supply chain operations."
@@ -93,7 +93,7 @@ export default function Home() {
       <Section tone="paper" space="none" divider={false} aria-labelledby="services-title" className="py-12 tablet:py-16 desktop:py-[72px]">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <p className="mb-4 text-label font-medium text-muted">Our Services</p>
+            <p className="mb-4 text-eyebrow font-medium text-muted">Our Services</p>
             <Heading id="services-title" lead={<>Comprehensive <span className="text-accent">Logistics Solutions.</span></>} />
             <div className="mt-6" data-reveal="fade">
               <LinkButton to="/services" variant="ink">

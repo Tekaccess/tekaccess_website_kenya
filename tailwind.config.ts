@@ -65,6 +65,8 @@ export default {
         body: [fluid(16, 18), { lineHeight: "1.6" }],
         small: ["0.9375rem", { lineHeight: "1.5" }],
         label: ["0.9375rem", { lineHeight: "1.35", letterSpacing: "0" }],
+        // section kicker above headings ("Since 2019", "The journey"): 11.25px
+        eyebrow: ["0.703125rem", { lineHeight: "1.35", letterSpacing: "0.01em" }],
         micro: ["0.8125rem", { lineHeight: "1.35", letterSpacing: "0.01em" }],
       },
       spacing: {

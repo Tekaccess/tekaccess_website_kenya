@@ -224,7 +224,7 @@ export const staticPosts: Post[] = [
     slug: "hot-water-solutions-edcl",
     oldId: "eUJgBH6gbfIUDuyawoyI",
     supersededBy: ["edcl", "hot water"],
-    title: "EMPOWERING HOMES WITH SUSTAINABLE HOT WATER SOLUTIONS IN PARTNERSHIP WITH ENERGY DEVELOPMENT CORPORATION LIMITED (EDCL)",
+    title: "Sustainable Hot Water for Rwandan Homes with EDCL",
     category: "Partnerships",
     date: d("2026-01-23"),
     author: "Tekaccess Team",

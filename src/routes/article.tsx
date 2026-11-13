@@ -154,11 +154,11 @@ export default function Article() {
           <div data-reveal="fade">
             <Breadcrumb items={[{ label: "Blog", to: "/blog" }, { label: post.category, to: `/blog?c=${post.category}` }, { label: "Note" }]} />
           </div>
-          <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-8">
-            <h1 className="animate-fade-in text-h1 font-medium text-ink tablet:text-display lg:col-span-8">
+          <div className="mt-8 flex flex-col gap-6">
+            <h1 className="animate-fade-in w-full text-h1 font-medium text-ink [text-wrap:balance] tablet:text-display">
               {post.title}
             </h1>
-            <p data-reveal="fade" className="text-[1.0625rem] text-body lg:col-span-4 lg:border-l lg:border-line lg:pl-8">
+            <p data-reveal="fade" className="max-w-3xl text-[1.0625rem] text-body">
               {post.excerpt}
             </p>
           </div>
@@ -170,41 +170,34 @@ export default function Article() {
       </header>
 
       <Section tone="paper" space="sm" aria-label="Article">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-3">
-            <div className="text-small lg:sticky lg:top-28">
-            <dl className="border-t border-line">
+        <div className="mx-auto max-w-3xl">
+          <article
+            ref={body}
+            className="prose prose-lg max-w-none prose-headings:font-medium prose-headings:tracking-tight prose-headings:text-ink prose-h2:mt-7 prose-h2:text-h3 prose-p:text-body prose-p:leading-[1.7] prose-a:text-ink prose-blockquote:my-12 prose-blockquote:border-l-2 prose-blockquote:border-ink prose-blockquote:pl-6 prose-blockquote:text-h3 prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:text-ink prose-img:rounded-xs [&_blockquote_p:before]:content-none [&_blockquote_p:after]:content-none"
+          >
+            {post.blocks ? <Blocks blocks={post.blocks} /> : <div dangerouslySetInnerHTML={{ __html: html }} />}
+          </article>
+
+          {/* Post details, after the article */}
+          <div className="mt-12 border-t border-line pt-6 text-small">
+            <dl className="grid grid-cols-2 gap-x-6 gap-y-5 tablet:grid-cols-4">
               {[
                 ["Written by", post.author],
                 ["Published", <time key="t" dateTime={iso}>{formatDate(post.date)}</time>],
                 ["Reading time", `${post.readMinutes} min`],
                 ["Category", post.category],
               ].map(([k, v]) => (
-                <div key={String(k)} className="flex justify-between gap-4 border-b border-line py-3 lg:block">
+                <div key={String(k)}>
                   <dt className="text-muted">{k}</dt>
-                  <dd className="font-medium text-ink lg:mt-1">{v}</dd>
+                  <dd className="mt-1 font-medium text-ink">{v}</dd>
                 </div>
               ))}
             </dl>
-            <div className="pt-5">
-              <p className="mb-3 text-muted">Share</p>
+            <div className="mt-6 flex flex-col gap-3 border-t border-line pt-5 tablet:flex-row tablet:items-center tablet:justify-between">
+              <p className="text-muted">Share this post</p>
               <Share post={post} />
             </div>
-            </div>
           </div>
-
-          <article
-            ref={body}
-            className="prose prose-lg max-w-none lg:col-span-6 prose-headings:font-medium prose-headings:tracking-tight prose-headings:text-ink prose-h2:mt-7 prose-h2:text-h3 prose-p:text-body prose-p:leading-[1.7] prose-a:text-ink prose-blockquote:my-12 prose-blockquote:border-l-2 prose-blockquote:border-ink prose-blockquote:pl-6 prose-blockquote:text-h3 prose-blockquote:font-medium prose-blockquote:not-italic prose-blockquote:text-ink prose-img:rounded-xs [&_blockquote_p:before]:content-none [&_blockquote_p:after]:content-none"
-          >
-            {post.blocks ? <Blocks blocks={post.blocks} /> : <div dangerouslySetInnerHTML={{ __html: html }} />}
-          </article>
-        </div>
-        <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 text-small text-muted tablet:flex-row tablet:items-center tablet:justify-between lg:ml-[25%] lg:mr-[25%]">
-          <p>
-            Filed under <span className="font-medium text-ink">{post.category}</span>
-          </p>
-          <Share post={post} />
         </div>
       </Section>
 

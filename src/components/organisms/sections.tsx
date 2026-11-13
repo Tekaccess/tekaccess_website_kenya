@@ -23,7 +23,7 @@ export function InstitutionsList() {
     <Section tone="paper" space="none" divider={false} aria-labelledby="institutions-title" className="overflow-hidden py-12 tablet:py-16">
       <div className="text-center">
         <h2 id="institutions-title" data-reveal="lines" className="text-h2 font-medium">
-          <span className="mb-3 block text-label font-medium text-muted">Partners</span>
+          <span className="mb-3 block text-eyebrow font-medium text-muted">Partners</span>
           Trusted by Leading <span className="text-accent">Institutions</span>
         </h2>
       </div>

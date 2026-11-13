@@ -123,7 +123,7 @@ export function Stat({ value, label, dark, className }: { value: string; label: 
 export function NextRow({ label, to, title, meta }: { label: string; to: string; title: string; meta?: string }) {
   return (
     <div>
-      <p className="mb-4 text-label font-medium text-muted">{label}</p>
+      <p className="mb-4 text-eyebrow font-medium text-muted">{label}</p>
       <Link
         to={to}
         className="group/next flex items-center justify-between gap-6 border-y border-line py-7 tablet:py-9"

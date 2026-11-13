@@ -126,6 +126,13 @@ export const team: Person[] = [
     photo: p("mbonimpaye-kaneza-kevin"),
     linkedin: "https://www.linkedin.com/in/mbonikev/",
   },
+  {
+    slug: "yvan-ruterana",
+    name: "Yvan RUTERANA",
+    role: "Field Operations Manager",
+    photo: p("yvan-ruterana"),
+    linkedin: "", // TODO: add his LinkedIn URL
+  },
 ];
 
 export const initials = (name: string) =>

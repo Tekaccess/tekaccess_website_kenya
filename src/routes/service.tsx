@@ -63,7 +63,7 @@ export default function ServicePage() {
       {/* Overview */}
       <Section tone="paper" className="pt-0" aria-labelledby="overview-title">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
-          <h2 id="overview-title" className="text-label font-medium text-muted lg:col-span-3">
+          <h2 id="overview-title" className="text-eyebrow font-medium text-muted lg:col-span-3">
             How it works
           </h2>
           <div className="lg:col-span-7">

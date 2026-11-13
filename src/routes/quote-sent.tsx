@@ -27,7 +27,7 @@ export default function QuoteSent() {
           )}
 
           <div className="mt-7 max-w-4xl border-t border-line pt-10 tablet:mt-8">
-            <p className="mb-8 text-label font-medium text-muted">What happens next</p>
+            <p className="mb-8 text-eyebrow font-medium text-muted">What happens next</p>
             <RouteLine
               endAccent
               stops={[

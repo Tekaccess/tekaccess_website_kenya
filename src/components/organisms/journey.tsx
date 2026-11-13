@@ -61,7 +61,7 @@ export function JourneySteps() {
           {/* Title left, live caption right */}
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-6">
-              <p className="mb-4 text-label font-medium text-ink">
+              <p className="mb-4 text-eyebrow font-medium text-ink">
                 The journey
               </p>
               <h2 id="journey-title" className="text-h1 font-medium text-ink">

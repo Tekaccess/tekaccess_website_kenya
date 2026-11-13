@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 /** Small sentence-case section label. */
 export const Eyebrow = ({ className, ...p }: ComponentPropsWithoutRef<"p">) => (
-  <p className={cn("text-label font-medium text-muted", className)} {...p} />
+  <p className={cn("text-eyebrow font-medium text-muted", className)} {...p} />
 );
 
 // Static map so Tailwind can see every class (no `text-${size}` interpolation).

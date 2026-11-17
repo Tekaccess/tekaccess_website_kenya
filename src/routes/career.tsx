@@ -35,7 +35,6 @@ import {
   OtherRoles,
   ShareBox,
   ShareButton,
-  DemoBar,
   StickyBar,
 } from "@/components/organisms/careers";
 import { useLoad } from "@/hooks/use-load";
@@ -305,7 +304,6 @@ function Open({
         },
       }}
     >
-      <DemoBar />
       <Band
         head={<Head job={job} />}
         aside={
@@ -420,7 +418,6 @@ function Closed({
         noindex: true,
       }}
     >
-      <DemoBar />
       <Band
         head={<Head job={job} closed />}
         aside={

@@ -82,20 +82,6 @@ function session(key: string, value?: string | null) {
   }
 }
 
-/**
- * Demo mode: sample jobs and copy from content/careers-demo, nothing is sent. On only in local dev
- * without an API address, or when a visit starts with ?demo=1 (or ?demo=empty / ?demo=error);
- * real visitors of the live sites never see it.
- */
-export function isDemo() {
-  const p = param("demo");
-  if (p) session("careers-demo", p === "0" ? "" : p);
-  return !!session("careers-demo") || (import.meta.env.DEV && !API);
-}
-const demoFlavour = () => session("careers-demo") || "";
-const demo = () => import("@/content/careers-demo");
-const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
 /** ?source= or ?utm_source= on the landing URL, remembered for the visit. */
 export function captureSource() {
   const s = param("source") || param("utm_source");
@@ -127,12 +113,6 @@ async function getJson<T>(
 }
 
 export async function listJobs(): Promise<JobSummary[]> {
-  if (isDemo()) {
-    await wait(450);
-    if (demoFlavour() === "empty") return [];
-    if (demoFlavour() === "error") throw new Error("demo error");
-    return (await demo()).demoJobs.filter((j) => j.accepting).map(({ questions: _q, accepting: _a, ...j }) => j);
-  }
   const { status, data } = await getJson<{ jobs: JobSummary[] }>(
     `/jobs?site=${siteCountry()}`,
   );
@@ -143,7 +123,6 @@ export async function listJobs(): Promise<JobSummary[]> {
 // One request per visit: every careers page reads the same copy.
 let settingsOnce: Promise<CareersSettings> | null = null;
 export function getSettings(): Promise<CareersSettings> {
-  if (isDemo()) return demo().then((d) => d.demoSettings);
   settingsOnce ??= getJson<{ settings: CareersSettings }>("/settings").then(({ status, data }) => {
     if (status !== 200 || !data) throw new Error(`careers settings ${status}`);
     return data.settings;
@@ -160,10 +139,6 @@ export function contactFor(s: CareersSettings, fallback: string) {
 
 /** null = no such job (404). */
 export async function getJob(token: string): Promise<JobDetail | null> {
-  if (isDemo()) {
-    await wait(300);
-    return (await demo()).demoJobs.find((j) => j.token === token) ?? null;
-  }
   const { status, data } = await getJson<Omit<JobDetail, "token">>(
     `/jobs/${encodeURIComponent(token)}`,
   );
@@ -176,12 +151,6 @@ export async function apply(
   token: string,
   v: ApplyInput,
 ): Promise<ApplyResult> {
-  if (isDemo()) {
-    await wait(1500);
-    if (v.email === "dup@demo.com") return { ok: false, status: 409, message: "You have already applied for this role with this email address." };
-    if (v.email === "fail@demo.com") return { ok: false, status: 0, message: "" };
-    return { ok: true, reference: `TA-APP-DEMO-${Math.floor(Math.random() * 900 + 100)}` };
-  }
   const body = new FormData();
   body.set("name", v.name);
   body.set("email", v.email);

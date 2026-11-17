@@ -12,7 +12,6 @@ import {
   StepsGrid,
 } from "@/components/molecules/jobs";
 import { Page } from "@/components/templates/page";
-import { DemoBar } from "@/components/organisms/careers";
 import { useLoad } from "@/hooks/use-load";
 import { getSettings, listJobs, maskEmail, typeLabel } from "@/lib/careers";
 
@@ -56,7 +55,6 @@ export default function CareerSent() {
         noindex: true,
       }}
     >
-      <DemoBar />
       <header className="bg-[#F2F6FE] pb-12 pt-[calc(var(--header-h)+3rem)] [--line:206_218_242] [--muted:84_98_138] [--body:48_60_98] tablet:pb-16 tablet:pt-[calc(var(--header-h)+4rem)]">
         <Container className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="lg:col-span-7">

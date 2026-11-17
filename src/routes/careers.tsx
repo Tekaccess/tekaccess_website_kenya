@@ -5,7 +5,6 @@ import { Heading } from "@/components/atoms/typography";
 import { AnchorButton, TextAnchor } from "@/components/atoms/button";
 import { IconGrid, StepsGrid } from "@/components/molecules/jobs";
 import { Page } from "@/components/templates/page";
-import { DemoBar } from "@/components/organisms/careers";
 import { ClosingCta, PageHead } from "@/components/organisms/blocks";
 import { FaqSection } from "@/components/organisms/sections";
 import { JobBoard, WithSettings } from "@/components/organisms/careers";
@@ -51,7 +50,6 @@ function CareersPage({ s }: { s: CareersSettings }) {
           : undefined,
       }}
     >
-      <DemoBar />
       <PageHead
         label="Careers"
         lead={s.hero.title}

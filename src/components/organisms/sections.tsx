@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Section } from "@/components/atoms/layout";
 import { Eyebrow, Heading } from "@/components/atoms/typography";
@@ -104,7 +104,11 @@ export function FaqSection({
   tone = "paper",
   defaultOpen,
   divider,
+  help,
+  id,
 }: {
+  help?: ReactNode;
+  id?: string;
   items: { q: string; a: string }[];
   lead?: string;
   quiet?: string;
@@ -113,15 +117,19 @@ export function FaqSection({
   divider?: boolean;
 }) {
   return (
-    <Section tone={tone} space="none" divider={divider} aria-labelledby="faq-title" className="py-10 tablet:py-12 desktop:py-16">
+    <Section id={id} tone={tone} space="none" divider={divider} aria-labelledby="faq-title" className="py-10 tablet:py-12 desktop:py-16">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-4">
           <Heading id="faq-title" lead={lead} quiet={quiet} />
           <p className="mt-6 text-[0.9375rem] text-body" data-reveal="fade">
-            Not here?{" "}
-            <TextAnchor href={site.phoneHref} className="tabular">
-              Call {site.phone}
-            </TextAnchor>
+            {help ?? (
+              <>
+                Not here?{" "}
+                <TextAnchor href={site.phoneHref} className="tabular">
+                  Call {site.phone}
+                </TextAnchor>
+              </>
+            )}
           </p>
         </div>
         <div className="lg:col-span-7 lg:col-start-6" data-reveal="fade">

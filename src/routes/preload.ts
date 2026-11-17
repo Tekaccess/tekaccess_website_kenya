@@ -12,6 +12,10 @@ export const pages = {
   contact: () => import("./contact"),
   quoteSent: () => import("./quote-sent"),
   legal: () => import("./legal"),
+  careers: () => import("./careers"),
+  career: () => import("./career"),
+  careerApply: () => import("./career-apply"),
+  careerSent: () => import("./career-sent"),
   notFound: () => import("./not-found"),
 } as const;
 
@@ -26,6 +30,10 @@ const byPath: [RegExp, keyof typeof pages][] = [
   [/^\/blog\/.+/, "article"],
   [/^\/contact/, "contact"],
   [/^\/legal/, "legal"],
+  [/^\/careers\/?$/, "careers"],
+  [/^\/careers\/sent/, "careerSent"],
+  [/^\/careers\/.+\/apply$/, "careerApply"],
+  [/^\/careers\/.+/, "career"],
 ];
 
 const done = new Set<string>();

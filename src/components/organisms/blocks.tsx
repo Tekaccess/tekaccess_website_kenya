@@ -51,29 +51,39 @@ export function PageHead({
   );
 }
 
-/** Closing call to action shared by every page. */
-export function ClosingCta() {
+/** Closing call to action shared by every page; careers pages pass their own copy. */
+export function ClosingCta({
+  lead = closing.lead,
+  quiet = closing.quiet,
+  text = closing.text,
+  link = (
+    <TextAnchor href={site.phoneHref} className="tabular">
+      Or call {site.phone}
+    </TextAnchor>
+  ),
+  action = (
+    <LinkButton to="/contact" variant="accent">
+      {closing.cta}
+    </LinkButton>
+  ),
+}: { lead?: ReactNode; quiet?: ReactNode; text?: ReactNode; link?: ReactNode; action?: ReactNode } = {}) {
   return (
     <Section tone="white" space="none" divider={false} aria-labelledby="closing-title" className="py-[3.6rem] tablet:py-[4.8rem]">
       <Heading
         id="closing-title"
         size="display"
-        lead={closing.lead}
-        quiet={closing.quiet}
+        lead={lead}
+        quiet={quiet}
         reveal={false}
         quietClassName="text-quiet"
         className="max-w-[18ch] desktop:max-w-[22ch]"
       />
       <Hairline reveal className="mt-[1.8rem]" />
       <div className="mt-6 flex flex-col gap-[1.8rem] tablet:flex-row tablet:items-center tablet:justify-between" data-reveal="fade">
-        <p className="max-w-md text-[1.0625rem] leading-relaxed text-body">{closing.text}</p>
+        <p className="max-w-md text-[1.0625rem] leading-relaxed text-body">{text}</p>
         <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
-          <TextAnchor href={site.phoneHref} className="tabular">
-            Or call {site.phone}
-          </TextAnchor>
-          <LinkButton to="/contact" variant="accent">
-            {closing.cta}
-          </LinkButton>
+          {link}
+          {action}
         </div>
       </div>
     </Section>

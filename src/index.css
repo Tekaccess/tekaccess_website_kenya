@@ -200,3 +200,9 @@
   mask-image: linear-gradient(to left, #000 55%, transparent 100%), linear-gradient(to top, transparent 0, #000 35%);
   mask-composite: intersect;
 }
+
+/* Careers: indeterminate upload bar while an application is sending. */
+@keyframes careers-progress {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(300%); }
+}

@@ -36,8 +36,10 @@ const meta = (key: "name" | "property", k: string, v: string) =>
 export function useDocumentMeta({ title, description, path, image, type = "website", jsonLd, noindex }: Meta) {
   useEffect(() => {
     const full = path === "/" ? `${site.name} | ${title}` : `${title} | ${site.name}`;
-    const url = site.url + path;
-    const img = (image ?? site.ogImage).startsWith("http") ? (image ?? site.ogImage) : site.url + (image ?? site.ogImage);
+    // Each country domain is its own canonical, not tekaccess.rw.
+    const origin = typeof window !== "undefined" ? window.location.origin : site.url;
+    const url = origin + path;
+    const img = (image ?? site.ogImage).startsWith("http") ? (image ?? site.ogImage) : origin + (image ?? site.ogImage);
     document.title = full;
     meta("name", "description", description);
     meta("name", "robots", noindex ? "noindex, follow" : "index, follow");

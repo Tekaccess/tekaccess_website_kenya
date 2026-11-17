@@ -3,6 +3,7 @@ import { Section } from "@/components/atoms/layout";
 import { Eyebrow, Heading } from "@/components/atoms/typography";
 import { LinkButton } from "@/components/atoms/button";
 import { NumberedRow } from "@/components/molecules/rows";
+import { IconGrid, StepsGrid } from "@/components/molecules/jobs";
 import { Page } from "@/components/templates/page";
 import { ClosingCta, PageHead } from "@/components/organisms/blocks";
 import { FaqSection } from "@/components/organisms/sections";
@@ -46,15 +47,7 @@ export default function Services() {
               From Request to Delivery. <span className="text-quiet">Precision at Every Step.</span>
             </h2>
           </div>
-          <ol className="grid gap-px overflow-hidden rounded border border-line bg-line tablet:grid-cols-2 lg:col-span-8" data-reveal="stagger">
-            {process.map((s) => (
-              <li key={s.no} className="group/step bg-paper px-5 py-4 transition-colors duration-3 hover:bg-white tablet:px-6 tablet:py-5">
-                <span className="text-h2 font-medium leading-none text-accent tabular">{s.no}</span>
-                <h3 className="mt-3 text-h4 font-medium text-ink">{s.title}</h3>
-                <p className="mt-1 max-w-[34ch] text-small text-body">{s.text}</p>
-              </li>
-            ))}
-          </ol>
+          <StepsGrid items={process} className="lg:col-span-8" />
         </div>
       </Section>
 
@@ -91,18 +84,7 @@ export default function Services() {
           <div className="lg:col-span-4">
             <Heading id="included-title" lead="End to End Logistics." quiet="One Trusted Partner." />
           </div>
-          <ul className="grid gap-px overflow-hidden rounded border border-line bg-line tablet:grid-cols-2 lg:col-span-8 lg:grid-cols-3" data-reveal="stagger">
-            {whatsIncluded.map((it) => {
-              const Icon = icons[it.icon];
-              return (
-                <li key={it.title} className="group/inc bg-white px-5 py-4 transition-colors duration-3 hover:bg-[#F5F8FE] tablet:px-6 tablet:py-5">
-                  <Icon aria-hidden strokeWidth={1.5} className="size-6 text-ink transition-transform duration-3 ease-out group-hover/inc:-translate-y-0.5" />
-                  <h3 className="mt-3 text-h4 font-medium">{it.title}</h3>
-                  <p className="mt-1 text-small text-body">{it.text}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <IconGrid items={whatsIncluded.map((it) => ({ ...it, icon: icons[it.icon] }))} className="lg:col-span-8" />
         </div>
       </Section>
 

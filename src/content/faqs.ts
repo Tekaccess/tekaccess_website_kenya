@@ -1,4 +1,8 @@
-export type Faq = { q: string; a: string; tags: ("general" | "services" | "contact")[] };
+export type Faq = {
+  q: string;
+  a: string;
+  tags: ("general" | "services" | "contact")[];
+};
 
 // New copy in the original site's voice, built from its own phrases. TODO: confirm with the team.
 export const faqs: Faq[] = [
@@ -39,4 +43,5 @@ export const faqs: Faq[] = [
   },
 ];
 
-export const faqsFor = (tag: Faq["tags"][number]) => faqs.filter((f) => f.tags.includes(tag));
+export const faqsFor = (tag: Faq["tags"][number]) =>
+  faqs.filter((f) => f.tags.includes(tag));

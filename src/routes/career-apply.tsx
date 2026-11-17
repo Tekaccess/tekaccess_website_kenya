@@ -8,6 +8,7 @@ import { TextAnchor, TextLink } from "@/components/atoms/button";
 import { Skeleton } from "@/components/molecules/misc";
 import { InfoBox, MetaLine } from "@/components/molecules/jobs";
 import { Page } from "@/components/templates/page";
+import { DemoBar } from "@/components/organisms/careers";
 import { WithSettings } from "@/components/organisms/careers";
 import { CareerForm } from "@/components/organisms/career-form";
 import { useLoad } from "@/hooks/use-load";
@@ -63,6 +64,7 @@ export default function CareerApply() {
         noindex: true,
       }}
     >
+      <DemoBar />
       <header className="bg-[#F2F6FE] pb-8 pt-[calc(var(--header-h)+2rem)] [--line:206_218_242] [--muted:84_98_138] [--body:48_60_98] tablet:pb-10 tablet:pt-[calc(var(--header-h)+2.5rem)]">
         <Container className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-8">
           <div className="lg:col-span-7">

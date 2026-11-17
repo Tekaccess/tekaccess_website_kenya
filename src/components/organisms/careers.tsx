@@ -29,11 +29,13 @@ import { EmptyState, InfoBox, JobRow } from "@/components/molecules/jobs";
 import {
   closesLabel,
   getSettings,
+  isDemo,
   typeLabel,
   type CareersSettings,
   type JobSummary,
 } from "@/lib/careers";
 import { cn } from "@/lib/utils";
+import { useScrollState } from "@/hooks/use-media";
 import { useLoad } from "@/hooks/use-load";
 
 const ALL = "All";
@@ -516,5 +518,52 @@ export function WithSettings({ children }: { children: (s: CareersSettings) => R
         )}
       </Container>
     </section>
+  );
+}
+
+/** Demo notice under the header on careers pages; rides with the header. Dismissal lasts the visit. */
+export function DemoBar() {
+  const [open, setOpen] = useState(() => {
+    try {
+      return isDemo() && !sessionStorage.getItem("careers-demo-bar");
+    } catch {
+      return isDemo();
+    }
+  });
+  const { hidden } = useScrollState();
+  // Tells the form's sticky sections row how much room the notice takes.
+  useEffect(() => {
+    document.documentElement.style.setProperty("--demo-h", open ? "2.25rem" : "0px");
+    return () => {
+      document.documentElement.style.removeProperty("--demo-h");
+    };
+  }, [open]);
+  if (!open) return null;
+  return (
+    <>
+      <div aria-hidden className="h-9" />
+      <div className={cn("fixed inset-x-0 top-[var(--header-h)] z-[39] bg-ink text-white transition-transform duration-3 ease-out", hidden && "-translate-y-[calc(100%+var(--header-h))]")}>
+        <Container className="flex min-h-9 items-center justify-between gap-4 py-1.5 text-micro">
+          <p>
+            <span className="font-medium">Demo mode</span>, sample jobs, nothing is sent. Add <code>?demo=0</code> to the address to leave.
+          </p>
+          <button
+            type="button"
+            aria-label="Hide demo notice"
+            onClick={() => {
+              try {
+                sessionStorage.setItem("careers-demo-bar", "1");
+              } catch {
+                /* ignore */
+              }
+              setOpen(false);
+            }}
+            className="grid size-7 shrink-0 place-items-center rounded hover:bg-white/10"
+          >
+            <X className="size-4" />
+          </button>
+        </Container>
+      </div>
+    </>
   );
 }

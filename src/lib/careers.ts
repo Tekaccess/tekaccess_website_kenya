@@ -39,7 +39,6 @@ export type CareersSettings = {
   why: Tile[];
   steps: { title: string; text: string }[];
   nextSteps: { title: string; text: string; timing: string }[];
-  reviewDays: number;
   benefits: Tile[];
   faq: { q: string; a: string }[];
   notSelectedText: string;
@@ -59,11 +58,12 @@ export type ApplyResult =
   | { ok: true; reference?: string }
   | { ok: false; status: number; message: string };
 
-const API =
-  (import.meta.env.VITE_CAREERS_API as string | undefined)?.replace(
-    /\/$/,
-    "",
-  ) || "";
+// The public careers door of the TekAccess API. Not a secret: every visitor's browser sees it,
+// and the API itself limits who may call it. VITE_CAREERS_API overrides it (e.g. a test backend).
+const API = (
+  (import.meta.env.VITE_CAREERS_API as string | undefined) ||
+  "https://api.tekaccess.live/api/v1/careers"
+).replace(/\/$/, "");
 
 export const MAX_CV = 5 * 1024 * 1024;
 export const MAX_ANSWER = 2000;
@@ -104,9 +104,12 @@ export const jobPath = (j: Pick<JobSummary, "token" | "title">) =>
 async function getJson<T>(
   path: string,
 ): Promise<{ status: number; data: T | null }> {
-  if (!API) throw new Error("VITE_CAREERS_API is not set");
+  // Never send cookies to the API; give up after 15 s so the page can offer Try again.
   const res = await fetch(API + path, {
     headers: { Accept: "application/json" },
+    credentials: "omit",
+    mode: "cors",
+    signal: AbortSignal.timeout(15000),
   });
   const json = (await res.json().catch(() => null)) as { data?: T } | null;
   return { status: res.status, data: json?.data ?? null };
@@ -167,6 +170,8 @@ export async function apply(
     const res = await fetch(`${API}/jobs/${encodeURIComponent(token)}/apply`, {
       method: "POST",
       body,
+      credentials: "omit",
+      mode: "cors",
       signal: ctrl.signal,
     });
     const json = (await res.json().catch(() => ({}))) as {

@@ -643,7 +643,7 @@ function Progress({
     <nav
       aria-label="Application sections"
       // Sits under the header while it shows; moves to the very top when the header hides.
-      style={{ top: hidden ? 0 : "calc(var(--header-h) + var(--demo-h, 0px))" }}
+      style={{ top: hidden ? 0 : "var(--header-h)" }}
       className="sticky z-10 transition-[top] duration-3 ease-out -mx-gutter mb-10 border-b border-line bg-paper/95 px-gutter py-3 backdrop-blur lg:mx-0 lg:px-0"
     >
       <ol className="hidden items-center gap-3 lg:flex">

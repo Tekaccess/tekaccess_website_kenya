@@ -4,14 +4,23 @@ import { siteCountry } from "@/content/country";
 // Contract: tekaccess_backend/docs/CAREERS_WEBSITE_GUIDE.md. Everything here comes from the
 // TekAccess system (jobs and the careers copy HR sets in HR ▸ Hiring); nothing is built in.
 
+// Types and fields: tekaccess_backend/docs/JOB_FORM_BUILDER_CONTRACT.md. All new fields optional.
 export type QuestionType =
-  "text" | "long_text" | "number" | "date" | "yes_no" | "choice";
+  | "text" | "long_text" | "number" | "date" | "yes_no" | "choice" | "multi_choice"
+  | "email" | "phone" | "url" | "file" | "heading" | "page_break";
+export type FileKind = "pdf" | "docx" | "image";
 export type Question = {
   id: string;
   label: string;
   type: QuestionType | string;
   required: boolean;
   options: string[];
+  help?: string;
+  placeholder?: string;
+  min?: number | null;
+  max?: number | null;
+  maxPicks?: number | null;
+  fileTypes?: FileKind[];
 };
 export type Tile = { icon: string; title: string; text: string };
 export type JobSummary = {
@@ -28,6 +37,7 @@ export type JobSummary = {
 export type JobDetail = JobSummary & {
   accepting: boolean;
   questions: Question[];
+  formLayout?: "single" | "steps";
   /** The job's own "What we offer"; empty = the careers settings' standard list. */
   benefits?: Tile[];
   closedAt?: string;
@@ -51,12 +61,14 @@ export type ApplyInput = {
   email: string;
   phone: string;
   cv: File;
-  answers: Record<string, string>;
+  answers: Record<string, string | string[]>;
+  /** file questions, sent as `file_<questionId>` parts (never in answers). */
+  files?: Record<string, File>;
   website?: string;
 };
 export type ApplyResult =
   | { ok: true; reference?: string }
-  | { ok: false; status: number; message: string };
+  | { ok: false; status: number; message: string; /** bad item on a 400: questionId, cv/name/email/phone/consent or file_<id> */ field?: string };
 
 // The public careers door of the TekAccess API. Not a secret: every visitor's browser sees it,
 // and the API itself limits who may call it. VITE_CAREERS_API overrides it (e.g. a test backend).
@@ -160,6 +172,7 @@ export async function apply(
   body.set("phone", v.phone);
   body.set("cv", v.cv);
   body.set("answers", JSON.stringify(v.answers));
+  for (const [id, f] of Object.entries(v.files ?? {})) body.set(`file_${id}`, f);
   body.set("site", siteCountry());
   body.set("source", source());
   body.set("website", v.website ?? "");
@@ -177,10 +190,11 @@ export async function apply(
     const json = (await res.json().catch(() => ({}))) as {
       data?: { applicationId?: string; reference?: string };
       message?: string;
+      field?: string;
     };
     if (res.status === 201 || res.ok)
       return { ok: true, reference: json.data?.reference };
-    return { ok: false, status: res.status, message: json.message || "" };
+    return { ok: false, status: res.status, message: json.message || "", field: json.field };
   } catch {
     return { ok: false, status: 0, message: "" };
   } finally {

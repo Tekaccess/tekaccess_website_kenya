@@ -15,6 +15,8 @@ const control =
 type FieldShell = {
   label: string;
   hint?: string;
+  /** Shown right under the label. */
+  help?: string;
   error?: string;
   required?: boolean;
   children: (ids: { id: string; describedBy?: string }) => ReactNode;
@@ -27,6 +29,7 @@ type FieldShell = {
 export function FieldShell({
   label,
   hint,
+  help,
   error,
   required,
   children,
@@ -50,7 +53,8 @@ export function FieldShell({
           </span>
         )}
       </label>
-      {children({ id, describedBy: error || hint ? msgId : undefined })}
+      {help && <p id={`${id}-help`} className="-mt-1 text-small text-muted">{help}</p>}
+      {children({ id, describedBy: [help && `${id}-help`, (error || hint) && msgId].filter(Boolean).join(" ") || undefined })}
       {(error || hint) && (
         <p
           id={msgId}
@@ -67,14 +71,16 @@ export function FieldShell({
 type InputProps = ComponentPropsWithoutRef<"input"> & {
   label: string;
   hint?: string;
+  help?: string;
   error?: string;
 };
 export const Field = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, hint, error, required, className, id: fieldId, ...p }, ref) => (
+  ({ label, hint, help, error, required, className, id: fieldId, ...p }, ref) => (
     <FieldShell
       fieldId={fieldId}
       label={label}
       hint={hint}
+      help={help}
       error={error}
       required={required}
       className={className}
@@ -98,14 +104,16 @@ Field.displayName = "Field";
 type TextareaProps = ComponentPropsWithoutRef<"textarea"> & {
   label: string;
   hint?: string;
+  help?: string;
   error?: string;
 };
 export const TextareaField = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ label, hint, error, required, className, id: fieldId, ...p }, ref) => (
+  ({ label, hint, help, error, required, className, id: fieldId, ...p }, ref) => (
     <FieldShell
       fieldId={fieldId}
       label={label}
       hint={hint}
+      help={help}
       error={error}
       required={required}
       className={className}
@@ -129,19 +137,21 @@ TextareaField.displayName = "TextareaField";
 type SelectProps = ComponentPropsWithoutRef<"select"> & {
   label: string;
   hint?: string;
+  help?: string;
   error?: string;
   options: string[];
   placeholder?: string;
 };
 export const SelectField = forwardRef<HTMLSelectElement, SelectProps>(
   (
-    { label, hint, error, required, options, placeholder, className, id: fieldId, ...p },
+    { label, hint, help, error, required, options, placeholder, className, id: fieldId, ...p },
     ref,
   ) => (
     <FieldShell
       fieldId={fieldId}
       label={label}
       hint={hint}
+      help={help}
       error={error}
       required={required}
       className={className}
@@ -195,7 +205,9 @@ export function ChipGroup({
   id: fieldId,
   className,
   labelClassName,
+  help,
 }: {
+  help?: string;
   label: string;
   name: string;
   options: string[];
@@ -213,7 +225,7 @@ export function ChipGroup({
       id={fieldId}
       tabIndex={fieldId ? -1 : undefined}
       className={cn("flex flex-col gap-3 outline-none", className)}
-      aria-describedby={error ? `${id}-err` : undefined}
+      aria-describedby={[help && `${id}-help`, error && `${id}-err`].filter(Boolean).join(" ") || undefined}
       aria-invalid={!!error || undefined}
     >
       <legend
@@ -231,6 +243,7 @@ export function ChipGroup({
           </span>
         )}
       </legend>
+      {help && <p id={`${id}-help`} className="-mt-4 text-small text-muted">{help}</p>}
       <div className="flex flex-wrap gap-2">
         {options.map((o) => (
           <label key={o} className="relative">
@@ -316,7 +329,12 @@ export function FileField({
   accept = ".pdf,.docx",
   maxBytes,
   validate,
+  help,
+  prompt = "your CV",
 }: {
+  help?: string;
+  /** What the drop zone asks for: "Drop {prompt} here". */
+  prompt?: string;
   id: string;
   label: string;
   hint: string;
@@ -355,6 +373,7 @@ export function FileField({
         {label}
         {required && <span aria-hidden className="text-accent"> *</span>}
       </p>
+      {help && <p id={`${id}-help`} className="-mt-1 text-small text-muted">{help}</p>}
       <input
         ref={input}
         id={id}
@@ -394,7 +413,7 @@ export function FileField({
           role="button"
           tabIndex={disabled ? -1 : 0}
           aria-labelledby={`${id}-label`}
-          aria-describedby={`${id}-msg`}
+          aria-describedby={help ? `${id}-help ${id}-msg` : `${id}-msg`}
           aria-invalid={!!msg || undefined}
           aria-disabled={disabled || undefined}
           onClick={pick}
@@ -431,9 +450,9 @@ export function FileField({
             <>
               <Upload aria-hidden className={cn("size-6", msg ? "text-danger" : "text-ink")} strokeWidth={1.5} />
               <span className="text-[0.9375rem] text-ink">
-                {over ? "Drop to upload your CV" : (
+                {over ? `Drop to upload ${prompt}` : (
                   <>
-                    Drop your CV here or <span className="font-medium underline underline-offset-4">browse</span>
+                    Drop {prompt} here or <span className="font-medium underline underline-offset-4">browse</span>
                   </>
                 )}
               </span>
@@ -446,5 +465,66 @@ export function FileField({
         {msg || hint}
       </p>
     </div>
+  );
+}
+
+/** Checkbox group for multi_choice. Past maxPicks the unticked boxes disable with a note. */
+export function CheckGroup({
+  id: fieldId,
+  label,
+  help,
+  options,
+  value,
+  onChange,
+  maxPicks,
+  error,
+  required,
+}: {
+  id: string;
+  label: string;
+  help?: string;
+  options: string[];
+  value: string[];
+  onChange: (v: string[]) => void;
+  maxPicks?: number | null;
+  error?: string;
+  required?: boolean;
+}) {
+  const full = !!maxPicks && value.length >= maxPicks;
+  return (
+    <fieldset
+      id={fieldId}
+      tabIndex={-1}
+      className="flex flex-col gap-3 outline-none"
+      aria-describedby={[help && `${fieldId}-help`, maxPicks && `${fieldId}-max`, error && `${fieldId}-err`].filter(Boolean).join(" ") || undefined}
+      aria-invalid={!!error || undefined}
+    >
+      <legend className={cn("mb-3 text-label font-medium", error ? "text-danger" : "text-muted")}>
+        {label}
+        {required && <span aria-hidden className="text-accent"> *</span>}
+      </legend>
+      {help && <p id={`${fieldId}-help`} className="-mt-4 text-small text-muted">{help}</p>}
+      <div className="grid gap-3 tablet:grid-cols-2">
+        {options.map((o) => {
+          const on = value.includes(o);
+          return (
+            <CheckboxField
+              key={o}
+              id={`${fieldId}-${options.indexOf(o)}`}
+              label={o}
+              checked={on}
+              disabled={!on && full}
+              onChange={() => onChange(on ? value.filter((x) => x !== o) : [...value, o])}
+            />
+          );
+        })}
+      </div>
+      {maxPicks && (
+        <p id={`${fieldId}-max`} aria-live="polite" className={cn("text-micro", full ? "text-ink" : "text-muted")}>
+          Pick up to {maxPicks}.{full && " To change one, untick it first."}
+        </p>
+      )}
+      {error && <p id={`${fieldId}-err`} role="alert" className="text-micro text-danger">{error}</p>}
+    </fieldset>
   );
 }
